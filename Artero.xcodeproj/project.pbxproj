@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		612E6205267CDD5400948DC7 /* PhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612E6204267CDD5400948DC7 /* PhotoRepository.swift */; };
 		6158CE092678CBEC00CAF0DA /* ArteroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6158CE082678CBEC00CAF0DA /* ArteroApp.swift */; };
 		6158CE0B2678CBEC00CAF0DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6158CE0A2678CBEC00CAF0DA /* ContentView.swift */; };
 		6158CE0D2678CBEE00CAF0DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6158CE0C2678CBEE00CAF0DA /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		612E6204267CDD5400948DC7 /* PhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepository.swift; sourceTree = "<group>"; };
 		6158CE052678CBEC00CAF0DA /* Artero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6158CE082678CBEC00CAF0DA /* ArteroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArteroApp.swift; sourceTree = "<group>"; };
 		6158CE0A2678CBEC00CAF0DA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				6158CE0E2678CBEE00CAF0DA /* Preview Content */,
 				61ECBA68267B795B00DE9D02 /* ImagePickerView.swift */,
 				61ECBA6A267B798100DE9D02 /* Coordinator.swift */,
+				612E6204267CDD5400948DC7 /* PhotoRepository.swift */,
 			);
 			path = Artero;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61ECBA6B267B798100DE9D02 /* Coordinator.swift in Sources */,
+				612E6205267CDD5400948DC7 /* PhotoRepository.swift in Sources */,
 				61ECBA69267B795B00DE9D02 /* ImagePickerView.swift in Sources */,
 				6158CE0B2678CBEC00CAF0DA /* ContentView.swift in Sources */,
 				6158CE092678CBEC00CAF0DA /* ArteroApp.swift in Sources */,

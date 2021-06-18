@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
     @State private var savedImage: UIImage?
+    @State private var photoRepository = SandBox()
     
     var body: some View {
         NavigationView {
@@ -31,34 +32,16 @@ struct ContentView: View {
                         .aspectRatio(contentMode: .fit)
                         .clipShape(Circle())
                         .frame(width: 300, height: 300)
+                    
                     Button("save") {
-                        let image = selectedImage
-
-                        // Convert to Data
-                        if let data = image?.pngData() {
-                            // Create URL
-                            let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                            let url = documents.appendingPathComponent("landscape.png")
-
-                            do {
-                                // Write to Disk
-                                try data.write(to: url)
-
-                                // Store URL in User Defaults
-                                UserDefaults.standard.set(url, forKey: "background")
-                                
-
-                            } catch {
-                                print("Unable to Write Data to Disk (\(error))")
-                            }
-                        }
-                        savedImage = try? UIImage(data: Data(contentsOf: UserDefaults.standard.url(forKey: "background")!))
-                        
+                        photoRepository.save(image: selectedImage!)
+                        savedImage = selectedImage
                     }
+                    
                 } else {
                     Image(systemName: "snow")
                         .resizable()
-//                        .aspectRatio(contentMode: .fit)
+                        .aspectRatio(contentMode: .fit)
                         .clipShape(Circle())
                         .frame(width: 300, height: 300)
                 }
@@ -81,12 +64,7 @@ struct ContentView: View {
             }
             
             .onAppear {
-                guard let photoURL = UserDefaults.standard.url(forKey: "background"),
-                      let photoData = try? Data(contentsOf: photoURL),
-                      let photoImage = UIImage(data: photoData) else {
-                    return
-                }
-                savedImage = photoImage
+                savedImage = photoRepository.getImage(identifier: "background")
             }
             
         }
