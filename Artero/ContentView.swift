@@ -18,7 +18,6 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 
-                
                 if savedImage != nil {
                     Image(uiImage: savedImage!)
                         .resizable()
@@ -30,7 +29,6 @@ struct ContentView: View {
                         photoRepository.deleteImage(withIdentifier: "background")
                         savedImage = nil
                     }
-                    
                 }
                 
                 if selectedImage != nil {
@@ -44,7 +42,6 @@ struct ContentView: View {
                         photoRepository.save(image: selectedImage!, withIdentifier: "background")
                         savedImage = selectedImage
                     }
-                    
                 } else {
                     Image(systemName: "snow")
                         .resizable()
@@ -63,13 +60,13 @@ struct ContentView: View {
                     self.isImagePickerDisplay.toggle()
                 }.padding()
                 
-                
             }
-            .navigationBarTitle("Demo")
+            
             .sheet(isPresented: self.$isImagePickerDisplay) {
                 ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.$sourceType)
             }
             
+            .navigationBarTitle("Demo")
             .onAppear {
                 savedImage = photoRepository.getImage(identifier: "background")
             }
