@@ -11,11 +11,19 @@ struct ContentView: View {
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
-    @State private var savedImage: Data?
+    @State private var savedImage: UIImage?
     
     var body: some View {
         NavigationView {
             VStack {
+                
+                if savedImage != nil {
+                    Image(uiImage: savedImage!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(Circle())
+                        .frame(width: 300, height: 300)
+                }
                 
                 if selectedImage != nil {
                     Image(uiImage: selectedImage!)
@@ -44,21 +52,13 @@ struct ContentView: View {
                                 print("Unable to Write Data to Disk (\(error))")
                             }
                         }
-                        savedImage = try? Data(contentsOf: UserDefaults.standard.url(forKey: "background")!)
+                        savedImage = try? UIImage(data: Data(contentsOf: UserDefaults.standard.url(forKey: "background")!))
                         
                     }
                 } else {
                     Image(systemName: "snow")
                         .resizable()
 //                        .aspectRatio(contentMode: .fit)
-                        .clipShape(Circle())
-                        .frame(width: 300, height: 300)
-                }
-                
-                if savedImage != nil {
-                    Image(uiImage: UIImage(data: savedImage!)!)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
                         .clipShape(Circle())
                         .frame(width: 300, height: 300)
                 }
@@ -73,13 +73,24 @@ struct ContentView: View {
                     self.isImagePickerDisplay.toggle()
                 }.padding()
                 
+                
             }
             .navigationBarTitle("Demo")
             .sheet(isPresented: self.$isImagePickerDisplay) {
                 ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.$sourceType)
             }
             
+            .onAppear {
+                guard let photoURL = UserDefaults.standard.url(forKey: "background"),
+                      let photoData = try? Data(contentsOf: photoURL),
+                      let photoImage = UIImage(data: photoData) else {
+                    return
+                }
+                savedImage = photoImage
+            }
+            
         }
+        
     }
 }
 
