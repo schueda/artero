@@ -9,30 +9,38 @@ import UIKit
 import SwiftUI
 
 protocol PhotoRepository {
-    func save(image: UIImage)
-    func delete(imageURL: URL)
+    func save(image: UIImage, withIdentifier identifier: String)
+    func deleteImage(withIdentifier identifier: String)
     func getImage(identifier: String) -> UIImage?
     func getImages() -> [UIImage]
 }
 
 
-class SandBox: PhotoRepository {
-    func save(image: UIImage) {
+class PhotoDocumentRepository: PhotoRepository {
+    var fileManager = FileManager.default
+    var documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    
+    func save(image: UIImage, withIdentifier identifier: String) {
         if let data = image.pngData() {
-            let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let url = documents.appendingPathComponent("landscape.png")
+            let url = documents.appendingPathComponent(identifier)
 
             do {
                 try data.write(to: url)
-                UserDefaults.standard.set(url, forKey: "background")
+                UserDefaults.standard.set(url, forKey: identifier)
             } catch {
                 print("Unable to Write Data to Disk (\(error))")
             }
         }
     }
     
-    func delete(imageURL: URL) {
-        print("deletaria a imagem tal kkkk")
+    func deleteImage(withIdentifier identifier: String) {
+        let url = documents.appendingPathComponent(identifier)
+        
+        do {
+            try fileManager.removeItem(at: url)
+        } catch {
+            print("Unable to delete file (\(error))")
+        }
     }
     
     func getImage(identifier: String) -> UIImage? {
@@ -46,7 +54,6 @@ class SandBox: PhotoRepository {
     
     func getImages() -> [UIImage] {
         return []
-        
     }
     
     

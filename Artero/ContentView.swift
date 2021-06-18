@@ -12,11 +12,12 @@ struct ContentView: View {
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
     @State private var savedImage: UIImage?
-    @State private var photoRepository = SandBox()
+    @State private var photoRepository: PhotoRepository = PhotoDocumentRepository()
     
     var body: some View {
         NavigationView {
             VStack {
+                
                 
                 if savedImage != nil {
                     Image(uiImage: savedImage!)
@@ -24,6 +25,12 @@ struct ContentView: View {
                         .aspectRatio(contentMode: .fit)
                         .clipShape(Circle())
                         .frame(width: 300, height: 300)
+                    
+                    Button("delete") {
+                        photoRepository.deleteImage(withIdentifier: "background")
+                        savedImage = nil
+                    }
+                    
                 }
                 
                 if selectedImage != nil {
@@ -34,7 +41,7 @@ struct ContentView: View {
                         .frame(width: 300, height: 300)
                     
                     Button("save") {
-                        photoRepository.save(image: selectedImage!)
+                        photoRepository.save(image: selectedImage!, withIdentifier: "background")
                         savedImage = selectedImage
                     }
                     
