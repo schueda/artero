@@ -7,19 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6158CE092678CBEC00CAF0DA /* app_das_frutasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6158CE082678CBEC00CAF0DA /* app_das_frutasApp.swift */; };
+		612E6205267CDD5400948DC7 /* PhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612E6204267CDD5400948DC7 /* PhotoRepository.swift */; };
+		6158CE092678CBEC00CAF0DA /* ArteroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6158CE082678CBEC00CAF0DA /* ArteroApp.swift */; };
 		6158CE0B2678CBEC00CAF0DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6158CE0A2678CBEC00CAF0DA /* ContentView.swift */; };
 		6158CE0D2678CBEE00CAF0DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6158CE0C2678CBEE00CAF0DA /* Assets.xcassets */; };
 		6158CE102678CBEE00CAF0DA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6158CE0F2678CBEE00CAF0DA /* Preview Assets.xcassets */; };
+		61ECBA69267B795B00DE9D02 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ECBA68267B795B00DE9D02 /* ImagePickerView.swift */; };
+		61ECBA6B267B798100DE9D02 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ECBA6A267B798100DE9D02 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6158CE052678CBEC00CAF0DA /* app das frutas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "app das frutas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6158CE082678CBEC00CAF0DA /* app_das_frutasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = app_das_frutasApp.swift; sourceTree = "<group>"; };
+		612E6204267CDD5400948DC7 /* PhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepository.swift; sourceTree = "<group>"; };
+		6158CE052678CBEC00CAF0DA /* Artero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artero.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6158CE082678CBEC00CAF0DA /* ArteroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArteroApp.swift; sourceTree = "<group>"; };
 		6158CE0A2678CBEC00CAF0DA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6158CE0C2678CBEE00CAF0DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6158CE0F2678CBEE00CAF0DA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6158CE112678CBEE00CAF0DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61ECBA68267B795B00DE9D02 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		61ECBA6A267B798100DE9D02 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +42,7 @@
 		6158CDFC2678CBEC00CAF0DA = {
 			isa = PBXGroup;
 			children = (
-				6158CE072678CBEC00CAF0DA /* app das frutas */,
+				6158CE072678CBEC00CAF0DA /* Artero */,
 				6158CE062678CBEC00CAF0DA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -44,21 +50,24 @@
 		6158CE062678CBEC00CAF0DA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6158CE052678CBEC00CAF0DA /* app das frutas.app */,
+				6158CE052678CBEC00CAF0DA /* Artero.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6158CE072678CBEC00CAF0DA /* app das frutas */ = {
+		6158CE072678CBEC00CAF0DA /* Artero */ = {
 			isa = PBXGroup;
 			children = (
-				6158CE082678CBEC00CAF0DA /* app_das_frutasApp.swift */,
+				6158CE082678CBEC00CAF0DA /* ArteroApp.swift */,
 				6158CE0A2678CBEC00CAF0DA /* ContentView.swift */,
 				6158CE0C2678CBEE00CAF0DA /* Assets.xcassets */,
 				6158CE112678CBEE00CAF0DA /* Info.plist */,
 				6158CE0E2678CBEE00CAF0DA /* Preview Content */,
+				61ECBA68267B795B00DE9D02 /* ImagePickerView.swift */,
+				61ECBA6A267B798100DE9D02 /* Coordinator.swift */,
+				612E6204267CDD5400948DC7 /* PhotoRepository.swift */,
 			);
-			path = "app das frutas";
+			path = Artero;
 			sourceTree = "<group>";
 		};
 		6158CE0E2678CBEE00CAF0DA /* Preview Content */ = {
@@ -72,9 +81,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6158CE042678CBEC00CAF0DA /* app das frutas */ = {
+		6158CE042678CBEC00CAF0DA /* Artero */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6158CE142678CBEE00CAF0DA /* Build configuration list for PBXNativeTarget "app das frutas" */;
+			buildConfigurationList = 6158CE142678CBEE00CAF0DA /* Build configuration list for PBXNativeTarget "Artero" */;
 			buildPhases = (
 				6158CE012678CBEC00CAF0DA /* Sources */,
 				6158CE022678CBEC00CAF0DA /* Frameworks */,
@@ -84,9 +93,9 @@
 			);
 			dependencies = (
 			);
-			name = "app das frutas";
+			name = Artero;
 			productName = "app das frutas";
-			productReference = 6158CE052678CBEC00CAF0DA /* app das frutas.app */;
+			productReference = 6158CE052678CBEC00CAF0DA /* Artero.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -103,7 +112,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6158CE002678CBEC00CAF0DA /* Build configuration list for PBXProject "app das frutas" */;
+			buildConfigurationList = 6158CE002678CBEC00CAF0DA /* Build configuration list for PBXProject "Artero" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -116,7 +125,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6158CE042678CBEC00CAF0DA /* app das frutas */,
+				6158CE042678CBEC00CAF0DA /* Artero */,
 			);
 		};
 /* End PBXProject section */
@@ -138,8 +147,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61ECBA6B267B798100DE9D02 /* Coordinator.swift in Sources */,
+				612E6205267CDD5400948DC7 /* PhotoRepository.swift in Sources */,
+				61ECBA69267B795B00DE9D02 /* ImagePickerView.swift in Sources */,
 				6158CE0B2678CBEC00CAF0DA /* ContentView.swift in Sources */,
-				6158CE092678CBEC00CAF0DA /* app_das_frutasApp.swift in Sources */,
+				6158CE092678CBEC00CAF0DA /* ArteroApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,16 +280,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"app das frutas/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Artero/Preview Content\"";
 				DEVELOPMENT_TEAM = 46LT924HJ5;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "app das frutas/Info.plist";
+				INFOPLIST_FILE = Artero/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "andre.app-das-frutas";
+				PRODUCT_BUNDLE_IDENTIFIER = andre.Artero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -290,16 +302,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"app das frutas/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Artero/Preview Content\"";
 				DEVELOPMENT_TEAM = 46LT924HJ5;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "app das frutas/Info.plist";
+				INFOPLIST_FILE = Artero/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "andre.app-das-frutas";
+				PRODUCT_BUNDLE_IDENTIFIER = andre.Artero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -309,7 +321,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6158CE002678CBEC00CAF0DA /* Build configuration list for PBXProject "app das frutas" */ = {
+		6158CE002678CBEC00CAF0DA /* Build configuration list for PBXProject "Artero" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6158CE122678CBEE00CAF0DA /* Debug */,
@@ -318,7 +330,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6158CE142678CBEE00CAF0DA /* Build configuration list for PBXNativeTarget "app das frutas" */ = {
+		6158CE142678CBEE00CAF0DA /* Build configuration list for PBXNativeTarget "Artero" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6158CE152678CBEE00CAF0DA /* Debug */,
