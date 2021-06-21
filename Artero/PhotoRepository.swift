@@ -62,7 +62,7 @@ class PhotoDocumentRepository: PhotoRepository {
     func getImages() -> [UIImage] {
         keys.compactMap { getImage(identifier: $0) }
     }
-    
+
     fileprivate func addKey(key: String) {
         var keys = self.keys
         keys.append(key)
@@ -74,4 +74,5 @@ class PhotoDocumentRepository: PhotoRepository {
         var keys = self.keys
         keys.removeAll { $0 == key }
     }
+    
 }

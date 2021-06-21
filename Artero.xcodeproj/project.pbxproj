@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		612D47FE267FEAA100248C83 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D47FD267FEAA100248C83 /* ThemeView.swift */; };
+		612D4800267FED5400248C83 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D47FF267FED5400248C83 /* GalleryView.swift */; };
+		612D4802267FEE7400248C83 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D4801267FEE7400248C83 /* ActivityView.swift */; };
 		612E6205267CDD5400948DC7 /* PhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612E6204267CDD5400948DC7 /* PhotoRepository.swift */; };
 		6158CE092678CBEC00CAF0DA /* ArteroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6158CE082678CBEC00CAF0DA /* ArteroApp.swift */; };
 		6158CE0B2678CBEC00CAF0DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6158CE0A2678CBEC00CAF0DA /* ContentView.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		612D47FD267FEAA100248C83 /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
+		612D47FF267FED5400248C83 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		612D4801267FEE7400248C83 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		612E6204267CDD5400948DC7 /* PhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepository.swift; sourceTree = "<group>"; };
 		6158CE052678CBEC00CAF0DA /* Artero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6158CE082678CBEC00CAF0DA /* ArteroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArteroApp.swift; sourceTree = "<group>"; };
@@ -39,6 +45,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		612D4803267FF6A000248C83 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				612D4801267FEE7400248C83 /* ActivityView.swift */,
+				6158CE0A2678CBEC00CAF0DA /* ContentView.swift */,
+				612D47FF267FED5400248C83 /* GalleryView.swift */,
+				61ECBA68267B795B00DE9D02 /* ImagePickerView.swift */,
+				612D47FD267FEAA100248C83 /* ThemeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		6158CDFC2678CBEC00CAF0DA = {
 			isa = PBXGroup;
 			children = (
@@ -58,12 +76,11 @@
 		6158CE072678CBEC00CAF0DA /* Artero */ = {
 			isa = PBXGroup;
 			children = (
+				612D4803267FF6A000248C83 /* Views */,
 				6158CE082678CBEC00CAF0DA /* ArteroApp.swift */,
-				6158CE0A2678CBEC00CAF0DA /* ContentView.swift */,
 				6158CE0C2678CBEE00CAF0DA /* Assets.xcassets */,
 				6158CE112678CBEE00CAF0DA /* Info.plist */,
 				6158CE0E2678CBEE00CAF0DA /* Preview Content */,
-				61ECBA68267B795B00DE9D02 /* ImagePickerView.swift */,
 				61ECBA6A267B798100DE9D02 /* Coordinator.swift */,
 				612E6204267CDD5400948DC7 /* PhotoRepository.swift */,
 			);
@@ -147,9 +164,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				612D4800267FED5400248C83 /* GalleryView.swift in Sources */,
 				61ECBA6B267B798100DE9D02 /* Coordinator.swift in Sources */,
+				612D47FE267FEAA100248C83 /* ThemeView.swift in Sources */,
 				612E6205267CDD5400948DC7 /* PhotoRepository.swift in Sources */,
 				61ECBA69267B795B00DE9D02 /* ImagePickerView.swift in Sources */,
+				612D4802267FEE7400248C83 /* ActivityView.swift in Sources */,
 				6158CE0B2678CBEC00CAF0DA /* ContentView.swift in Sources */,
 				6158CE092678CBEC00CAF0DA /* ArteroApp.swift in Sources */,
 			);
