@@ -18,7 +18,7 @@ struct ThemeView: View {
     var body: some View {
         ScrollView {
             NavigationLink(
-                destination: ImagePickerView(selectedImage: $selectedImage, sourceType: .camera),
+                destination: ImagePickerView(selectedImage: $selectedImage, sourceType: .photoLibrary),
                 label : {
                     Text("camera!")
                         .padding()
