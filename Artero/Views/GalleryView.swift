@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct GalleryView: View {
+    let repository: PhotoRepository = PhotoDocumentRepository()
     var foto: String
     
     var body: some View {
         ScrollView {
-            if PhotoDocumentRepository().getImage(identifier: "background") != nil {
-                Image(uiImage: PhotoDocumentRepository().getImage(identifier: "background")!)
+            if repository.getImage(identifier: "background") != nil {
+                Image(uiImage: repository.getImage(identifier: "background")!)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .clipShape(Circle())
