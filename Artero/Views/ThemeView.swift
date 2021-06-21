@@ -20,7 +20,7 @@ struct ThemeView: View {
             NavigationLink(
                 destination: ImagePickerView(selectedImage: $selectedImage, sourceType: .photoLibrary),
                 label : {
-                    Text("camera!")
+                    Text("gallery!")
                         .padding()
                 })
             
