@@ -42,7 +42,9 @@ struct ContentView: View {
                 Button("Salvar uma activity aleatoria") {
                     let activity = Activity(date: Date(), theme: "Mar", text: "lululu", image: UIImage(systemName: "pencil"))
                     activityRepository.save(activity: activity)
-                    
+                    for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
+                        print("\(key) = \(value) \n")
+                    }
                 }
             }
             .navigationBarTitle("Demo")

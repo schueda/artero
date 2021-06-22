@@ -26,8 +26,8 @@ class UsersDefaultActivityRepository: ActivityRepository {
     func save(activity: Activity) {
         do {
             let data = try JSONEncoder().encode(activity)
-            UserDefaults.standard.setValue(data, forKey: activity.id.uuidString)
-            photoRepository.save(image: activity.image!, withIdentifier: activity.id.uuidString + "-image")
+            UserDefaults.standard.setValue(data, forKey: activity.formattedDate)
+            photoRepository.save(image: activity.image!, withIdentifier: activity.formattedDate + "-image")
             addKey(key: activity.id.uuidString)
         } catch {
             print("Error saving activity \(error)")
