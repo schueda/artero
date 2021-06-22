@@ -17,7 +17,7 @@ protocol PhotoRepository {
 
 
 class PhotoDocumentRepository: PhotoRepository {
-    static var identifiersKey: String = "keys"
+    static var identifiersKey: String = "imageKeys"
     var fileManager = FileManager.default
     var documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     
@@ -45,6 +45,7 @@ class PhotoDocumentRepository: PhotoRepository {
         do {
             try fileManager.removeItem(at: url)
             deleteKey(key: identifier)
+            UserDefaults.standard.removeObject(forKey: identifier)
         } catch {
             print("Unable to delete file (\(error))")
         }
