@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var isImagePickerDisplay = false
     @State private var savedImage: UIImage?
     @State private var photoRepository: PhotoRepository = PhotoDocumentRepository()
+    @State private var activityRepository: ActivityRepository = UsersDefaultActivityRepository()
     
     var body: some View {
         NavigationView {
@@ -32,15 +33,21 @@ struct ContentView: View {
                     })
                 
                 NavigationLink(
-                    destination: GalleryView(foto: "diatal"),
+                    destination: GalleryView(photo: "diatal"),
                     label : {
                         Text("botao pra galeria")
                             .padding()
                     })
+                
+                Button("Salvar uma activity aleatoria") {
+                    let activity = Activity(date: Date(), theme: "Mar", text: "lululu", image: UIImage(systemName: "pencil"))
+                    activityRepository.save(activity: activity)
+                    
+                }
             }
             .navigationBarTitle("Demo")
+            
         }
-        
     }
 }
 
