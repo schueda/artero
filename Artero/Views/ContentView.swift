@@ -26,7 +26,7 @@ struct ContentView: View {
                             Image("art05")
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
-                                .frame(width: 360, height: 280, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .frame(width: 370, height: 280, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 .cornerRadius(12.0)
                                 .padding(4)
                             
@@ -66,22 +66,69 @@ struct ContentView: View {
                     destination: ActivityView(),
                     label : {
                         
-                        Rectangle()
-                            .frame(width: 360, height: 120, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .cornerRadius(12.0)
-                            .foregroundColor(.gray)
-                            .padding(4)
+                        ZStack {
+                            
+                            Rectangle()
+                                .frame(width: 370, height: 120, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .cornerRadius(12.0)
+                                .foregroundColor(Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)))
+                                .padding(4)
+                            
+                            VStack (alignment: .leading) {
+                            
+                                HStack  {
+                                    
+                                    Image(systemName:"sparkles")
+                                        .font(.system(size: 18, weight: .bold, design: .default))
+                                        .foregroundColor(.yellow)
+                                    
+                                    VStack (alignment: .leading) {
+                                        
+                                      
+                                        Text("ATIVIDADE")
+                                            .font(.system(size: 17, weight: .semibold, design: .default))
+                                            .foregroundColor(.gray)
+                                        
+                                        Text("Sem sequência")
+                                            .font(.system(size: 28, weight: .bold, design: .default))
+                                            .foregroundColor(.black)
+                                                                        
+                                    }
+                                    
+                                   // Spacer()
+                                 
+                                    Image(systemName:"chevron.right")
+                                        .font(.system(size: 18, weight: .bold, design: .default))
+                                        .foregroundColor(.white)
+                                    
+                                }
+                          
+                            }
+                        }
+                        
                             
                     })
                 
                 NavigationLink(
                     destination: GalleryView(foto: "diatal"),
                     label : {
-                         Rectangle()
-                        .frame(width: 360, height: 180, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .cornerRadius(12.0)
-                        .foregroundColor(.gray)
-                            .padding(4)
+                        
+                        ZStack {
+                            
+                            Rectangle()
+                           .frame(width: 370, height: 180, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                           .cornerRadius(12.0)
+                           .foregroundColor(Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)))
+                               .padding(4)
+                            
+                            HStack {
+                            
+                            }
+                            
+                            Image(systemName:"chevron.right")
+                                .font(.system(size: 18, weight: .bold, design: .default))
+                                .foregroundColor(.white)
+                        }
                           
                     })
                 
