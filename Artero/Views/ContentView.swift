@@ -28,7 +28,7 @@ struct ContentView: View {
                 NavigationLink(
                     destination: ActivityView(),
                     label : {
-                        Text("botao pra tela de atividade")
+                        Text(NSLocalizedString("activity_button", comment: ""))
                             .padding()
                     })
                 
