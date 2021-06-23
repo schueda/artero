@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		547D15D726836A6A00E8223D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547D15D626836A6A00E8223D /* HomeView.swift */; };
 		612D47FE267FEAA100248C83 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D47FD267FEAA100248C83 /* ThemeView.swift */; };
 		612D4800267FED5400248C83 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D47FF267FED5400248C83 /* GalleryView.swift */; };
 		612D4802267FEE7400248C83 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D4801267FEE7400248C83 /* ActivityView.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		547D15D626836A6A00E8223D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		612D47FD267FEAA100248C83 /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		612D47FF267FED5400248C83 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 		612D4801267FEE7400248C83 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				612D4801267FEE7400248C83 /* ActivityView.swift */,
+				547D15D626836A6A00E8223D /* HomeView.swift */,
 				6158CE0A2678CBEC00CAF0DA /* ContentView.swift */,
 				612D47FF267FED5400248C83 /* GalleryView.swift */,
 				61ECBA68267B795B00DE9D02 /* ImagePickerView.swift */,
@@ -164,6 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				547D15D726836A6A00E8223D /* HomeView.swift in Sources */,
 				612D4800267FED5400248C83 /* GalleryView.swift in Sources */,
 				61ECBA6B267B798100DE9D02 /* Coordinator.swift in Sources */,
 				612D47FE267FEAA100248C83 /* ThemeView.swift in Sources */,
