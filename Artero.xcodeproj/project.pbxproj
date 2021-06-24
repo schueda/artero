@@ -20,6 +20,16 @@
 		61A0794926825C1200E5B07E /* ActivityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A0794826825C1200E5B07E /* ActivityRepository.swift */; };
 		61ECBA69267B795B00DE9D02 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ECBA68267B795B00DE9D02 /* ImagePickerView.swift */; };
 		61ECBA6B267B798100DE9D02 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ECBA6A267B798100DE9D02 /* Coordinator.swift */; };
+		B50BB4AA26842C9800EB65B7 /* ThemeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50BB4A926842C9800EB65B7 /* ThemeRepository.swift */; };
+		B51302EC2683F92500BFEF20 /* NotificationPreferenceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51302EB2683F92500BFEF20 /* NotificationPreferenceRepository.swift */; };
+		B51302EE2683FC2600BFEF20 /* Activity2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51302ED2683FC2600BFEF20 /* Activity2.swift */; };
+		B51302F02683FCA000BFEF20 /* ActivityDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51302EF2683FCA000BFEF20 /* ActivityDAO.swift */; };
+		B51302F32683FE7F00BFEF20 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51302F22683FE7F00BFEF20 /* DateUtils.swift */; };
+		B58BB7DD26854C470080088D /* ActivityRepository2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58BB7DC26854C470080088D /* ActivityRepository2.swift */; };
+		B5BEDB6A2683604100B4BC3F /* Inspiration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BEDB692683604100B4BC3F /* Inspiration.swift */; };
+		B5BEDB6C2683607B00B4BC3F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BEDB6B2683607B00B4BC3F /* Theme.swift */; };
+		B5BEDB6E2683647300B4BC3F /* NotificationPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BEDB6D2683647300B4BC3F /* NotificationPreference.swift */; };
+		B5BEDB70268364DC00B4BC3F /* NotificationPreferenceDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BEDB6F268364DC00B4BC3F /* NotificationPreferenceDAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +49,16 @@
 		61A0794826825C1200E5B07E /* ActivityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRepository.swift; sourceTree = "<group>"; };
 		61ECBA68267B795B00DE9D02 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		61ECBA6A267B798100DE9D02 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B50BB4A926842C9800EB65B7 /* ThemeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeRepository.swift; sourceTree = "<group>"; };
+		B51302EB2683F92500BFEF20 /* NotificationPreferenceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPreferenceRepository.swift; sourceTree = "<group>"; };
+		B51302ED2683FC2600BFEF20 /* Activity2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity2.swift; sourceTree = "<group>"; };
+		B51302EF2683FCA000BFEF20 /* ActivityDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDAO.swift; sourceTree = "<group>"; };
+		B51302F22683FE7F00BFEF20 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		B58BB7DC26854C470080088D /* ActivityRepository2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRepository2.swift; sourceTree = "<group>"; };
+		B5BEDB692683604100B4BC3F /* Inspiration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inspiration.swift; sourceTree = "<group>"; };
+		B5BEDB6B2683607B00B4BC3F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		B5BEDB6D2683647300B4BC3F /* NotificationPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPreference.swift; sourceTree = "<group>"; };
+		B5BEDB6F268364DC00B4BC3F /* NotificationPreferenceDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPreferenceDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,15 +104,15 @@
 		6158CE072678CBEC00CAF0DA /* Artero */ = {
 			isa = PBXGroup;
 			children = (
+				B51302F12683FE5800BFEF20 /* Utils */,
+				B51302EA2683F6C900BFEF20 /* DAOs */,
+				B5BEDB6826835E1E00B4BC3F /* Repositories */,
 				61A0794526825A6A00E5B07E /* Models */,
 				612D4803267FF6A000248C83 /* Views */,
 				6158CE082678CBEC00CAF0DA /* ArteroApp.swift */,
 				6158CE0C2678CBEE00CAF0DA /* Assets.xcassets */,
 				6158CE112678CBEE00CAF0DA /* Info.plist */,
 				6158CE0E2678CBEE00CAF0DA /* Preview Content */,
-				61ECBA6A267B798100DE9D02 /* Coordinator.swift */,
-				612E6204267CDD5400948DC7 /* PhotoRepository.swift */,
-				61A0794826825C1200E5B07E /* ActivityRepository.swift */,
 			);
 			path = Artero;
 			sourceTree = "<group>";
@@ -108,9 +128,43 @@
 		61A0794526825A6A00E5B07E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				61ECBA6A267B798100DE9D02 /* Coordinator.swift */,
 				61A0794626825A7700E5B07E /* Activity.swift */,
+				B5BEDB692683604100B4BC3F /* Inspiration.swift */,
+				B5BEDB6B2683607B00B4BC3F /* Theme.swift */,
+				B5BEDB6D2683647300B4BC3F /* NotificationPreference.swift */,
+				B51302ED2683FC2600BFEF20 /* Activity2.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B51302EA2683F6C900BFEF20 /* DAOs */ = {
+			isa = PBXGroup;
+			children = (
+				B5BEDB6F268364DC00B4BC3F /* NotificationPreferenceDAO.swift */,
+				B51302EF2683FCA000BFEF20 /* ActivityDAO.swift */,
+			);
+			path = DAOs;
+			sourceTree = "<group>";
+		};
+		B51302F12683FE5800BFEF20 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B51302F22683FE7F00BFEF20 /* DateUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B5BEDB6826835E1E00B4BC3F /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				61A0794826825C1200E5B07E /* ActivityRepository.swift */,
+				612E6204267CDD5400948DC7 /* PhotoRepository.swift */,
+				B51302EB2683F92500BFEF20 /* NotificationPreferenceRepository.swift */,
+				B50BB4A926842C9800EB65B7 /* ThemeRepository.swift */,
+				B58BB7DC26854C470080088D /* ActivityRepository2.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,12 +238,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5BEDB6E2683647300B4BC3F /* NotificationPreference.swift in Sources */,
 				612D4800267FED5400248C83 /* GalleryView.swift in Sources */,
+				B5BEDB6C2683607B00B4BC3F /* Theme.swift in Sources */,
 				61ECBA6B267B798100DE9D02 /* Coordinator.swift in Sources */,
 				612D47FE267FEAA100248C83 /* ThemeView.swift in Sources */,
 				612E6205267CDD5400948DC7 /* PhotoRepository.swift in Sources */,
+				B51302F02683FCA000BFEF20 /* ActivityDAO.swift in Sources */,
+				B5BEDB6A2683604100B4BC3F /* Inspiration.swift in Sources */,
+				B5BEDB70268364DC00B4BC3F /* NotificationPreferenceDAO.swift in Sources */,
 				61ECBA69267B795B00DE9D02 /* ImagePickerView.swift in Sources */,
+				B51302EE2683FC2600BFEF20 /* Activity2.swift in Sources */,
 				61A0794726825A7700E5B07E /* Activity.swift in Sources */,
+				B50BB4AA26842C9800EB65B7 /* ThemeRepository.swift in Sources */,
+				B51302EC2683F92500BFEF20 /* NotificationPreferenceRepository.swift in Sources */,
+				B51302F32683FE7F00BFEF20 /* DateUtils.swift in Sources */,
+				B58BB7DD26854C470080088D /* ActivityRepository2.swift in Sources */,
 				61A0794926825C1200E5B07E /* ActivityRepository.swift in Sources */,
 				612D4802267FEE7400248C83 /* ActivityView.swift in Sources */,
 				6158CE0B2678CBEC00CAF0DA /* ContentView.swift in Sources */,
@@ -335,7 +399,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Artero/Preview Content\"";
-				DEVELOPMENT_TEAM = 46LT924HJ5;
+				DEVELOPMENT_TEAM = 5UX9P2B2T5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Artero/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -357,7 +421,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Artero/Preview Content\"";
-				DEVELOPMENT_TEAM = 46LT924HJ5;
+				DEVELOPMENT_TEAM = 5UX9P2B2T5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Artero/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

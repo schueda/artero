@@ -15,11 +15,21 @@ struct ContentView: View {
     @State private var photoRepository: PhotoRepository = PhotoDocumentRepository()
     @State private var activityRepository: ActivityRepository = UsersDefaultActivityRepository()
     
+    private var notificationPreference: NotificationPreference = NotificationPreference()
+    
     var body: some View {
         NavigationView {
             ScrollView {
+                Text(notificationPreference.active ? "true" : "false")
+                Button(action: {
+                    notificationPreference.active = true
+                    notificationPreference.save(notificationPreference)
+                }) {
+                    Text("Bora salvar?")
+                }
+                
                 NavigationLink(
-                    destination: ThemeView(tema: "Amarelo"),
+                    destination: ThemeView(),
                     label : {
                         Text("botao pro tema diario")
                             .padding()
