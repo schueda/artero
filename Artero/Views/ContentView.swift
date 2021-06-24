@@ -13,17 +13,20 @@ struct ContentView: View {
     @State private var isImagePickerDisplay = false
     @State private var savedImage: UIImage?
     @State private var photoRepository: PhotoRepository = PhotoDocumentRepository()
+    @State private var activityRepository: ActivityRepository = UsersDefaultActivityRepository()
     
     var body: some View {
         NavigationView {
             ZStack {
                 
+
                 Color(UIColor.systemGray5).edgesIgnoringSafeArea(.bottom)
             
            HomeView()
                 
             }
             .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+
         }
     }
     
