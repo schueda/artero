@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
+		547D15D726836A6A00E8223D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547D15D626836A6A00E8223D /* HomeView.swift */; };
 		612B360A268138DF005BA3EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 612B360C268138DF005BA3EE /* Localizable.strings */; };
 		612D47FE267FEAA100248C83 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D47FD267FEAA100248C83 /* ThemeView.swift */; };
 		612D4800267FED5400248C83 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D47FF267FED5400248C83 /* GalleryView.swift */; };
@@ -33,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+
+		547D15D626836A6A00E8223D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		612B360B268138DF005BA3EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		612B360D268138FD005BA3EE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		612D47FD267FEAA100248C83 /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
@@ -76,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				612D4801267FEE7400248C83 /* ActivityView.swift */,
+				547D15D626836A6A00E8223D /* HomeView.swift */,
 				6158CE0A2678CBEC00CAF0DA /* ContentView.swift */,
 				612D47FF267FED5400248C83 /* GalleryView.swift */,
 				61ECBA68267B795B00DE9D02 /* ImagePickerView.swift */,
@@ -239,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5BEDB6E2683647300B4BC3F /* NotificationPreference.swift in Sources */,
+				547D15D726836A6A00E8223D /* HomeView.swift in Sources */,
 				612D4800267FED5400248C83 /* GalleryView.swift in Sources */,
 				B5BEDB6C2683607B00B4BC3F /* Theme.swift in Sources */,
 				61ECBA6B267B798100DE9D02 /* Coordinator.swift in Sources */,
@@ -410,7 +416,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = andre.Artero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -432,7 +438,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = andre.Artero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

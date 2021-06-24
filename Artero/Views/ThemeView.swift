@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ThemeView: View {
+    
+    var activityRepository: ActivityRepository = UsersDefaultActivityRepository()
+    
     private var theme: Theme?
 //    private var activityRepository = ActivityRepository()
     var photoRepository: PhotoRepository = PhotoDocumentRepository()
@@ -44,7 +47,7 @@ struct ThemeView: View {
             NavigationLink(
                 destination: ImagePickerView(selectedImage: $selectedImage, sourceType: .photoLibrary),
                 label : {
-                    Text("camera!")
+                    Text("gallery!")
                         .padding()
                 })
             
@@ -55,6 +58,7 @@ struct ThemeView: View {
                     .clipShape(Circle())
                     .frame(width: 300, height: 300)
                 Button("save") {
+                    activityRepository.save(activity: Activity(date: Date(), theme: "Religião", text: "lararararara alksdjlaksjd alskjdlaksjd alskdjalskdj", image: selectedImage))
                     self.saveActivity()
                 }
             }
