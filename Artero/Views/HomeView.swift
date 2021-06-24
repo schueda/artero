@@ -25,7 +25,7 @@ struct HomeView: View {
             
         }
         .padding(.horizontal)
-     //   .padding(.top, 25)
+        //   .padding(.top, 25)
         .navigationBarTitle("Bom dia!")
         
     }
@@ -34,15 +34,17 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         
-       NavigationView {
+        NavigationView {
             
             HomeView()
-       }
+        }
+        .preferredColorScheme(.light)
     }
 }
 
 struct CardActivityView: View {
     var body: some View {
+        
         NavigationLink(
             destination: ActivityView(),
             label : {
@@ -56,7 +58,7 @@ struct CardActivityView: View {
                             .font(.system(size: 18, weight: .bold, design: .default))
                             .foregroundColor(.yellow)
                         
-                        Text("Atividade") .textCase(.uppercase)
+                        Text(NSLocalizedString("Atividade", comment: "")) .textCase(.uppercase)
                             .font(.system(size: 17, weight: .semibold, design: .default))
                             .foregroundColor(.gray)
                         
@@ -71,7 +73,8 @@ struct CardActivityView: View {
                     
                     Text("Sem sequência")
                         .font(.system(size: 28, weight: .bold, design: .default))
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("text"))
+                        
                         .padding(.top, 4)
                     
                     
@@ -81,10 +84,11 @@ struct CardActivityView: View {
                 
                 .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 85, maxHeight: 85, alignment: .leading)
                 .padding()
-                .background(Color.white)
+                .background(Color("card"))
                 .cornerRadius(12.0)
                 
             })
+        
     }
 }
 
@@ -137,14 +141,14 @@ struct CardThemeDay: View {
                                 .background(
                                     LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.5), Color.clear, Color.clear, Color.black.opacity(0.6)]), startPoint: .top, endPoint: .bottom)
                                 )
-
-
+                            
+                            
                         )
-                        
+                    
                 )
                 
                 
-          .cornerRadius(12.0)
+                .cornerRadius(12.0)
                 
             })
     }
@@ -158,11 +162,11 @@ struct CardGallery: View {
                 
                 VStack (alignment:.trailing) {
                     
-                        
-                        Image(systemName:"chevron.right")
-                            .font(.system(size: 18, weight: .bold, design: .default))
-                            .foregroundColor(.white)
-                        
+                    
+                    Image(systemName:"chevron.right")
+                        .font(.system(size: 18, weight: .bold, design: .default))
+                        .foregroundColor(.white)
+                    
                     
                 }
                 .padding()
@@ -179,14 +183,14 @@ struct CardGallery: View {
                                 .background(
                                     LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.5), Color.clear, Color.clear, ]), startPoint: .top, endPoint: .bottom)
                                 )
-
-
+                            
+                            
                         )
-                        
+                    
                 )
                 
                 
-          .cornerRadius(12.0)
+                .cornerRadius(12.0)
                 
             })
     }

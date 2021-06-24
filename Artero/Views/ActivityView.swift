@@ -19,7 +19,7 @@ struct ActivityView: View {
                 Rectangle()
                     .frame(width: 370, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .cornerRadius(12.0)
-                    .foregroundColor(Color(#colorLiteral(red: 0.8913406134, green: 0.8860421777, blue: 0.8954135776, alpha: 1)))
+                    .foregroundColor(Color("card"))
                     .padding(10)
                 
                 VStack (alignment: .leading) {
@@ -36,11 +36,11 @@ struct ActivityView: View {
                             
                             Text("Sequência atual")
                                 .font(.system(size: 17, weight: .semibold, design: .default))
-                                .foregroundColor(.gray)
+                                .foregroundColor(.secondary)
                             
                             Text("15 dias")
                                 .font(.system(size: 28, weight: .bold, design: .default))
-                                .foregroundColor(.black)
+                                .foregroundColor(Color("text"))
                             
                         }
                         
@@ -65,11 +65,11 @@ struct ActivityView: View {
                                 
                                 Text("Maior sequência")
                                     .font(.system(size: 17, weight: .semibold, design: .default))
-                                    .foregroundColor(.gray)
+                                    .foregroundColor(.secondary)
                                 
                                 Text("23 dias")
                                     .font(.system(size: 28, weight: .bold, design: .default))
-                                    .foregroundColor(.black)
+                                    .foregroundColor(Color("text"))
                                 
                             }
                             .padding()
@@ -99,6 +99,7 @@ struct ActivityView: View {
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             ContentView()
+                .preferredColorScheme(.dark)
         }
     }
 }

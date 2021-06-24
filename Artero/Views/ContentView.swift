@@ -28,8 +28,7 @@ struct ContentView: View {
                 
             }
 
-            
-            .background(Color(UIColor.systemGray5).edgesIgnoringSafeArea(.bottom))
+            .background(Color("background").edgesIgnoringSafeArea(.bottom))
 
         }
         
@@ -40,5 +39,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.light)
     }
 }
