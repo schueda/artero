@@ -28,7 +28,7 @@ class UsersDefaultActivityRepository: ActivityRepository {
             let data = try JSONEncoder().encode(activity)
             UserDefaults.standard.setValue(data, forKey: activity.formattedDate)
             photoRepository.save(image: activity.image!, withIdentifier: activity.formattedDate + "-image")
-            addKey(key: activity.id.uuidString)
+            addKey(key: activity.formattedDate)
         } catch {
             print("Error saving activity \(error)")
         }
@@ -42,14 +42,16 @@ class UsersDefaultActivityRepository: ActivityRepository {
     }
     
     func getActivities() -> [Activity] {
+        print("getting activities")
         var activities: [Activity] = []
-        
         do {
             for key in keys {
                 let data = UserDefaults.standard.data(forKey: key)
-                let activity = try JSONDecoder().decode(Activity.self, from: data!)
-                activity.image = photoRepository.getImage(identifier: key + "-image")
-                activities.append(activity)
+                if data != nil {
+                    let activity = try JSONDecoder().decode(Activity.self, from: data!)
+                    activity.image = photoRepository.getImage(identifier: key + "-image")
+                    activities.append(activity)
+                }
             }
         } catch {
             print("Error getting all activities \(error)")

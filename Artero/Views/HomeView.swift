@@ -18,7 +18,7 @@ struct HomeView: View {
                 
                 CardActivityView()
                 
-                //    CardGallery()
+                CardGallery()
                 
             }
             
@@ -135,14 +135,14 @@ struct CardThemeDay: View {
                                 .background(
                                     LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.5), Color.clear, Color.clear, Color.black.opacity(0.6)]), startPoint: .top, endPoint: .bottom)
                                 )
-
-
+                            
+                            
                         )
-                        
+                    
                 )
                 
                 
-          .cornerRadius(12.0)
+                .cornerRadius(12.0)
                 
             })
     }
@@ -151,7 +151,7 @@ struct CardThemeDay: View {
 struct CardGallery: View {
     var body: some View {
         NavigationLink(
-            destination: GalleryView(foto: "diatal"),
+            destination: GalleryView(photo: "diatal"),
             label : {
                 
                 ZStack {
