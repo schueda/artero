@@ -12,7 +12,7 @@ struct ThemeView: View {
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
     
-    var photoRepository: PhotoRepository = PhotoDocumentRepository()
+    var activityRepository: ActivityRepository = UsersDefaultActivityRepository()
     
     var tema: String
     
@@ -23,8 +23,6 @@ struct ThemeView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(height: 420)
-                
-                
             }
             VStack {
                 Spacer()
