@@ -153,7 +153,7 @@ struct CardThemeDay: View {
 struct CardGallery: View {
     var body: some View {
         NavigationLink(
-            destination: GalleryView(foto: "diatal"),
+            destination: GalleryView(photo: "diatal"),
             label : {
                 
                 VStack (alignment:.trailing) {

@@ -13,9 +13,11 @@ struct ContentView: View {
     @State private var isImagePickerDisplay = false
     @State private var savedImage: UIImage?
     @State private var photoRepository: PhotoRepository = PhotoDocumentRepository()
+    @State private var activityRepository: ActivityRepository = UsersDefaultActivityRepository()
     
     var body: some View {
         NavigationView {
+
             
             ScrollView {
                 
@@ -25,8 +27,10 @@ struct ContentView: View {
                 }
                 
             }
+
             
             .background(Color(UIColor.systemGray5).edgesIgnoringSafeArea(.bottom))
+
         }
         
     }
