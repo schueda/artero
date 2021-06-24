@@ -61,7 +61,7 @@ struct ThemeView: View {
             }
         }.ignoresSafeArea()
         .sheet(isPresented: self.$isImagePickerDisplay) {
-            ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
+            ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.$sourceType)
         }
     }
 }
