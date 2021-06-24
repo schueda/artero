@@ -12,18 +12,20 @@ struct HomeView: View {
         
         ScrollView {
             
-            VStack (spacing:10) {
+            VStack (spacing:20) {
                 
                 CardThemeDay()
+                    .padding(.top, 25)
                 
                 CardActivityView()
                 
-                //    CardGallery()
+                CardGallery()
                 
             }
             
         }
-        .padding()
+        .padding(.horizontal)
+     //   .padding(.top, 25)
         .navigationBarTitle("Bom dia!")
         
     }
@@ -32,10 +34,10 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         
-        NavigationView {
+       NavigationView {
             
             HomeView()
-        }
+       }
     }
 }
 
@@ -58,7 +60,7 @@ struct CardActivityView: View {
                             .font(.system(size: 17, weight: .semibold, design: .default))
                             .foregroundColor(.gray)
                         
-                        //  Spacer()
+                        Spacer()
                         
                         Image(systemName:"chevron.right")
                             .font(.system(size: 18, weight: .bold, design: .default))
@@ -77,7 +79,7 @@ struct CardActivityView: View {
                 }
                 
                 
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 85, maxHeight: 85, alignment: .leading)
                 .padding()
                 .background(Color.white)
                 .cornerRadius(12.0)
@@ -154,22 +156,38 @@ struct CardGallery: View {
             destination: GalleryView(foto: "diatal"),
             label : {
                 
-                ZStack {
+                VStack (alignment:.trailing) {
                     
-                    Rectangle()
-                        .frame(width: 370, height: 180, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .cornerRadius(12.0)
-                        .foregroundColor(.white)
-                    
-                    HStack {
                         
-                    }
+                        Image(systemName:"chevron.right")
+                            .font(.system(size: 18, weight: .bold, design: .default))
+                            .foregroundColor(.white)
+                        
                     
-                    Image(systemName:"chevron.right")
-                        .font(.system(size: 18, weight: .bold, design: .default))
-                        .foregroundColor(.gray)
                 }
-                //  .padding(.top,15)
+                .padding()
+                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 170, maxHeight: 170, alignment: .topTrailing)
+                
+                .background(
+                    Image("art10")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 280, maxHeight: 280, alignment: .leading)
+                        .overlay(
+                            Rectangle()
+                                .foregroundColor(.clear)
+                                .background(
+                                    LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.5), Color.clear, Color.clear, ]), startPoint: .top, endPoint: .bottom)
+                                )
+
+
+                        )
+                        
+                )
+                
+                
+          .cornerRadius(12.0)
+                
             })
     }
 }

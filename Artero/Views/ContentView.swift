@@ -16,15 +16,19 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                
-                Color(UIColor.systemGray5).edgesIgnoringSafeArea(.bottom)
             
-           HomeView()
+            ScrollView {
+                
+                VStack {
+                    HomeView()
+                    
+                }
                 
             }
-            .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+            
+            .background(Color(UIColor.systemGray5).edgesIgnoringSafeArea(.bottom))
         }
+        
     }
     
 }
