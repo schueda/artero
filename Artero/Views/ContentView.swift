@@ -17,17 +17,21 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                
 
-                Color(UIColor.systemGray5).edgesIgnoringSafeArea(.bottom)
             
-           HomeView()
+            ScrollView {
+                
+                VStack {
+                    HomeView()
+                    
+                }
                 
             }
-            .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+
+            .background(Color("background").edgesIgnoringSafeArea(.bottom))
 
         }
+        
     }
     
 }
@@ -35,5 +39,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.light)
     }
 }
