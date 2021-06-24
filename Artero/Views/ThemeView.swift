@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ThemeView: View {
     
-    var photoRepository: PhotoRepository = PhotoDocumentRepository()
+    var activityRepository: ActivityRepository = UsersDefaultActivityRepository()
     
     @State private var selectedImage: UIImage?
     
@@ -31,7 +31,7 @@ struct ThemeView: View {
                     .clipShape(Circle())
                     .frame(width: 300, height: 300)
                 Button("save") {
-                    photoRepository.save(image: selectedImage!, withIdentifier: "background")
+                    activityRepository.save(activity: Activity(date: Date(), theme: "Religião", text: "lararararara alksdjlaksjd alskjdlaksjd alskdjalskdj", image: selectedImage))
                 }
             }
         }
