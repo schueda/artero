@@ -17,40 +17,19 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                NavigationLink(
-                    destination: ThemeView(tema: "Amarelo"),
-                    label : {
-                        Text("botao pro tema diario")
-                            .padding()
-                    })
+            ZStack {
                 
-                NavigationLink(
-                    destination: ActivityView(),
-                    label : {
-                        Text(NSLocalizedString("activity_button", comment: ""))
-                            .padding()
-                    })
-                
-                NavigationLink(
-                    destination: GalleryView(photo: "diatal"),
-                    label : {
-                        Text("botao pra galeria")
-                            .padding()
-                    })
-                
-                Button("Salvar uma activity aleatoria") {
-                    let activity = Activity(date: Date(), theme: "Mar", text: "lululu", image: UIImage(systemName: "pencil"))
-                    activityRepository.save(activity: activity)
-                    for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
-                        print("\(key) = \(value) \n")
-                    }
-                }
-            }
-            .navigationBarTitle("Demo")
+
+                Color(UIColor.systemGray5).edgesIgnoringSafeArea(.bottom)
             
+           HomeView()
+                
+            }
+            .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+
         }
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
