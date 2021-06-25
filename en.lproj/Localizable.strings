@@ -8,61 +8,61 @@
 "activity_button" = "activity screen button";
 
 //Home Screen
-"daily_theme" = ""
-"good_morning" = "Bom dia!"
-"good_afternoom" = "Boa tarde!"
-"good_night" = "Boa noite!"
-"activities" = "Atividade"
+"daily_theme" = "Theme of the day";
+"good_morning" = "Good morning!";
+"good_afternoom" = "Good afternoom!";
+"good_night" = "Good bight!";
+"activities" = "Activities";
 //Sequence - Home Screen
-"no_sequence" = "Sem sequência"
-"sequencia" = "dias seguidos"
+"no_sequence" = "No sequence";
+"sequencia" = "consecutive days";
 
 
 //Gallery Screen
-"gallery" = "Sua galeria"
+"gallery" = "Your gallery";
 
 
 //Activity Screen
-"Acitivy" = "Atividade"
-"current_sequence" = "Sequência Atual"
-"longest_sequence" = "Maior sequência"
-"days" = "dias"
-"daily_reminder" = "Lembrete diário"
-"hour" = "Hora"
+"Acitivy" = "Activity";
+"current_sequence" = "Current sequence";
+"longest_sequence" = "Longest sequence";
+"days" = "days";
+"daily_reminder" = "Daily reminder";
+"hour" = "Hour";
 
 
 //Theme of the day Screen
-"theme" = "Tema"
-"activity_of_today" = "Atividade de hoje"
-"beneficts" = "Benefícios"
+"theme" = "Theme";
+"activity_of_today" = "Activity of the day";
+"beneficts" = "Beneficts";
 //button insert media - Theme of the day Screen
-"button_media" = "Adicionar mídia"
-"button_take_a_picture" = "Tirar foto ou vídeo"
-"button_choose_media" = "Escolher foto ou vídeo"
+"button_media" = "Add media";
+"button_take_a_picture" = "Take photo or video";
+"button_choose_media" = "Choose photo or video";
 
 
 //OnBoarding gambiarrento 1
-"OnBoarding1_line1" = "Create"
-"OnBoarding1_line2" = "every day"
-"OnBoarding1_line3" = "with"
+"OnBoarding1_line1" = "Create";
+"OnBoarding1_line2" = "every day";
+"OnBoarding1_line3" = "with";
 
 //OnBoarding gambiarrento 2
-"OnBoarding2_line1" = "We encourage you"
-"OnBoarding2_line2" = "to insert"
-"OnBoarding2_line3" = "into your"
-"OnBoarding2_line4" = "routine and we"
-"OnBoarding2_line5" = "show you the"
+"OnBoarding2_line1" = "We encourage you";
+"OnBoarding2_line2" = "to insert";
+"OnBoarding2_line3" = "into your";
+"OnBoarding2_line4" = "routine and we";
+"OnBoarding2_line5" = "show you the";
 
 //OnBoarding gambiarrento 3
-"OnBoarding3_line1" = "for you create as"
-"OnBoarding3_line2" = "you wish"
+"OnBoarding3_line1" = "for you create as";
+"OnBoarding3_line2" = "you wish";
 
 //OnBoarding gambiarrento 4
-"OnBoarding4_line1" = "Save your"
-"OnBoarding4_line2" = "creations in"
-"OnBoarding4_line3" = "to revisit"
-"OnBoarding4_line4" = "whenever"
-"OnBoarding4_line5" = "you want"
+"OnBoarding4_line1" = "Save your";
+"OnBoarding4_line2" = "creations in";
+"OnBoarding4_line3" = "to revisit";
+"OnBoarding4_line4" = "whenever";
+"OnBoarding4_line5" = "you want";
 
 
 
@@ -73,39 +73,39 @@
 
 //Content & themes
 //Follow the same numbers as the images
-"theme1" = "Yellow"
-"inspiration_infos1" = "Sunflowers | 1889 | Vincent Van Gogh"
+"theme1" = "Yellow";
+"inspiration_infos1" = "Sunflowers | 1889 | Vincent Van Gogh";
 
-"theme2" = "Evolution"
-"inspiration_infos3" = "Aboriginal Rock Art of Ubirr | 40.000 a.C"
+"theme2" = "Evolution";
+"inspiration_infos3" = "Aboriginal Rock Art of Ubirr | 40.000 a.C";
 
-"theme3" = "Smile"
-"inspiration_infos3" = "Monalisa | 1506 | Leonardo da Vinci"
+"theme3" = "Smile";
+"inspiration_infos3" = "Monalisa | 1506 | Leonardo da Vinci";
 
-"theme4" = "Humanity"
-"inspiration_infos4" = "The Garden of Earthly Delights | 1505 | Hieronymus Bosh"
+"theme4" = "Humanity";
+"inspiration_infos4" = "The Garden of Earthly Delights | 1505 | Hieronymus Bosh";
 
-"theme5" = "Brazilianities"
-"inspiration_infos5" = "Abapuru | 1928 | Tarsila do Amaral"
+"theme5" = "Brazilianities";
+"inspiration_infos5" = "Abapuru | 1928 | Tarsila do Amaral";
 
-"theme6" = "Daily"
-"inspiration_infos7" = "Venus of the Rags | 1974 | Michelangelo Pistoletto"
-
-
+"theme6" = "Daily";
+"inspiration_infos7" = "Venus of the Rags | 1974 | Michelangelo Pistoletto";
 
 
 
 
-"content1" = "Associating artistic practices with life is a way to benefit your health, both physical and mental — this is called art therapy, which consists of the use of artistic/visual or expressive resources as a therapeutic element."
 
-"content2" = "Artistic activities make it possible to express thoughts and emotions that may be difficult to say in words."
 
-"content3" = "Expressing yourself through art can reduce stress and anxiety."
+"content1" = "Associating artistic practices with life is a way to benefit your health, both physical and mental — this is called art therapy, which consists of the use of artistic/visual or expressive resources as a therapeutic element.";
 
-"content4" = "Art helps you feel calmer and happier."
+"content2" = "Artistic activities make it possible to express thoughts and emotions that may be difficult to say in words.";
 
-"content5" = "The act of creating something unique gives us a sense of pleasure and accomplishment."
+"content3" = "Expressing yourself through art can reduce stress and anxiety.";
 
-"content6" = "People who listened to music had a better immune system response—this is because it stimulated the limbic system of the brain and moderated the response to stressful stimuli."
+"content4" = "Art helps you feel calmer and happier.";
+
+"content5" = "The act of creating something unique gives us a sense of pleasure and accomplishment.";
+
+"content6" = "People who listened to music had a better immune system response—this is because it stimulated the limbic system of the brain and moderated the response to stressful stimuli.";
 
 

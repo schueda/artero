@@ -8,61 +8,61 @@
 "activity_button" = "botao pra tela de atividade";
 
 //Home Screen
-"daily_theme" = "Tema do dia"
-"good_morning" = "Bom dia!"
-"good_afternoom" = "Boa tarde!"
-"good_night" = "Boa noite!"
-"activities" = "Atividade"
+"daily_theme" = "Tema do dia";
+"good_morning" = "Bom dia!";
+"good_afternoom" = "Boa tarde!";
+"good_night" = "Boa noite!";
+"activities" = "Atividade";
 //Sequence - Home Screen
-"no_sequence" = "Sem sequência"
-"sequencia" = "dias seguidos"
+"no_sequence" = "Sem sequência";
+"sequencia" = "dias seguidos";
 
 
 //Gallery Screen
-"gallery" = "Sua galeria"
+"gallery" = "Sua galeria";
 
 
 //Activity Screen
-"Acitivy" = "Atividade"
-"current_sequence" = "Sequência Atual"
-"longest_sequence" = "Maior sequência"
-"days" = "dias"
-"daily_reminder" = "Lembrete diário"
-"hour" = "Hora"
+"Acitivy" = "Atividade";
+"current_sequence" = "Sequência Atual";
+"longest_sequence" = "Maior sequência";
+"days" = "dias";
+"daily_reminder" = "Lembrete diário";
+"hour" = "Hora";
 
 
 //Theme of the day Screen
-"theme" = "Tema"
-"activity_of_today" = "Atividade de hoje"
-"beneficts" = "Benefícios"
+"theme" = "Tema";
+"activity_of_today" = "Atividade de hoje";
+"beneficts" = "Benefícios";
 //button insert media - Theme of the day Screen
-"button_media" = "Adicionar mídia"
-"button_take_a_picture" = "Tirar foto ou vídeo"
-"button_choose_media" = "Escolher foto ou vídeo"
+"button_media" = "Adicionar mídia";
+"button_take_a_picture" = "Tirar foto ou vídeo";
+"button_choose_media" = "Escolher foto ou vídeo";
 
 
 //OnBoarding gambiarrento 1
-"OnBoarding1_line1" = "Crie todos"
-"OnBoarding1_line2" = "os dias"
-"OnBoarding1_line3" = "com o"
+"OnBoarding1_line1" = "Crie todos";
+"OnBoarding1_line2" = "os dias";
+"OnBoarding1_line3" = "com o";
 
 //OnBoarding gambiarrento 2
-"OnBoarding2_line1" = "Incentivamos você"
-"OnBoarding2_line2" = "a inserir"
-"OnBoarding2_line3" = "na sua rotina e te"
-"OnBoarding2_line4" = "mostramos os"
-"OnBoarding2_line5" = ""
+"OnBoarding2_line1" = "Incentivamos você";
+"OnBoarding2_line2" = "a inserir";
+"OnBoarding2_line3" = "na sua rotina e te";
+"OnBoarding2_line4" = "mostramos os";
+"OnBoarding2_line5" = "";
 
 //OnBoarding gambiarrento 3
-"OnBoarding3_line1" = "para você criar da"
-"OnBoarding3_line2" = "forma que preferir"
+"OnBoarding3_line1" = "para você criar da";
+"OnBoarding3_line2" = "forma que preferir";
 
 //OnBoarding gambiarrento 4
-"OnBoarding4_line1" = "Salve as suas"
-"OnBoarding4_line2" = "criações"
-"OnBoarding4_line3" = "para"
-"OnBoarding4_line4" = "revisitá-las"
-"OnBoarding4_line5" = "quando quiser"
+"OnBoarding4_line1" = "Salve as suas";
+"OnBoarding4_line2" = "criações";
+"OnBoarding4_line3" = "para";
+"OnBoarding4_line4" = "revisitá-las";
+"OnBoarding4_line5" = "quando quiser";
 
 
 
@@ -74,38 +74,38 @@
 
 //Content & themes
 //Follow the same numbers as the images
-"theme1" = "Amarelo"
-"inspiration_infos1" = "Girassóis | 1889 | Vincent Van Gogh"
+"theme1" = "Amarelo";
+"inspiration_infos1" = "Girassóis | 1889 | Vincent Van Gogh";
 
-"theme2" = "Evolução"
-"inspiration_infos3" = "Pintura rupestre de Ubirr | 40.000 a.C"
+"theme2" = "Evolução";
+"inspiration_infos3" = "Pintura rupestre de Ubirr | 40.000 a.C";
 
-"theme3" = "Sorriso"
-"inspiration_infos3" = "Monalisa | 1506 | Leonardo da Vinci"
+"theme3" = "Sorriso";
+"inspiration_infos3" = "Monalisa | 1506 | Leonardo da Vinci";
 
-"theme4" = "Humanidade"
-"inspiration_infos4" = "Jardim das delícias | 1505 | Hieronymus Bosh"
+"theme4" = "Humanidade";
+"inspiration_infos4" = "Jardim das delícias | 1505 | Hieronymus Bosh";
 
-"theme5" = "Brasilidades"
-"inspiration_infos5" = "Abapuru | 1928 | Tarsila do Amaral"
+"theme5" = "Brasilidades";
+"inspiration_infos5" = "Abapuru | 1928 | Tarsila do Amaral";
 
-"theme6" = "Cotidiano"
-"inspiration_infos7" = "Vênus dos trapos | 1974 | Michelangelo Pistoletto"
-
-
+"theme6" = "Cotidiano";
+"inspiration_infos7" = "Vênus dos trapos | 1974 | Michelangelo Pistoletto";
 
 
 
 
 
-"content1" = "Associar práticas artísticas à vida é uma forma de beneficiar a sua saúde, tanto física quanto mental — trata-se da chamada arteterapia, que consiste no uso de recursos artísticos/visuais ou expressivos como elemento terapêutico."
 
-"content2" = "Atividades artísticas possibilitam expressar pensamentos e emoções que podem ser difíceis a serem ditos em palavras."
 
-"content3" = "Se expressar pela arte pode diminuir o estresse e a ansiedade."
+"content1" = "Associar práticas artísticas à vida é uma forma de beneficiar a sua saúde, tanto física quanto mental — trata-se da chamada arteterapia, que consiste no uso de recursos artísticos/visuais ou expressivos como elemento terapêutico.";
 
-"content4" = "Arte ajuda a sentir-se mais calmo e mais feliz."
+"content2" = "Atividades artísticas possibilitam expressar pensamentos e emoções que podem ser difíceis a serem ditos em palavras.";
 
-"content5" = "O ato de criar algo único nos dá uma sensação de prazer e realização."
+"content3" = "Se expressar pela arte pode diminuir o estresse e a ansiedade.";
 
-"content6" = "Quem ouvia música apresentava uma melhor resposta do sistema imunológico — isso porque ela estimulava o sistema límbico do cérebro e moderava a resposta a estímulos estressantes."
+"content4" = "Arte ajuda a sentir-se mais calmo e mais feliz.";
+
+"content5" = "O ato de criar algo único nos dá uma sensação de prazer e realização.";
+
+"content6" = "Quem ouvia música apresentava uma melhor resposta do sistema imunológico — isso porque ela estimulava o sistema límbico do cérebro e moderava a resposta a estímulos estressantes.";
