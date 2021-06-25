@@ -54,7 +54,10 @@ class ActivityDAO: ActivityDAOProtocol {
                 return nil
             }
             let activity = try JSONDecoder().decode(Activity.self, from: data)
-            activity.image = self.getImage(forKey: key)
+            if  let imageData = self.getImage(forKey: key),
+                let image = UIImage(data: imageData) {
+                activity.image = image
+            }
             
             return activity
         } catch {
@@ -87,8 +90,9 @@ class ActivityDAO: ActivityDAOProtocol {
     func save(_ activity: Activity) {
         do {
             let key = self.setKey(date: activity.date)
-            if let image = activity.image {
-                self.saveImage(image: image, forKey: key)
+            if let image = activity.image,
+               let imageData = image.pngData(){
+                self.saveImage(image: imageData, forKey: key)
             }
             
             activity.image = nil

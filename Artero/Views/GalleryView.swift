@@ -44,9 +44,8 @@ struct GalleryCardView: View {
     var body: some View {
         ZStack {
             if let activity = activity {
-                if let data = activity.image,
-                   let uiImage = UIImage(data: data) {
-                    Image(uiImage: uiImage)
+                if let image = activity.image {
+                    Image(uiImage: image)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: UIScreen.main.bounds.width - 30, height: frameSize)

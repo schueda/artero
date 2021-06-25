@@ -14,10 +14,11 @@ struct ThemeView: View {
     
     func saveActivity() {
         guard let theme = self.theme,
-              let data = self.selectedImage?.pngData() else {
+              let image = self.selectedImage
+        else {
             return;
         }
-        let activity = Activity(theme: theme, date: Date(), image: data)
+        let activity = Activity(theme: theme, date: Date(), image: image)
         activity.save(activity)
     }
     
@@ -53,8 +54,8 @@ struct ThemeView: View {
                 }
             }
             
-            if let image = activity.image, let uiImage = UIImage(data: image) {
-                Image(uiImage: uiImage)
+            if let image = activity.image {
+                Image(uiImage: image)
             }
         }
     }
