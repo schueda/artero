@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol NotificationPreferenceProtocol {
+    func save()
+}
+
 class NotificationPreference: NotificationPreferenceDAO, Codable {
     static var key = "notificationPreferences"
     var active: Bool = false;
@@ -18,5 +22,9 @@ class NotificationPreference: NotificationPreferenceDAO, Codable {
             self.active = notification.active
             self.time = notification.time ?? nil
         }
+    }
+    
+    func save() {
+        super.save(self)
     }
 }

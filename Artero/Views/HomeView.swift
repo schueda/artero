@@ -95,7 +95,7 @@ struct CardActivityView: View {
 struct CardThemeDay: View {
     var body: some View {
         NavigationLink(
-            destination: ThemeView(tema: "Amarelo"),
+            destination: ThemeView(),
             label : {
                 
                 VStack (alignment:.leading) {
@@ -157,7 +157,7 @@ struct CardThemeDay: View {
 struct CardGallery: View {
     var body: some View {
         NavigationLink(
-            destination: GalleryView(photo: "diatal"),
+            destination: GalleryView(),
             label : {
                 
                 VStack (alignment:.trailing) {

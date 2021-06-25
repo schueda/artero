@@ -6,56 +6,101 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ActivityDAOProtocol {
-    func get(date: Date) -> Activity2?
-    func get(date: String) -> Activity2?
-    func save(_ activity: Activity2)
-    func delete(_ activity: Activity2)
+    func get(key: String) -> Activity?
+    func get(date: Date) -> Activity?
+    func get(date: String) -> Activity?
+    func getAll(order: ComparisonResult?) -> [Activity]
+    func save(_ activity: Activity)
+    func delete(_ activity: Activity)
     func delete(date: Date)
     func delete(date: String)
 }
 
 class ActivityDAO: ActivityDAOProtocol {
+    private let prefix = "activity-"
     
-    func get(date: Date) -> Activity2? {
-        do {
-            print("date: \(self.setKey(date: date))")
-            guard let data = UserDefaults.standard.data(forKey: self.setKey(date: date)) else {
-                return nil
-            }
-            let activity = try JSONDecoder().decode(Activity2.self, from: data)
-            return activity
-        } catch {
-            return nil
+    private func getImagePath(forKey key: String) -> URL? {
+        let fileManager = FileManager.default
+        guard let documentURL = fileManager.urls(for: .documentDirectory,
+                                                 in: FileManager.SearchPathDomainMask.userDomainMask).first else { return nil }
+        
+        return documentURL.appendingPathComponent(key + ".png")
+    }
+    
+    private func saveImage(image: Data, forKey key: String) {
+        do  {
+            guard let imagePath = self.getImagePath(forKey: key) else { return }
+            try image.write(to: imagePath, options: .atomic)
+        } catch let err {
+            print("Saving image resulted in error: ", err)
         }
     }
     
-    func get(date: String) -> Activity2? {
-        do {
-            guard let data = UserDefaults.standard.data(forKey: self.setKey(date: date)) else {
-                return nil
-            }
-            let activity = try JSONDecoder().decode(Activity2.self, from: data)
-            return activity
-        } catch {
-            return nil
+    private func getImage(forKey key: String) -> Data? {
+        if let imagePath = self.getImagePath(forKey: key),
+           let imageData = FileManager.default.contents(atPath: imagePath.path) {
+            return imageData
         }
+        
+        return nil
     }
     
-    func save(_ activity: Activity2) {
+    func get(key: String) -> Activity? {
         do {
-            let data = try JSONEncoder().encode(activity)
-            print("saving activity")
-            print("date: \(self.setKey(date: activity.date))")
+            guard let data = UserDefaults.standard.data(forKey: key) else {
+                return nil
+            }
+            let activity = try JSONDecoder().decode(Activity.self, from: data)
+            activity.image = self.getImage(forKey: key)
             
-            UserDefaults.standard.setValue(data, forKey: self.setKey(date: activity.date))
+            return activity
+        } catch {
+            return nil
+        }
+    }
+    
+    func get(date: Date) -> Activity? {
+        return self.get(key: self.setKey(date: date))
+        
+    }
+    
+    func get(date: String) -> Activity? {
+        return self.get(key: self.setKey(date: date))
+        
+    }
+    
+    func getAll(order: ComparisonResult? = .orderedDescending) -> [Activity] {
+        var activities: [Activity] = []
+        for key in UserDefaults.standard.dictionaryRepresentation().keys {
+            if key.hasPrefix(self.prefix) {
+                if let activity = self.get(key: key) {
+                    activities.append(activity)
+                }
+            }
+        }
+        return activities.sorted(by: { $0.date.compare($1.date) == (order ?? .orderedDescending) })
+    }
+    
+    func save(_ activity: Activity) {
+        do {
+            let key = self.setKey(date: activity.date)
+            if let image = activity.image {
+                self.saveImage(image: image, forKey: key)
+            }
+            
+            activity.image = nil
+            let data = try JSONEncoder().encode(activity)
+            
+            UserDefaults.standard.setValue(data, forKey: key)
         } catch {
             print("Error saving activity \(error)")
         }
     }
     
-    func delete(_ activity: Activity2) {
+    func delete(_ activity: Activity) {
         UserDefaults.standard.removeObject(forKey: self.setKey(date: activity.date))
     }
     
@@ -69,11 +114,11 @@ class ActivityDAO: ActivityDAOProtocol {
     
     
     private func setKey(date: String) -> String {
-        return "activity-\(date)"
+        return "\(self.prefix)\(date)"
     }
     
     private func setKey(date: Date) -> String {
-        let dateStr = DateUtils.dateToString(date: date, format: "yyyy-MM-dd")
-        return "activity-\(dateStr)"
+        let dateStr = DateUtils.dateToString(date: date)
+        return "\(self.prefix)\(dateStr)"
     }
 }
