@@ -27,7 +27,7 @@ struct GalleryView: View {
             }
             .tabViewStyle(PageTabViewStyle())
             .navigationBarTitle("Sua Galeria")
-        }
+        }.background(Color("background").edgesIgnoringSafeArea(.bottom))
     }
 }
 
