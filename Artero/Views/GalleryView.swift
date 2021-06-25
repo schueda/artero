@@ -42,25 +42,79 @@ struct GalleryCardView: View {
     var frameSize: CGFloat
     
     var body: some View {
-        ZStack {
-            if let activity = activity {
-                if let image = activity.image {
-                    Image(uiImage: image)
+        NavigationLink(
+            destination: ThemeView(),
+            label : {
+                
+                VStack (alignment:.leading) {
+                    
+                    
+                    HStack {
+                        
+                        Text("Tema do dia") .textCase(.uppercase)
+                            .font(.system(size: 20, weight: .bold, design: .default))
+                            .foregroundColor(.white)
+                        
+                        Spacer()
+                        
+                        Image(systemName:"chevron.right")
+                            .font(.system(size: 18, weight: .bold, design: .default))
+                            .foregroundColor(.white)
+                        
+                    }
+                    
+                    Text("Amarelo")
+                        .font(.system(size: 28, weight: .bold, design: .default))
+                        .foregroundColor(.white)
+                    
+                    Spacer()
+                    
+                    
+                    Text("15 de junho")
+                        .font(.system(size: 13, weight: .bold, design: .default))
+                        .foregroundColor(.white)
+                    
+                }
+                .padding()
+                .frame(width: UIScreen.main.bounds.width - 30, height: frameSize)
+                
+                .background(
+                    Image("art05")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: UIScreen.main.bounds.width - 30, height: frameSize)
-                }
-                VStack {
-                    Text(activity.theme?.name ?? "")
-                        .fontWeight(.bold)
-                    if let date = activity.date {
-                        Text(DateUtils.dateToString(date: date))
-                    }
-                }
-            }
-        }
-        .frame(width: UIScreen.main.bounds.width - 30, height: frameSize)
-        .cornerRadius(25)
+                        .overlay(
+                            Rectangle()
+                                .foregroundColor(.clear)
+                                .background(
+                                    LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.5), Color.clear, Color.clear, Color.black.opacity(0.6)]), startPoint: .top, endPoint: .bottom)
+                                )
+                        )
+                )
+                
+                
+                .cornerRadius(12.0)
+                
+            })
+//        ZStack {
+//            if let activity = activity {
+//                if let image = activity.image {
+//                    Image(uiImage: image)
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fill)
+//                        .frame(width: UIScreen.main.bounds.width - 30, height: frameSize)
+//                }
+//                VStack {
+//                    Text(activity.theme?.name ?? "")
+//                        .fontWeight(.bold)
+//                    if let date = activity.date {
+//                        Text(DateUtils.dateToString(date: date))
+//                    }
+//                }
+//            }
+//        }
+//        .frame(width: UIScreen.main.bounds.width - 30, height: frameSize)
+//        .cornerRadius(25)
     }
 }
 
