@@ -19,4 +19,13 @@ struct DateUtils {
         dateFormatter.dateFormat = format ?? "yyyy-MM-dd"
         return dateFormatter.date(from: date)
     }
+    
+    static func formatToLong(date: Date, languageCode: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .none
+        
+        dateFormatter.locale = Locale(identifier: languageCode)
+        return dateFormatter.string(from: date)
+    }
 }

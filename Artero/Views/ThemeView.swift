@@ -18,7 +18,7 @@ struct ThemeView: View {
         else {
             return;
         }
-        let activity = Activity(theme: theme, date: Date(), image: image)
+        let activity = Activity(theme: theme, date: Date(timeIntervalSince1970: 21301), image: image)
         activity.save(activity)
     }
     
