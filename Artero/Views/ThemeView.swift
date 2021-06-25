@@ -8,12 +8,30 @@
 import SwiftUI
 
 struct ThemeView: View {
-    
-    var activityRepository: ActivityRepository = UsersDefaultActivityRepository()
-    
+    private var theme: Theme?
+    private var activity: Activity = Activity()
     @State private var selectedImage: UIImage?
     
-    var tema: String
+    func saveActivity() {
+        guard let theme = self.theme,
+              let data = self.selectedImage?.pngData() else {
+            return;
+        }
+        let activity = Activity(theme: theme, date: Date(), image: data)
+        activity.save(activity)
+    }
+    
+    mutating func loadDayActivity() {
+        let repository = ActivityController()
+        if let activity = repository.getTodayActivity() {
+            self.activity = activity
+        }
+    }
+    
+    init() {
+        self.theme = ThemeController().getToday()
+        self.loadDayActivity()
+    }
     
     var body: some View {
         ScrollView {
@@ -31,9 +49,20 @@ struct ThemeView: View {
                     .clipShape(Circle())
                     .frame(width: 300, height: 300)
                 Button("save") {
-                    activityRepository.save(activity: Activity(date: Date(), theme: "Religião", text: "lararararara alksdjlaksjd alskjdlaksjd alskdjalskdj", image: selectedImage))
+                    self.saveActivity()
                 }
             }
+            
+            if let image = activity.image, let uiImage = UIImage(data: image) {
+                Image(uiImage: uiImage)
+            }
         }
+    }
+}
+
+
+struct ThemeView_Previews: PreviewProvider {
+    static var previews: some View {
+        ThemeView()
     }
 }
