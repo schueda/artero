@@ -141,10 +141,7 @@ struct CardThemeDay: View {
                                 .background(
                                     LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.5), Color.clear, Color.clear, Color.black.opacity(0.6)]), startPoint: .top, endPoint: .bottom)
                                 )
-                            
-                            
                         )
-                    
                 )
                 
                 
