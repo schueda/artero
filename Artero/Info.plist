@@ -32,7 +32,7 @@
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIImageName</key>
-		<string>banana-splash</string>
+		<string>bananasvg</string>
 		<key>UIColorName</key>
 		<string>splash-background</string>
 	</dict>

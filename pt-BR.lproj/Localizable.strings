@@ -52,10 +52,14 @@
 "OnBoarding2_line3" = "na sua rotina e te";
 "OnBoarding2_line4" = "mostramos os";
 "OnBoarding2_line5" = "";
+"OnBoarding2_image1" = "arte-text";
+"OnBoarding2_image2" = "beneficios-text";
 
 //OnBoarding gambiarrento 3
 "OnBoarding3_line1" = "para você criar da";
 "OnBoarding3_line2" = "forma que preferir";
+"OnBoarding3_image1" = "temas-text";
+"OnBoarding3_image2" = "diarios-text";
 
 //OnBoarding gambiarrento 4
 "OnBoarding4_line1" = "Salve as suas";
@@ -63,6 +67,7 @@
 "OnBoarding4_line3" = "para";
 "OnBoarding4_line4" = "revisitá-las";
 "OnBoarding4_line5" = "quando quiser";
+"OnBoarding4_image1" = "galeria-text";
 
 
 
