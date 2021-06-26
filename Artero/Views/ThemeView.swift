@@ -19,10 +19,11 @@ struct ThemeView: View {
     
     func saveActivity() {
         guard let theme = self.theme,
-              let data = self.selectedImage?.pngData() else {
+              let image = self.selectedImage
+        else {
             return;
         }
-        let activity = Activity(theme: theme, date: Date(), image: data)
+        let activity = Activity(theme: theme, date: Date(timeIntervalSince1970: 21301), image: image)
         activity.save(activity)
     }
     

@@ -15,6 +15,7 @@ struct HomeView: View {
                     .padding(.top, 25)
                 CardActivityView()
                 CardGallery()
+                    .padding(.bottom, 25)
             }
         }
         .padding(.horizontal)

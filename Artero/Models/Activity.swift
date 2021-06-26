@@ -6,20 +6,25 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ActivityProtocol {
     func save()
 }
 
 class Activity: ActivityDAO, ActivityProtocol, Codable {
+    enum CodingKeys: CodingKey {
+        case id, theme, date
+    }
+    
     var id = UUID()
     var theme: Theme?
     var date: Date = Date()
-    var image: Data?
+    var image: UIImage?
     
     override init() { }
     
-    internal init(theme: Theme, date: Date, image: Data) {
+    internal init(theme: Theme, date: Date, image: UIImage) {
         self.theme = theme
         self.date = date
         self.image = image

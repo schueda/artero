@@ -52,10 +52,14 @@
 "OnBoarding2_line3" = "into your";
 "OnBoarding2_line4" = "routine and we";
 "OnBoarding2_line5" = "show you the";
+"OnBoarding2_image1" = "art-text";
+"OnBoarding2_image2" = "benefits-text";
 
 //OnBoarding gambiarrento 3
 "OnBoarding3_line1" = "for you create as";
 "OnBoarding3_line2" = "you wish";
+"OnBoarding3_image1" = "daily-text";
+"OnBoarding3_image2" = "themes-text";
 
 //OnBoarding gambiarrento 4
 "OnBoarding4_line1" = "Save your";
@@ -63,6 +67,7 @@
 "OnBoarding4_line3" = "to revisit";
 "OnBoarding4_line4" = "whenever";
 "OnBoarding4_line5" = "you want";
+"OnBoarding4_image1" = "galery-text";
 
 
 
