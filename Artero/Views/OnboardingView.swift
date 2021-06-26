@@ -21,10 +21,9 @@ struct OnboardingView: View {
                             OnBoardingScreen4()
                         }
                         .frame(width: g.size.width, height: g.size.height + yExtension)
-                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
+                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
                         .font(Font.title.bold())
                         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-                        
                     }
                     .offset(y: -yExtension)
                     .edgesIgnoringSafeArea(.all)
@@ -37,7 +36,7 @@ struct OnboardingView: View {
 struct OnBoardingView_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingView()
-            .preferredColorScheme(.light)
+            .preferredColorScheme(.dark)
     }
 }
 
@@ -109,13 +108,14 @@ struct OnBoardingScreen4: View {
                         Text(NSLocalizedString("OnBoarding4_line1", comment:""))
                         Text(NSLocalizedString("OnBoarding4_line2", comment:""))
                         Image(NSLocalizedString("OnBoarding4_image1", comment: ""))
+                            .padding(.trailing, 20)
                         Text(NSLocalizedString("OnBoarding4_line3", comment:""))
                         Text(NSLocalizedString("OnBoarding4_line4", comment:""))
                         Text(NSLocalizedString("OnBoarding4_line5", comment:""))
                     }
                     .padding(.bottom, 120)
-                    .padding(.trailing, 4)
-                    .font(.system(size: 28, weight: .heavy, design: .default))
+                    .padding(.trailing, 20)
+                    .font(.system(size: 32, weight: .heavy, design: .default))
                     .foregroundColor(.black)
                 }
     }

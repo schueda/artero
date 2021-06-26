@@ -31,8 +31,10 @@
 	<true/>
 	<key>UILaunchScreen</key>
 	<dict>
+		<key>UIColorName</key>
+		<string>splash-background</string>
 		<key>UIImageName</key>
-		<string>splash-inteira</string>
+		<string>splash-image</string>
 	</dict>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
