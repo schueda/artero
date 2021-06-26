@@ -209,12 +209,12 @@
 			};
 			buildConfigurationList = 6158CE002678CBEC00CAF0DA /* Build configuration list for PBXProject "Artero" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = en;
+			developmentRegion = pt-BR;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 				"pt-BR",
+				Base,
 			);
 			mainGroup = 6158CDFC2678CBEC00CAF0DA;
 			productRefGroup = 6158CE062678CBEC00CAF0DA /* Products */;

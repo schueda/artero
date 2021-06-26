@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "splash-1.png",
       "idiom" : "universal"
     },
     {
@@ -10,7 +11,6 @@
           "value" : "light"
         }
       ],
-      "filename" : "Group 64.svg",
       "idiom" : "universal"
     },
     {
@@ -20,7 +20,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "Group 67.svg",
+      "filename" : "splash.png",
       "idiom" : "universal"
     }
   ],
@@ -29,6 +29,7 @@
     "version" : 1
   },
   "properties" : {
+    "auto-scaling" : "auto",
     "preserves-vector-representation" : true,
     "template-rendering-intent" : "original"
   }

@@ -32,9 +32,7 @@
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIImageName</key>
-		<string>bananasvg</string>
-		<key>UIColorName</key>
-		<string>splash-background</string>
+		<string>splash-inteira</string>
 	</dict>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

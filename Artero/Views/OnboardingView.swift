@@ -52,8 +52,9 @@ struct OnBoardingScreen1: View {
                 Text(NSLocalizedString("OnBoarding1_line1", comment:""))
                 Text(NSLocalizedString("OnBoarding1_line2", comment:""))
                 Text(NSLocalizedString("OnBoarding1_line3", comment:""))
-            }
-            .font(.system(size: 28, weight: .bold, design: .default))
+            }.padding(.bottom, 150)
+            .padding(.leading)
+            .font(.system(size: 48, weight: .heavy, design: .default))
             .foregroundColor(.black)
         }
         
@@ -69,13 +70,14 @@ struct OnBoardingScreen2: View {
                         Text(NSLocalizedString("OnBoarding2_line1", comment:""))
                         Text(NSLocalizedString("OnBoarding2_line2", comment:""))
                         Image(NSLocalizedString("OnBoarding2_image1", comment:""))
+                            .padding()
                         Text(NSLocalizedString("OnBoarding2_line3", comment:""))
                         Text(NSLocalizedString("OnBoarding2_line4", comment:""))
                         Text(NSLocalizedString("OnBoarding2_line5", comment:""))
                         Image(NSLocalizedString("OnBoarding2_image2", comment:""))
                         
                     }
-                    .font(.system(size: 28, weight: .bold, design: .default))
+                    .font(.system(size: 28, weight: .heavy, design: .default))
                     .foregroundColor(.black)
                 }
     }
@@ -92,7 +94,7 @@ struct OnBoardingScreen3: View {
                         Text(NSLocalizedString("OnBoarding3_line1", comment:""))
                         Text(NSLocalizedString("OnBoarding3_line2", comment:""))
                     }
-                    .font(.system(size: 28, weight: .bold, design: .default))
+                    .font(.system(size: 28, weight: .heavy, design: .default))
                     .foregroundColor(.black)
                 }
     }
@@ -111,7 +113,9 @@ struct OnBoardingScreen4: View {
                         Text(NSLocalizedString("OnBoarding4_line4", comment:""))
                         Text(NSLocalizedString("OnBoarding4_line5", comment:""))
                     }
-                    .font(.system(size: 28, weight: .bold, design: .default))
+                    .padding(.bottom, 120)
+                    .padding(.trailing, 4)
+                    .font(.system(size: 28, weight: .heavy, design: .default))
                     .foregroundColor(.black)
                 }
     }
