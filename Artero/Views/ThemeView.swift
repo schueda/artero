@@ -8,13 +8,34 @@
 import SwiftUI
 
 struct ThemeView: View {
+
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
+    private var theme: Theme?
+    private var activity: Activity = Activity()
     
-    var activityRepository: ActivityRepository = UsersDefaultActivityRepository()
+    func saveActivity() {
+        guard let theme = self.theme,
+              let data = self.selectedImage?.pngData() else {
+            return;
+        }
+        let activity = Activity(theme: theme, date: Date(), image: data)
+        activity.save(activity)
+    }
     
-    var tema: String
+
+    mutating func loadDayActivity() {
+        let repository = ActivityController()
+        if let activity = repository.getTodayActivity() {
+            self.activity = activity
+        }
+    }
+    
+    init() {
+        self.theme = ThemeController().getToday()
+        self.loadDayActivity()
+    }
     
     var body: some View {
         ZStack {
@@ -66,8 +87,9 @@ struct ThemeView: View {
     }
 }
 
+
 struct ThemeView_Previews: PreviewProvider {
     static var previews: some View {
-        ThemeView(tema: "telinha")
+        ThemeView()
     }
 }
