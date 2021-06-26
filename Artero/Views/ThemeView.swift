@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ThemeView: View {
-
+    
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
+    
     private var theme: Theme?
     private var activity: Activity = Activity()
     
@@ -24,7 +26,7 @@ struct ThemeView: View {
         activity.save(activity)
     }
     
-
+    
     mutating func loadDayActivity() {
         let repository = ActivityController()
         if let activity = repository.getTodayActivity() {
@@ -40,10 +42,78 @@ struct ThemeView: View {
     var body: some View {
         ZStack {
             ScrollView {
-                Image("art05")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 420)
+                if let inspiration = theme?.inspiration {
+                    ZStack {
+                        Rectangle()
+                            .foregroundColor(.gray)
+                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.5)
+                        
+                        Image(inspiration.image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.5)
+                            .clipped()
+                            .overlay(
+                                Rectangle()
+                                    .foregroundColor(.clear)
+                                    .background(
+                                        LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.5), Color.clear, Color.clear, Color.black.opacity(0.6)]), startPoint: .top, endPoint: .bottom)
+                                    )
+                            )
+                        
+                        VStack(alignment: .leading) {
+                            Spacer()
+                            HStack(alignment: .bottom) {
+                                VStack(alignment: .leading) {
+                                    Text(NSLocalizedString("daily_theme", comment: ""))
+                                        .textCase(.uppercase)
+                                        .font(.system(size: 12, weight: .bold, design: .default))
+                                    Text(theme?.name ?? "")
+                                        .font(.system(size: 28, weight: .bold, design: .default))
+                                }
+                                .padding(.bottom, 12)
+                                
+                                Spacer()
+                                
+                                Text("\(inspiration.name) | \(inspiration.year)")
+                                    .font(.system(size: 13, weight: .bold, design: .default))
+                                    .padding(.bottom)
+                            }
+                            .padding(.horizontal)
+                        }
+                        .foregroundColor(.white)
+                    }
+                }
+                
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text(NSLocalizedString("activity_of_today", comment: ""))
+                            .font(.system(size: 20, weight: .bold, design: .default))
+                            .padding(.top, 10)
+                        Spacer()
+                    }
+                    
+                    Text(theme?.description ?? "")
+                        .font(.system(size: 17))
+                        .padding(.top, 1)
+                        .foregroundColor(.gray)
+                    
+                    Text(NSLocalizedString("benefits", comment: ""))
+                        .font(.system(size: 20, weight: .bold, design: .default))
+                        .padding(.top, 10)
+                        .padding(.bottom, 5)
+                    
+                    if let benefits = theme?.benefits {
+                        ForEach(benefits, id: \.self) { benefit in
+                            Text("• \(benefit)")
+                                .padding(.leading, 10)
+                                .foregroundColor(.gray)
+                        }
+                    }
+                    Text("")
+                        .frame(height: 100)
+                    
+                }.padding()
             }
             VStack {
                 Spacer()
@@ -78,9 +148,10 @@ struct ThemeView: View {
                     .cornerRadius(10.0)
                 })
                 .padding(.horizontal)
-                .padding(.bottom, 50)
+                .padding(.bottom, UIScreen.main.bounds.height * 0.05)
             }
-        }.ignoresSafeArea()
+        }
+        .ignoresSafeArea()
         .sheet(isPresented: self.$isImagePickerDisplay) {
             ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.$sourceType)
         }

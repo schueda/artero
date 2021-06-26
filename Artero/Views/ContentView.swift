@@ -17,21 +17,13 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-
-            
             ScrollView {
-                
                 VStack {
                     HomeView()
-                    
                 }
-                
             }
-
             .background(Color("background").edgesIgnoringSafeArea(.bottom))
-
         }
-        
     }
     
 }

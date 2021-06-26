@@ -8,7 +8,7 @@
 "activity_button" = "activity screen button";
 
 //Home Screen
-"daily_theme" = "Theme of the day";
+"daily_theme" = "Today's Theme";
 "good_morning" = "Good morning!";
 "good_afternoom" = "Good afternoom!";
 "good_night" = "Good bight!";
@@ -33,8 +33,8 @@
 
 //Theme of the day Screen
 "theme" = "Theme";
-"activity_of_today" = "Activity of the day";
-"beneficts" = "Beneficts";
+"activity_of_today" = "Today's activity";
+"benefits" = "Benefits";
 //button insert media - Theme of the day Screen
 "button_media" = "Add media";
 "button_take_a_picture" = "Take photo or video";
