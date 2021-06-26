@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ThemeView: View {
+    
+    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @State private var selectedImage: UIImage?
+    @State private var isImagePickerDisplay = false
+    
     private var theme: Theme?
     private var activity: Activity = Activity()
-    @State private var selectedImage: UIImage?
     
     func saveActivity() {
         guard let theme = self.theme,
@@ -21,6 +26,7 @@ struct ThemeView: View {
         let activity = Activity(theme: theme, date: Date(timeIntervalSince1970: 21301), image: image)
         activity.save(activity)
     }
+    
     
     mutating func loadDayActivity() {
         let repository = ActivityController()
@@ -35,28 +41,120 @@ struct ThemeView: View {
     }
     
     var body: some View {
-        ScrollView {
-            NavigationLink(
-                destination: ImagePickerView(selectedImage: $selectedImage, sourceType: .photoLibrary),
-                label : {
-                    Text("gallery!")
-                        .padding()
-                })
-            
-            if selectedImage != nil {
-                Image(uiImage: selectedImage!)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .clipShape(Circle())
-                    .frame(width: 300, height: 300)
-                Button("save") {
-                    self.saveActivity()
+        ZStack {
+            ScrollView {
+                if let inspiration = theme?.inspiration {
+                    ZStack {
+                        Rectangle()
+                            .foregroundColor(.gray)
+                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.5)
+                        
+                        Image(inspiration.image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.5)
+                            .clipped()
+                            .overlay(
+                                Rectangle()
+                                    .foregroundColor(.clear)
+                                    .background(
+                                        LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.5), Color.clear, Color.clear, Color.black.opacity(0.6)]), startPoint: .top, endPoint: .bottom)
+                                    )
+                            )
+                        
+                        VStack(alignment: .leading) {
+                            Spacer()
+                            HStack(alignment: .bottom) {
+                                VStack(alignment: .leading) {
+                                    Text(NSLocalizedString("daily_theme", comment: ""))
+                                        .textCase(.uppercase)
+                                        .font(.system(size: 12, weight: .bold, design: .default))
+                                    Text(theme?.name ?? "")
+                                        .font(.system(size: 28, weight: .bold, design: .default))
+                                }
+                                .padding(.bottom, 12)
+                                
+                                Spacer()
+                                
+                                Text("\(inspiration.name) | \(inspiration.year)")
+                                    .font(.system(size: 13, weight: .bold, design: .default))
+                                    .padding(.bottom)
+                            }
+                            .padding(.horizontal)
+                        }
+                        .foregroundColor(.white)
+                    }
                 }
+                
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text(NSLocalizedString("activity_of_today", comment: ""))
+                            .font(.system(size: 20, weight: .bold, design: .default))
+                            .padding(.top, 10)
+                        Spacer()
+                    }
+                    
+                    Text(theme?.description ?? "")
+                        .font(.system(size: 17))
+                        .padding(.top, 1)
+                        .foregroundColor(.gray)
+                    
+                    Text(NSLocalizedString("benefits", comment: ""))
+                        .font(.system(size: 20, weight: .bold, design: .default))
+                        .padding(.top, 10)
+                        .padding(.bottom, 5)
+                    
+                    if let benefits = theme?.benefits {
+                        ForEach(benefits, id: \.self) { benefit in
+                            Text("• \(benefit)")
+                                .padding(.leading, 10)
+                                .foregroundColor(.gray)
+                        }
+                    }
+                    Text("")
+                        .frame(height: 100)
+                    
+                }.padding()
             }
-            
-            if let image = activity.image {
-                Image(uiImage: image)
+            VStack {
+                Spacer()
+                Menu(content: {
+                    Button(action: {
+                        self.sourceType = .camera
+                        self.isImagePickerDisplay.toggle()
+                    }, label: {
+                        HStack {
+                            Image(systemName: "camera")
+                            Text("Tirar foto")
+                        }
+                    })
+                    Button(action: {
+                        self.sourceType = .photoLibrary
+                        self.isImagePickerDisplay.toggle()
+                    }, label: {
+                        HStack {
+                            Image(systemName: "photo.on.rectangle.angled")
+                            Text("Escolher foto ou vídeo")
+                        }
+                    })
+                }, label: {
+                    HStack {
+                        Image(systemName: "camera")
+                        Text("Adicionar mídia")
+                    }
+                    .frame(maxWidth: .infinity, minHeight: 50)
+                    .font(.system(size: 17, weight: .semibold, design: .default))
+                    .foregroundColor(.white)
+                    .background(Color(.link))
+                    .cornerRadius(10.0)
+                })
+                .padding(.horizontal)
+                .padding(.bottom, UIScreen.main.bounds.height * 0.05)
             }
+        }
+        .ignoresSafeArea()
+        .sheet(isPresented: self.$isImagePickerDisplay) {
+            ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.$sourceType)
         }
     }
 }

@@ -16,19 +16,14 @@ struct ContentView: View {
     private var notificationPreference: NotificationPreference = NotificationPreference()
     
     var body: some View {
-//        NavigationView {
-//            ScrollView {
-//
-//                VStack {
-//                    HomeView()
-//
-//                }
-//
-//            }
-//            .background(Color("background").edgesIgnoringSafeArea(.bottom))
-//
-//        }
-        OnboardingView()
+        NavigationView {
+            ScrollView {
+                VStack {
+                    HomeView()
+                }
+            }
+            .background(Color("background").edgesIgnoringSafeArea(.bottom))
+        }
     }
     
 }
