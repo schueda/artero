@@ -10,7 +10,7 @@ import SwiftUI
 struct GalleryView: View {
     @State var appearingCardIndex = 0
     
-    var activities: [Activity] = []
+    @State var activities: [Activity] = []
     
     init() {
         self.activities = ActivityController().getAll()

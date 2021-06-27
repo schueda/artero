@@ -9,33 +9,21 @@ import SwiftUI
 
 struct SingleActivityView: View {
     let activity: Activity?
+    
     @State var isDeleted = false
+    @State var showingAlert = false
     
     var body: some View {
-        if !isDeleted {
-            ScrollView {
-                if let activity = activity {
-                    SingleActivityHeaderView(activity: activity)
-                    if let theme = activity.theme {
-                        ThemeTextView(theme: theme)
-                    }
+        ScrollView {
+            if let activity = activity {
+                SingleActivityHeaderView(activity: activity)
+                if let theme = activity.theme {
+                    ThemeTextView(theme: theme, date: activity.date)
                 }
-                
+                DeleteButton(activity: activity)
             }
-            .toolbar {
-                ToolbarItemGroup(placement: .bottomBar) {
-                    Spacer()
-                    Button(action: {
-                        self.isDeleted = true
-                    }, label: {
-                        Image(uiImage: UIImage(systemName: "trash")!)
-                    })
-                }
-            }
-            .ignoresSafeArea()
-        } else {
-            GalleryView()
         }
+        .ignoresSafeArea()
     }
 }
 
@@ -78,6 +66,37 @@ struct SingleActivityHeaderView: View {
                 .padding(.horizontal)
             }
             .foregroundColor(.white)
+        }
+    }
+}
+
+struct DeleteButton: View {
+    @Environment(\.presentationMode) var presentationMode
+    
+    let activity: Activity
+    @State var showingAlert = false
+    
+    var body: some View {
+        Button(action: {
+            showingAlert.toggle()
+        }, label: {
+            HStack {
+                Image(systemName: "trash")
+                Text("Deletar atividade")
+            }
+            .frame(maxWidth: .infinity, minHeight: 50)
+            .font(.system(size: 17, weight: .semibold, design: .default))
+            .foregroundColor(.white)
+            .background(Color(.red))
+            .cornerRadius(10.0)
+            .padding(.horizontal)
+            .padding(.bottom, 50)
+        })
+        .alert(isPresented: $showingAlert) { () -> Alert in
+            Alert(title: Text("Deletar atividade"), message: Text("Deseja deletar a atividade?"), primaryButton: .default(Text("Deletar"), action: {
+                ActivityDAO().delete(activity)
+                self.presentationMode.wrappedValue.dismiss()
+            }), secondaryButton: .default(Text("Cancelar")))
         }
     }
 }
