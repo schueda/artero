@@ -49,7 +49,11 @@ struct ThemeView: View {
                 }
                 
             }
-            CameraButtonView(sourceType: $sourceType, isImagePickerDisplay: $isImagePickerDisplay)
+            if selectedImage != nil {
+                ConfirmButtonView(selectedImage: $selectedImage)
+            } else {
+                CameraButtonView(sourceType: $sourceType, isImagePickerDisplay: $isImagePickerDisplay)
+            }
         }
         .ignoresSafeArea()
         .sheet(isPresented: self.$isImagePickerDisplay) {
@@ -96,6 +100,65 @@ struct CameraButtonView: View {
                 HStack {
                     Image(systemName: "camera")
                     Text("Adicionar mídia")
+                }
+                .frame(maxWidth: .infinity, minHeight: 50)
+                .font(.system(size: 17, weight: .semibold, design: .default))
+                .foregroundColor(.white)
+                .background(Color(.link))
+                .cornerRadius(10.0)
+            })
+            .padding(.horizontal)
+            .padding(.bottom, UIScreen.main.bounds.height * 0.05)
+        }
+    }
+}
+
+struct ConfirmButtonView: View {
+    
+    @Binding var selectedImage: UIImage?
+    
+    var body: some View {
+        VStack {
+            Spacer()
+            Menu(content: {
+                Button(action: {
+                    selectedImage = nil
+                }, label: {
+                    HStack {
+                        Image(systemName: "xmark.circle.fill")
+                        Text("Cancelar")
+                    }
+                })
+                Button(action: {
+                    
+                }, label: {
+                    HStack {
+                        Image(systemName: "checkmark.circle.fill")
+                        Text("Confirmar")
+                    }
+                })
+            }, label: {
+                HStack {
+                    Text("")
+                        .frame(width: 36, height: 36)
+                        .padding(.leading)
+                    Spacer()
+                    Text("Confirmar")
+                    Spacer()
+                    if selectedImage != nil {
+                        Image(uiImage: selectedImage!)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 36, height: 36)
+                            .cornerRadius(4)
+                            .clipped()
+                            .padding(.trailing)
+                    } else {
+                        Text("")
+                            .frame(width: 36, height: 36)
+                            .padding(.trailing)
+                    }
+                    
                 }
                 .frame(maxWidth: .infinity, minHeight: 50)
                 .font(.system(size: 17, weight: .semibold, design: .default))
