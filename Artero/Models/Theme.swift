@@ -16,6 +16,6 @@ struct Theme: Codable {
     var inspiration: Inspiration;
     
     static var themes: [Theme] = [
-        Theme(name: "Amarelo", description: "Explore o amarelo no seu dia! Hoje temos a sugestão você dancar bem feliz uma música que te lembre amarelo", benefits: ["A danca é muito massa uhu", "Estimula seu corpo lalala" , "Estimula seu corpo" , "Estimula seu corpo lalala" , "Estimula seu corpo" , "A danca é muito massa uhu", "Estimula seu corpo lalala" , "Estimula seu corpo" , "Estimula seu corpo lalala" , "Estimula seu corpo" , "Estimula seu corpo lalala" , "Estimula seu corpo" , "Estimula seu corpo lalala"], date: Date(), inspiration: Inspiration(image: "art05", name: "Sunflowers", year: "1889"))
+        Theme(name: "Amarelo", description: "Explore o amarelo no seu dia! Hoje temos a sugestão você dancar bem feliz uma música que te lembre amarelo", benefits: ["A danca é muito massa uhu", "Estimula seu corpo lalala" , "Estimula seu corpo" , "Estimula seu corpo lalala" , "Estimula seu corpo" , "A danca é muito massa uhu", "Estimula seu corpo lalala" , "Estimula seu corpo" , "Estimula seu corpo lalala" , "Estimula seu corpo" , "Estimula seu corpo lalala" , "Estimula seu corpo" , "Estimula seu corpo lalala"], date: Date(), inspiration: Inspiration(image: "art13", name: "Sunflowers", year: "1889"))
     ];
 }

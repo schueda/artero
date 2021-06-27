@@ -27,7 +27,7 @@
 
 
 //Activity Screen
-"Acitivy" = "Atividade";
+"activy" = "Atividade";
 "current_sequence" = "Sequência Atual";
 "longest_sequence" = "Maior sequência";
 "days" = "dias";
