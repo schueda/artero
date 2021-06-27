@@ -56,11 +56,11 @@ struct ThemeView: View {
     }
 }
 
-struct ThemeView_Previews: PreviewProvider {
-    static var previews: some View {
-        ThemeView()
-    }
-}
+//struct ThemeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ThemeView()
+//    }
+//}
 
 struct CameraButtonView: View {
     @Binding var sourceType: UIImagePickerController.SourceType
@@ -114,7 +114,7 @@ struct FakeButtonView: View {
                 
             }, label: {
                 HStack {
-                    Text("Arte de hoje enviada")
+                    Text("Arte enviada")
                 }
                 .frame(maxWidth: .infinity, minHeight: 50)
                 .font(.system(size: 17, weight: .semibold, design: .default))
