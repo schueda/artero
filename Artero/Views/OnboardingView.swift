@@ -107,8 +107,10 @@ struct OnBoardingScreen4: View {
                     VStack(alignment: .leading){
                         Text(NSLocalizedString("OnBoarding4_line1", comment:""))
                         Text(NSLocalizedString("OnBoarding4_line2", comment:""))
-                        Image(NSLocalizedString("OnBoarding4_image1", comment: ""))
-                            .padding(.trailing, 20)
+                        VStack{
+                            Image(NSLocalizedString("OnBoarding4_image1", comment: ""))
+                                .padding(.trailing, 30)
+                        }
                         Text(NSLocalizedString("OnBoarding4_line3", comment:""))
                         Text(NSLocalizedString("OnBoarding4_line4", comment:""))
                         Text(NSLocalizedString("OnBoarding4_line5", comment:""))
