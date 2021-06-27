@@ -14,6 +14,7 @@ struct GalleryView: View {
     
     init() {
         self.activities = ActivityController().getAll()
+        print(activities)
     }
     
     var body: some View {

@@ -49,6 +49,9 @@ struct ThemeView: View {
                 }
                 
             }
+            Button("save") {
+                self.saveActivity()
+            }
             CameraButtonView(sourceType: $sourceType, isImagePickerDisplay: $isImagePickerDisplay)
         }
         .ignoresSafeArea()
