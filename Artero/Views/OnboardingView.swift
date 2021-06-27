@@ -10,7 +10,7 @@ import SwiftUI
 
 struct OnboardingView: View {
     @State private var currentTab = 0
-
+    
         var body: some View {
             let yExtension: CGFloat = 50
                     GeometryReader { g in
@@ -19,12 +19,12 @@ struct OnboardingView: View {
                             OnBoardingScreen2()
                             OnBoardingScreen3()
                             OnBoardingScreen4()
+                            
                         }
                         .frame(width: g.size.width, height: g.size.height + yExtension)
-                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
+                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
                         .font(Font.title.bold())
                         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-                        
                     }
                     .offset(y: -yExtension)
                     .edgesIgnoringSafeArea(.all)
@@ -37,7 +37,7 @@ struct OnboardingView: View {
 struct OnBoardingView_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingView()
-            .preferredColorScheme(.light)
+            .preferredColorScheme(.dark)
     }
 }
 
@@ -105,18 +105,40 @@ struct OnBoardingScreen4: View {
                     Image("onboarding4")
                         .resizable()
                         .scaledToFill()
-                    VStack(alignment: .leading){
-                        Text(NSLocalizedString("OnBoarding4_line1", comment:""))
-                        Text(NSLocalizedString("OnBoarding4_line2", comment:""))
+            VStack(){
+                VStack(alignment: .leading){
+                    Text(NSLocalizedString("OnBoarding4_line1", comment:""))
+                    Text(NSLocalizedString("OnBoarding4_line2", comment:""))
+                    VStack{
                         Image(NSLocalizedString("OnBoarding4_image1", comment: ""))
-                        Text(NSLocalizedString("OnBoarding4_line3", comment:""))
-                        Text(NSLocalizedString("OnBoarding4_line4", comment:""))
-                        Text(NSLocalizedString("OnBoarding4_line5", comment:""))
+                            .padding(.trailing, 30)
                     }
-                    .padding(.bottom, 120)
-                    .padding(.trailing, 4)
-                    .font(.system(size: 28, weight: .heavy, design: .default))
-                    .foregroundColor(.black)
-                }
+                    Text(NSLocalizedString("OnBoarding4_line3", comment:""))
+                    Text(NSLocalizedString("OnBoarding4_line4", comment:""))
+                    Text(NSLocalizedString("OnBoarding4_line5", comment:""))
+                    
+                    }
+                .padding(.top, 80)
+                .padding(.bottom, 110)
+                .padding(.trailing, 20)
+                .font(.system(size: 32, weight: .heavy, design: .default))
+                .foregroundColor(.black)
+                
+
+                NavigationLink(
+                    destination: HomeView(),
+                    label : {
+                        Text(NSLocalizedString("button_text", comment: ""))
+                            .frame(width: 310, height: 54, alignment: .center)
+                            .background(Color.white)
+                            .foregroundColor(.black)
+                            .font(.system(size: 20, weight: .semibold, design: .default))
+                            .cornerRadius(10)
+                            .shadow(color: Color("shadow"),radius: 5)
+                    })
+            }
+            
+            
+            }
     }
 }
