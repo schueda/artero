@@ -8,7 +8,7 @@
 "activity_button" = "activity screen button";
 
 //Home Screen
-"daily_theme" = "Theme of the day";
+"daily_theme" = "Today's Theme";
 "good_morning" = "Good morning!";
 "good_afternoom" = "Good afternoom!";
 "good_night" = "Good bight!";
@@ -21,9 +21,13 @@
 //Gallery Screen
 "gallery" = "Your gallery";
 
+//Single activity screen
+"theme_was" = "The theme was";
+"activity_from" = "Activity from";
+
 
 //Activity Screen
-"Acitivy" = "Activity";
+"activy" = "Activity";
 "current_sequence" = "Current sequence";
 "longest_sequence" = "Longest sequence";
 "days" = "days";
@@ -33,8 +37,8 @@
 
 //Theme of the day Screen
 "theme" = "Theme";
-"activity_of_today" = "Activity of the day";
-"beneficts" = "Beneficts";
+"activity_of_today" = "Today's activity";
+"benefits" = "Benefits";
 //button insert media - Theme of the day Screen
 "button_media" = "Add media";
 "button_take_a_picture" = "Take photo or video";
@@ -52,10 +56,14 @@
 "OnBoarding2_line3" = "into your";
 "OnBoarding2_line4" = "routine and we";
 "OnBoarding2_line5" = "show you the";
+"OnBoarding2_image1" = "art-text";
+"OnBoarding2_image2" = "benefits-text";
 
 //OnBoarding gambiarrento 3
 "OnBoarding3_line1" = "for you create as";
 "OnBoarding3_line2" = "you wish";
+"OnBoarding3_image1" = "daily-text";
+"OnBoarding3_image2" = "themes-text";
 
 //OnBoarding gambiarrento 4
 "OnBoarding4_line1" = "Save your";
@@ -63,6 +71,7 @@
 "OnBoarding4_line3" = "to revisit";
 "OnBoarding4_line4" = "whenever";
 "OnBoarding4_line5" = "you want";
+"OnBoarding4_image1" = "galery-text";
 
 
 

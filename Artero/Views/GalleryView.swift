@@ -8,32 +8,30 @@
 import SwiftUI
 
 struct GalleryView: View {
-    @State var count: CGFloat = 0
-    @State var screen = UIScreen.main.bounds.width - 30
     @State var appearingCardIndex = 0
-    var spacing: CGFloat = 15
-    var activities: [Activity] = []
     
-    fileprivate func getMiddle() -> Int {
-        activities.count / 2
-    }
+    var activities: [Activity] = []
     
     init() {
         self.activities = ActivityController().getAll()
     }
     
     var body: some View {
-        GeometryReader { geometry in
             TabView(selection: self.$appearingCardIndex) {
-                ForEach(Array(activities.enumerated()), id: \.offset) { index, activity in
-                    GalleryCardView(activity: activity, frameSize: self.appearingCardIndex == index ? geometry.size.height - geometry.size.height/5 : geometry.size.height - geometry.size.height/3)
-                        .tag(activity.id)
+                if activities.count > 0 {
+                    ForEach(Array(activities.enumerated()), id: \.offset) { index, activity in
+                        GalleryCardView(activity: activity, frameSize: self.appearingCardIndex == index ? UIScreen.main.bounds.height * 0.65 : UIScreen.main.bounds.height * 0.5)
+                            .tag(activity.id)
+                    }
+                    .animation(.easeOut)
+                } else {
+                    PlaceholderView()
+                        .tag(UUID())
                 }
-                .animation(.easeOut)
             }
             .tabViewStyle(PageTabViewStyle())
-            .navigationBarTitle("Sua Galeria")
-        }
+            .navigationBarTitle(NSLocalizedString("gallery", comment: ""))
+            .background(Color("background").edgesIgnoringSafeArea(.bottom))
     }
 }
 
@@ -42,26 +40,67 @@ struct GalleryCardView: View {
     var frameSize: CGFloat
     
     var body: some View {
-        ZStack {
-            if let activity = activity {
-                if let data = activity.image,
-                   let uiImage = UIImage(data: data) {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
+        NavigationLink(
+            destination: SingleActivityView(activity: activity),
+            label : {
+                if let activity = activity {
+                    if let image = activity.image {
+                        VStack (alignment:.leading) {
+                            
+                            Spacer()
+                            HStack {
+                                
+                                Text(activity.theme?.name ?? "")
+                                    .textCase(.uppercase)
+                                    .font(.system(size: 32, weight: .bold, design: .default))
+                                    .foregroundColor(.white)
+                                
+                                Spacer()
+                            }
+                            HStack {
+                                
+                                Text(DateUtils.formatToLong(date: activity.date, languageCode: Locale.current.languageCode == "pt" ? "pt" : "en"))
+                                    .font(.system(size: 18, weight: .regular, design: .default))
+                                    .foregroundColor(.white)
+                                
+                                Spacer()
+                            }
+                            .padding(.bottom, 10)
+                            
+                        }
+                        .padding()
                         .frame(width: UIScreen.main.bounds.width - 30, height: frameSize)
-                }
-                VStack {
-                    Text(activity.theme?.name ?? "")
-                        .fontWeight(.bold)
-                    if let date = activity.date {
-                        Text(DateUtils.dateToString(date: date))
+                        
+                        .background(
+                            Image(uiImage: image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: UIScreen.main.bounds.width - 30, height: frameSize)
+                                .overlay(
+                                    Rectangle()
+                                        .foregroundColor(.clear)
+                                        .background(
+                                            LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.5), Color.clear, Color.clear, Color.black.opacity(0.6)]), startPoint: .top, endPoint: .bottom)
+                                        )
+                                )
+                        )
+                        .cornerRadius(12.0)
                     }
                 }
             }
-        }
-        .frame(width: UIScreen.main.bounds.width - 30, height: frameSize)
-        .cornerRadius(25)
+        )
+    }
+}
+
+struct PlaceholderView: View {
+    var languageCode = Locale.current.languageCode == "pt" ? "pt" : "en"
+    
+    var body: some View {
+            Image(uiImage: UIImage(named: "GalleryPlaceholder\(languageCode)")!)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height * 0.65)
+                .cornerRadius(12.0)
     }
 }
 
