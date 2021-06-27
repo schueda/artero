@@ -104,21 +104,39 @@ struct OnBoardingScreen4: View {
                     Image("onboarding4")
                         .resizable()
                         .scaledToFill()
-                    VStack(alignment: .leading){
-                        Text(NSLocalizedString("OnBoarding4_line1", comment:""))
-                        Text(NSLocalizedString("OnBoarding4_line2", comment:""))
-                        VStack{
-                            Image(NSLocalizedString("OnBoarding4_image1", comment: ""))
-                                .padding(.trailing, 30)
-                        }
-                        Text(NSLocalizedString("OnBoarding4_line3", comment:""))
-                        Text(NSLocalizedString("OnBoarding4_line4", comment:""))
-                        Text(NSLocalizedString("OnBoarding4_line5", comment:""))
+            VStack(){
+                VStack(alignment: .leading){
+                    Text(NSLocalizedString("OnBoarding4_line1", comment:""))
+                    Text(NSLocalizedString("OnBoarding4_line2", comment:""))
+                    VStack{
+                        Image(NSLocalizedString("OnBoarding4_image1", comment: ""))
+                            .padding(.trailing, 30)
                     }
-                    .padding(.bottom, 120)
-                    .padding(.trailing, 20)
-                    .font(.system(size: 32, weight: .heavy, design: .default))
-                    .foregroundColor(.black)
-                }
+                    Text(NSLocalizedString("OnBoarding4_line3", comment:""))
+                    Text(NSLocalizedString("OnBoarding4_line4", comment:""))
+                    Text(NSLocalizedString("OnBoarding4_line5", comment:""))
+                    
+                    }
+                .padding(.top, 80)
+                .padding(.bottom, 110)
+                .padding(.trailing, 20)
+                .font(.system(size: 32, weight: .heavy, design: .default))
+                .foregroundColor(.black)
+                
+                Button {
+                    
+                } label: {
+                    Text(NSLocalizedString("button_text", comment: ""))
+                        .frame(width: 310, height: 54, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .background(Color.white)
+                        .foregroundColor(.black)
+                        .font(.system(size: 20, weight: .semibold, design: .default))
+                        .cornerRadius(10)
+                    
+                }.shadow(color: Color("shadow"),radius: 5)
+            }
+            
+            
+            }
     }
 }
