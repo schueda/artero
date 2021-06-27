@@ -14,7 +14,7 @@ struct ThemeView: View {
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
     
-    private var theme: Theme?
+    var theme: Theme?
     private var activity: Activity = Activity()
     
     func saveActivity() {
@@ -35,8 +35,8 @@ struct ThemeView: View {
         }
     }
     
-    init() {
-        self.theme = ThemeController().getToday()
+    init(theme: Theme?) {
+        self.theme = theme
         self.loadDayActivity()
     }
     
@@ -57,7 +57,6 @@ struct ThemeView: View {
         }
     }
 }
-
 
 struct ThemeView_Previews: PreviewProvider {
     static var previews: some View {

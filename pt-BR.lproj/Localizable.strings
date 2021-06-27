@@ -21,9 +21,13 @@
 //Gallery Screen
 "gallery" = "Sua galeria";
 
+//Single activity screen
+"theme_was" = "O tema era";
+"activity_from" = "Atividade de";
+
 
 //Activity Screen
-"Acitivy" = "Atividade";
+"activy" = "Atividade";
 "current_sequence" = "Sequência Atual";
 "longest_sequence" = "Maior sequência";
 "days" = "dias";
