@@ -13,20 +13,10 @@ struct ThemeView: View {
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
+    @State private var isTodayActivitySent = ActivityController().getTodayActivity() != nil
     
     private var theme: Theme?
     private var activity: Activity = Activity()
-    
-    func saveActivity() {
-        guard let theme = self.theme,
-              let image = self.selectedImage
-        else {
-            return;
-        }
-        let activity = Activity(theme: theme, date: Date(timeIntervalSince1970: 21301), image: image)
-        activity.save(activity)
-    }
-    
     
     mutating func loadDayActivity() {
         let repository = ActivityController()
@@ -41,23 +31,27 @@ struct ThemeView: View {
     }
     
     var body: some View {
-        ZStack {
-            ScrollView {
-                if let theme = theme {
+        if let theme = theme {
+            ZStack {
+                ScrollView {
                     ThemeHeaderView(theme: theme)
                     ThemeTextView(theme: theme)
+                    
                 }
-                
+                if isTodayActivitySent {
+                    FakeButtonView()
+                } else {
+                    if selectedImage != nil {
+                        ConfirmButtonView(theme: theme, selectedImage: $selectedImage, isTodayActivitySent: $isTodayActivitySent)
+                    } else {
+                        CameraButtonView(sourceType: $sourceType, isImagePickerDisplay: $isImagePickerDisplay)
+                    }
+                }
             }
-            if selectedImage != nil {
-                ConfirmButtonView(selectedImage: $selectedImage)
-            } else {
-                CameraButtonView(sourceType: $sourceType, isImagePickerDisplay: $isImagePickerDisplay)
+            .ignoresSafeArea()
+            .sheet(isPresented: self.$isImagePickerDisplay) {
+                ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.$sourceType)
             }
-        }
-        .ignoresSafeArea()
-        .sheet(isPresented: self.$isImagePickerDisplay) {
-            ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.$sourceType)
         }
     }
 }
@@ -113,9 +107,46 @@ struct CameraButtonView: View {
     }
 }
 
+struct FakeButtonView: View {
+    var body: some View {
+        VStack {
+            Spacer()
+            Button(action: {
+                
+            }, label: {
+                HStack {
+                    Text("Arte de hoje enviada")
+                }
+                .frame(maxWidth: .infinity, minHeight: 50)
+                .font(.system(size: 17, weight: .semibold, design: .default))
+                .foregroundColor(.white)
+                .background(Color(.gray))
+                .cornerRadius(10.0)
+            })
+            .padding(.horizontal)
+            .padding(.bottom, UIScreen.main.bounds.height * 0.05)
+            .disabled(true)
+        }
+    }
+}
+
+
 struct ConfirmButtonView: View {
+    func saveActivity() {
+        guard let theme = self.theme,
+              let image = self.selectedImage
+        else {
+            print("salvou nada")
+            return;
+        }
+        let activity = Activity(theme: theme, date: Date(), image: image)
+        activity.save(activity)
+    }
+    
+    let theme: Theme?
     
     @Binding var selectedImage: UIImage?
+    @Binding var isTodayActivitySent: Bool
     
     var body: some View {
         VStack {
@@ -125,15 +156,17 @@ struct ConfirmButtonView: View {
                     selectedImage = nil
                 }, label: {
                     HStack {
-                        Image(systemName: "xmark.circle.fill")
+                        Image(systemName: "xmark.circle")
                         Text("Cancelar")
                     }
                 })
                 Button(action: {
+                    isTodayActivitySent = true
+                    self.saveActivity()
                     
                 }, label: {
                     HStack {
-                        Image(systemName: "checkmark.circle.fill")
+                        Image(systemName: "checkmark.circle")
                         Text("Confirmar")
                     }
                 })
