@@ -14,6 +14,7 @@ struct ContentView: View {
     @State private var savedImage: UIImage?
     @State private var openOnboarding = false
     
+    
     private var notificationPreference: NotificationPreference = NotificationPreference()
     
     var body: some View {
