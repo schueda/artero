@@ -24,6 +24,7 @@
 		B51302F02683FCA000BFEF20 /* ActivityDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51302EF2683FCA000BFEF20 /* ActivityDAO.swift */; };
 		B51302F32683FE7F00BFEF20 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51302F22683FE7F00BFEF20 /* DateUtils.swift */; };
 		B58BB7DD26854C470080088D /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58BB7DC26854C470080088D /* ActivityController.swift */; };
+		B59E252E2686069F00CE28F5 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59E252D2686069F00CE28F5 /* ImageView.swift */; };
 		B5BEDB6A2683604100B4BC3F /* Inspiration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BEDB692683604100B4BC3F /* Inspiration.swift */; };
 		B5BEDB6C2683607B00B4BC3F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BEDB6B2683607B00B4BC3F /* Theme.swift */; };
 		B5BEDB6E2683647300B4BC3F /* NotificationPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BEDB6D2683647300B4BC3F /* NotificationPreference.swift */; };
@@ -54,6 +55,7 @@
 		B51302EF2683FCA000BFEF20 /* ActivityDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDAO.swift; sourceTree = "<group>"; };
 		B51302F22683FE7F00BFEF20 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		B58BB7DC26854C470080088D /* ActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
+		B59E252D2686069F00CE28F5 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		B5BEDB692683604100B4BC3F /* Inspiration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inspiration.swift; sourceTree = "<group>"; };
 		B5BEDB6B2683607B00B4BC3F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		B5BEDB6D2683647300B4BC3F /* NotificationPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPreference.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				612D47FF267FED5400248C83 /* GalleryView.swift */,
 				61ECBA68267B795B00DE9D02 /* ImagePickerView.swift */,
 				612D47FD267FEAA100248C83 /* ThemeView.swift */,
+				B59E252D2686069F00CE28F5 /* ImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				547D15D726836A6A00E8223D /* HomeView.swift in Sources */,
 				612D4800267FED5400248C83 /* GalleryView.swift in Sources */,
 				B5EA7F742685846400B696F9 /* UserDAO.swift in Sources */,
+				B59E252E2686069F00CE28F5 /* ImageView.swift in Sources */,
 				B5BEDB6C2683607B00B4BC3F /* Theme.swift in Sources */,
 				61ECBA6B267B798100DE9D02 /* Coordinator.swift in Sources */,
 				612D47FE267FEAA100248C83 /* ThemeView.swift in Sources */,
