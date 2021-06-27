@@ -17,17 +17,21 @@ struct GalleryView: View {
     }
     
     var body: some View {
-        GeometryReader { geometry in
             TabView(selection: self.$appearingCardIndex) {
-                ForEach(Array(activities.enumerated()), id: \.offset) { index, activity in
-                    GalleryCardView(activity: activity, frameSize: self.appearingCardIndex == index ? geometry.size.height - geometry.size.height/5 : geometry.size.height - geometry.size.height/3)
-                        .tag(activity.id)
+                if activities.count > 0 {
+                    ForEach(Array(activities.enumerated()), id: \.offset) { index, activity in
+                        GalleryCardView(activity: activity, frameSize: self.appearingCardIndex == index ? UIScreen.main.bounds.height * 0.65 : UIScreen.main.bounds.height * 0.5)
+                            .tag(activity.id)
+                    }
+                    .animation(.easeOut)
+                } else {
+                    PlaceholderView()
+                        .tag(UUID())
                 }
-                .animation(.easeOut)
             }
             .tabViewStyle(PageTabViewStyle())
-            .navigationBarTitle("Sua Galeria")
-        }.background(Color("background").edgesIgnoringSafeArea(.bottom))
+            .navigationBarTitle(NSLocalizedString("gallery", comment: ""))
+            .background(Color("background").edgesIgnoringSafeArea(.bottom))
     }
 }
 
@@ -55,7 +59,7 @@ struct GalleryCardView: View {
                             }
                             HStack {
                                 
-                                Text(DateUtils.formatToLong(date: activity.date, languageCode: Locale.current.languageCode == "pt_BR" ? "pt_BR" : "en_US"))
+                                Text(DateUtils.formatToLong(date: activity.date, languageCode: Locale.current.languageCode == "pt" ? "pt" : "en"))
                                     .font(.system(size: 18, weight: .regular, design: .default))
                                     .foregroundColor(.white)
                                 
@@ -85,6 +89,18 @@ struct GalleryCardView: View {
                 }
             }
         )
+    }
+}
+
+struct PlaceholderView: View {
+    var languageCode = Locale.current.languageCode == "pt" ? "pt" : "en"
+    
+    var body: some View {
+            Image(uiImage: UIImage(named: "GalleryPlaceholder\(languageCode)")!)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height * 0.65)
+                .cornerRadius(12.0)
     }
 }
 
