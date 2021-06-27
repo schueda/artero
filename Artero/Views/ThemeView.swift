@@ -56,12 +56,6 @@ struct ThemeView: View {
     }
 }
 
-//struct ThemeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ThemeView()
-//    }
-//}
-
 struct CameraButtonView: View {
     @Binding var sourceType: UIImagePickerController.SourceType
     @Binding var isImagePickerDisplay: Bool
@@ -253,14 +247,28 @@ struct ThemeHeaderView: View {
 
 struct ThemeTextView: View {
     let theme: Theme
+    let date: Date?
+    
+    init(theme: Theme, date: Date? = nil) {
+        self.theme = theme
+        self.date = date
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text(NSLocalizedString("activity_of_today", comment: ""))
-                    .font(.system(size: 20, weight: .bold, design: .default))
-                    .padding(.top, 10)
+                if date == nil {
+                    Text(NSLocalizedString("activity_of_today", comment: ""))
+                        .font(.system(size: 20, weight: .bold, design: .default))
+                        .padding(.top, 10)
+                } else {
+                    Text(NSLocalizedString("activity_from", comment: "") + " " +
+                         DateUtils.formatToLong(date: date!, languageCode: Locale.current.languageCode == "pt" ? "pt" : "en"))
+                        .font(.system(size: 20, weight: .bold, design: .default))
+                        .padding(.top, 10)
+                }
                 Spacer()
+                    
             }
             
             Text(theme.description)

@@ -10,6 +10,7 @@ import Foundation
 protocol ActivityControllerProtocol {
     func getTodayActivity() -> Activity?
     func getAll() -> [Activity]
+    
 }
 
 class ActivityController {
