@@ -17,6 +17,7 @@ struct ContentView: View {
     private var notificationPreference: NotificationPreference = NotificationPreference()
     
     var body: some View {
+
         if openOnboarding{
             NavigationView {
                 ScrollView {
@@ -34,6 +35,7 @@ struct ContentView: View {
             NavigationView {
                 OnboardingView().navigationBarHidden(true)
             }
+
 
         }
     }

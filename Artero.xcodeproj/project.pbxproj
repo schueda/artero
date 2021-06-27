@@ -16,6 +16,7 @@
 		6158CE0B2678CBEC00CAF0DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6158CE0A2678CBEC00CAF0DA /* ContentView.swift */; };
 		6158CE0D2678CBEE00CAF0DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6158CE0C2678CBEE00CAF0DA /* Assets.xcassets */; };
 		6158CE102678CBEE00CAF0DA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6158CE0F2678CBEE00CAF0DA /* Preview Assets.xcassets */; };
+		61AEF6FE2688126900BE4C04 /* SingleActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AEF6FD2688126900BE4C04 /* SingleActivityView.swift */; };
 		61ECBA69267B795B00DE9D02 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ECBA68267B795B00DE9D02 /* ImagePickerView.swift */; };
 		61ECBA6B267B798100DE9D02 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ECBA6A267B798100DE9D02 /* Coordinator.swift */; };
 		B3CB7643268673E60097E942 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CB7642268673E60097E942 /* OnboardingView.swift */; };
@@ -47,6 +48,7 @@
 		6158CE0C2678CBEE00CAF0DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6158CE0F2678CBEE00CAF0DA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6158CE112678CBEE00CAF0DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61AEF6FD2688126900BE4C04 /* SingleActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleActivityView.swift; sourceTree = "<group>"; };
 		61ECBA68267B795B00DE9D02 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		61ECBA6A267B798100DE9D02 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B3CB7642268673E60097E942 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				61ECBA68267B795B00DE9D02 /* ImagePickerView.swift */,
 				612D47FD267FEAA100248C83 /* ThemeView.swift */,
 				B3CB7642268673E60097E942 /* OnboardingView.swift */,
+				61AEF6FD2688126900BE4C04 /* SingleActivityView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -209,7 +212,7 @@
 			};
 			buildConfigurationList = 6158CE002678CBEC00CAF0DA /* Build configuration list for PBXProject "Artero" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = pt-BR;
+			developmentRegion = "pt-BR";
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -259,6 +262,7 @@
 				B50BB4AA26842C9800EB65B7 /* ThemeController.swift in Sources */,
 				B51302EC2683F92500BFEF20 /* NotificationPreferenceController.swift in Sources */,
 				B51302F32683FE7F00BFEF20 /* DateUtils.swift in Sources */,
+				61AEF6FE2688126900BE4C04 /* SingleActivityView.swift in Sources */,
 				B58BB7DD26854C470080088D /* ActivityController.swift in Sources */,
 				612D4802267FEE7400248C83 /* ActivityView.swift in Sources */,
 				6158CE0B2678CBEC00CAF0DA /* ContentView.swift in Sources */,
@@ -407,7 +411,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Artero/Preview Content\"";
-				DEVELOPMENT_TEAM = 5UX9P2B2T5;
+				DEVELOPMENT_TEAM = 46LT924HJ5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Artero/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -429,7 +433,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Artero/Preview Content\"";
-				DEVELOPMENT_TEAM = 5UX9P2B2T5;
+				DEVELOPMENT_TEAM = 46LT924HJ5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Artero/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

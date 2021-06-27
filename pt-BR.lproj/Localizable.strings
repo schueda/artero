@@ -21,9 +21,13 @@
 //Gallery Screen
 "gallery" = "Sua galeria";
 
+//Single activity screen
+"theme_was" = "O tema foi";
+"activity_from" = "Atividade de";
+
 
 //Activity Screen
-"Acitivy" = "Atividade";
+"activy" = "Atividade";
 "current_sequence" = "Sequência Atual";
 "longest_sequence" = "Maior sequência";
 "days" = "dias";
@@ -34,7 +38,7 @@
 //Theme of the day Screen
 "theme" = "Tema";
 "activity_of_today" = "Atividade de hoje";
-"beneficts" = "Benefícios";
+"benefits" = "Benefícios";
 //button insert media - Theme of the day Screen
 "button_media" = "Adicionar mídia";
 "button_take_a_picture" = "Tirar foto ou vídeo";
