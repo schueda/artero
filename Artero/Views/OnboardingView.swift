@@ -10,7 +10,7 @@ import SwiftUI
 
 struct OnboardingView: View {
     @State private var currentTab = 0
-
+    
         var body: some View {
             let yExtension: CGFloat = 50
                     GeometryReader { g in
@@ -19,6 +19,7 @@ struct OnboardingView: View {
                             OnBoardingScreen2()
                             OnBoardingScreen3()
                             OnBoardingScreen4()
+                            
                         }
                         .frame(width: g.size.width, height: g.size.height + yExtension)
                         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
@@ -123,17 +124,18 @@ struct OnBoardingScreen4: View {
                 .font(.system(size: 32, weight: .heavy, design: .default))
                 .foregroundColor(.black)
                 
-                Button {
-                    
-                } label: {
-                    Text(NSLocalizedString("button_text", comment: ""))
-                        .frame(width: 310, height: 54, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(Color.white)
-                        .foregroundColor(.black)
-                        .font(.system(size: 20, weight: .semibold, design: .default))
-                        .cornerRadius(10)
-                    
-                }.shadow(color: Color("shadow"),radius: 5)
+
+                NavigationLink(
+                    destination: HomeView(),
+                    label : {
+                        Text(NSLocalizedString("button_text", comment: ""))
+                            .frame(width: 310, height: 54, alignment: .center)
+                            .background(Color.white)
+                            .foregroundColor(.black)
+                            .font(.system(size: 20, weight: .semibold, design: .default))
+                            .cornerRadius(10)
+                            .shadow(color: Color("shadow"),radius: 5)
+                    })
             }
             
             
