@@ -37,7 +37,7 @@ struct GalleryCardView: View {
     
     var body: some View {
         NavigationLink(
-            destination: ThemeView(),
+            destination: ThemeView(theme: ThemeController().getToday()),
             label : {
                 if let activity = activity {
                     if let image = activity.image {

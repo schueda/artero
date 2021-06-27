@@ -43,7 +43,7 @@ struct CardActivityView: View {
                             .font(.system(size: 18, weight: .bold, design: .default))
                             .foregroundColor(.yellow)
                         
-                        Text(NSLocalizedString("Atividade", comment: "")) .textCase(.uppercase)
+                        Text(NSLocalizedString("activity", comment: "")) .textCase(.uppercase)
                             .font(.system(size: 17, weight: .semibold, design: .default))
                             .foregroundColor(.gray)
                         
@@ -72,14 +72,16 @@ struct CardActivityView: View {
 }
 
 struct CardThemeDay: View {
+    let theme = ThemeController().getToday()
+    
     var body: some View {
         NavigationLink(
-            destination: ThemeView(),
+            destination: ThemeView(theme: theme),
             label : {
                 VStack (alignment:.leading) {
                     HStack {
                         
-                        Text("Tema do dia") .textCase(.uppercase)
+                        Text(NSLocalizedString("daily_theme", comment: "")) .textCase(.uppercase)
                             .font(.system(size: 20, weight: .bold, design: .default))
                             .foregroundColor(.white)
                         
@@ -91,14 +93,13 @@ struct CardThemeDay: View {
                         
                     }
                     
-                    Text("Amarelo")
+                    Text(NSLocalizedString(theme?.name ?? "", comment: ""))
                         .font(.system(size: 28, weight: .bold, design: .default))
                         .foregroundColor(.white)
                     
                     Spacer()
                     
-                    
-                    Text("15 de junho")
+                    Text(DateUtils.formatToLong(date: Date(), languageCode: Locale.current.languageCode == "pt" ? "pt" : "en"))
                         .font(.system(size: 13, weight: .bold, design: .default))
                         .foregroundColor(.white)
                     
@@ -107,7 +108,7 @@ struct CardThemeDay: View {
                 .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 280, maxHeight: 280, alignment: .leading)
                 
                 .background(
-                    Image("art05")
+                    Image(theme?.inspiration.image ?? "")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 280, maxHeight: 280, alignment: .leading)
@@ -126,6 +127,17 @@ struct CardThemeDay: View {
 }
 
 struct CardGallery: View {
+    let galleryImage: UIImage?
+    let activities = ActivityController().getAll()
+    
+    init() {
+        if activities.count > 0 {
+            self.galleryImage = activities[0].image
+        } else {
+            self.galleryImage = UIImage(named: "GalleryPlaceholder")!
+        }
+    }
+    
     var body: some View {
         NavigationLink(
             destination: GalleryView(),
@@ -139,7 +151,7 @@ struct CardGallery: View {
                 .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 170, maxHeight: 170, alignment: .topTrailing)
                 
                 .background(
-                    Image("art10")
+                    Image(uiImage: galleryImage!)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 280, maxHeight: 280, alignment: .leading)
