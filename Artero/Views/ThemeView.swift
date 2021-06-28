@@ -207,18 +207,20 @@ struct ThemeHeaderView: View {
                 .foregroundColor(.gray)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.5)
             
-            Image(theme.inspiration.image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.5)
-                .clipped()
-                .overlay(
-                    Rectangle()
-                        .foregroundColor(.clear)
-                        .background(
-                            LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.5), Color.clear, Color.clear, Color.black.opacity(0.6)]), startPoint: .top, endPoint: .bottom)
-                        )
-                )
+            NavigationLink(destination: ImageView(image: UIImage(named: theme.inspiration.image)!, activity: nil)) {
+                Image(theme.inspiration.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.5)
+                    .clipped()
+                    .overlay(
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .background(
+                                LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.5), Color.clear, Color.clear, Color.black.opacity(0.6)]), startPoint: .top, endPoint: .bottom)
+                            )
+                    )
+            }
             
             VStack(alignment: .leading) {
                 Spacer()
