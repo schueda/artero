@@ -19,7 +19,7 @@ struct HomeView: View {
             }
         }
         .padding(.horizontal)
-        .navigationBarTitle("Bom dia!")
+        .navigationBarTitle(NSLocalizedString("good_morning", comment: ""))
     }
 }
 
@@ -54,14 +54,14 @@ struct CardActivityView: View {
                             .foregroundColor(.gray)
                     }
                     
-                    Text("Sem sequência")
+                    Text(NSLocalizedString("no_sequence", comment: ""))
                         .font(.system(size: 28, weight: .bold, design: .default))
                         .foregroundColor(Color("text"))
                         
                         .padding(.top, 4)
                     
                 }
-                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 85, maxHeight: 85, alignment: .leading)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 85, maxHeight: 85, alignment: .leading)
                 .padding()
                 .background(Color("card"))
                 .cornerRadius(12.0)
@@ -105,13 +105,13 @@ struct CardThemeDay: View {
                     
                 }
                 .padding()
-                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 280, maxHeight: 280, alignment: .leading)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 280, maxHeight: 280, alignment: .leading)
                 
                 .background(
                     Image(theme?.inspiration.image ?? "")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 280, maxHeight: 280, alignment: .leading)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 280, maxHeight: 280, alignment: .leading)
                         .overlay(
                             Rectangle()
                                 .foregroundColor(.clear)
@@ -148,13 +148,13 @@ struct CardGallery: View {
                         .foregroundColor(.white)
                 }
                 .padding()
-                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 170, maxHeight: 170, alignment: .topTrailing)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 170, maxHeight: 170, alignment: .topTrailing)
                 
                 .background(
                     Image(uiImage: galleryImage!)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 280, maxHeight: 280, alignment: .leading)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 280, maxHeight: 280, alignment: .leading)
                         .overlay(
                             Rectangle()
                                 .foregroundColor(.clear)

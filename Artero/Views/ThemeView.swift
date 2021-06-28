@@ -71,7 +71,7 @@ struct CameraButtonView: View {
                 }, label: {
                     HStack {
                         Image(systemName: "camera")
-                        Text("Tirar foto")
+                        Text(NSLocalizedString("button_take_a_picture", comment: ""))
                     }
                 })
                 Button(action: {
@@ -80,13 +80,13 @@ struct CameraButtonView: View {
                 }, label: {
                     HStack {
                         Image(systemName: "photo.on.rectangle.angled")
-                        Text("Escolher foto ou vídeo")
+                        Text(NSLocalizedString("button_choose_media", comment: ""))
                     }
                 })
             }, label: {
                 HStack {
                     Image(systemName: "camera")
-                    Text("Adicionar mídia")
+                    Text(NSLocalizedString("button_media", comment: ""))
                 }
                 .frame(maxWidth: .infinity, minHeight: 50)
                 .font(.system(size: 17, weight: .semibold, design: .default))
@@ -108,7 +108,7 @@ struct FakeButtonView: View {
                 
             }, label: {
                 HStack {
-                    Text("Arte enviada")
+                    Text(NSLocalizedString("art_sent", comment: ""))
                 }
                 .frame(maxWidth: .infinity, minHeight: 50)
                 .font(.system(size: 17, weight: .semibold, design: .default))
@@ -129,7 +129,6 @@ struct ConfirmButtonView: View {
         guard let theme = self.theme,
               let image = self.selectedImage
         else {
-            print("salvou nada")
             return;
         }
         let activity = Activity(theme: theme, date: Date(), image: image)
@@ -150,7 +149,7 @@ struct ConfirmButtonView: View {
                 }, label: {
                     HStack {
                         Image(systemName: "xmark.circle")
-                        Text("Cancelar")
+                        Text(NSLocalizedString("cancel", comment: ""))
                     }
                 })
                 Button(action: {
@@ -160,7 +159,7 @@ struct ConfirmButtonView: View {
                 }, label: {
                     HStack {
                         Image(systemName: "checkmark.circle")
-                        Text("Confirmar")
+                        Text(NSLocalizedString("confirm", comment: ""))
                     }
                 })
             }, label: {
@@ -169,7 +168,7 @@ struct ConfirmButtonView: View {
                         .frame(width: 36, height: 36)
                         .padding(.leading)
                     Spacer()
-                    Text("Confirmar")
+                    Text(NSLocalizedString("confirm", comment: ""))
                     Spacer()
                     if selectedImage != nil {
                         Image(uiImage: selectedImage!)

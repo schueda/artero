@@ -23,7 +23,7 @@ struct ActivityView: View {
             }
             .padding(.horizontal)
         }
-        .navigationBarTitle("Atividade")
+        .navigationBarTitle(NSLocalizedString("activity", comment: ""))
     }
     
 }
@@ -49,11 +49,11 @@ struct SequenceCardView: View {
                 VStack (alignment: .leading) {
                     
                     
-                    Text("Sequência atual")
+                    Text(NSLocalizedString("current_sequence", comment: ""))
                         .font(.system(size: 17, weight: .semibold, design: .default))
                         .foregroundColor(.secondary)
                     
-                    Text("15 dias")
+                    Text("15" + NSLocalizedString("days", comment: ""))
                         .font(.system(size: 28, weight: .bold, design: .default))
                         .foregroundColor(Color("text"))
                     
@@ -64,7 +64,7 @@ struct SequenceCardView: View {
             }
             
             Divider()
-                .frame(width: 330, height: 0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .frame(width: 330, height: 0, alignment: .center)
             
             VStack (alignment: .leading)  {
                 
@@ -78,11 +78,11 @@ struct SequenceCardView: View {
                     VStack (alignment: .leading) {
                         
                         
-                        Text("Maior sequência")
+                        Text(NSLocalizedString("longest_sequence", comment: ""))
                             .font(.system(size: 17, weight: .semibold, design: .default))
                             .foregroundColor(.secondary)
                         
-                        Text("23 dias")
+                        Text("23" + NSLocalizedString("days", comment: ""))
                             .font(.system(size: 28, weight: .bold, design: .default))
                             .foregroundColor(Color("text"))
                         
@@ -96,7 +96,7 @@ struct SequenceCardView: View {
             }
             
         }
-        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 180, maxHeight: 180, alignment: .leading)
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 180, maxHeight: 180, alignment: .leading)
         .padding()
         .background(Color("card"))
         .cornerRadius(12.0)
@@ -122,46 +122,28 @@ struct RememberCardView:View {
                 VStack (alignment: .leading) {
                     
                     Toggle (isOn: $isToggle) {
-                        Text("Lembrete diário")
+                        Text(NSLocalizedString("daily_reminder", comment: ""))
                             .font(.system(size: 17, weight: .semibold, design: .default))
                             .foregroundColor(.secondary)
-                            
                     }
-                    
-                    
-                    
-                    
-                    
-                    
                 }
-                
-                
             }
-           // .padding(.leading)
             .padding(.vertical)
             
             Divider()
-                .frame(width: 330, height: 0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .frame(width: 330, height: 0, alignment: .center)
             
             VStack (alignment: .leading)  {
-                
                 HStack {
-
-                    
                     VStack (alignment: .leading) {
-                        
-                        
-                        Text("Hora")
+                        Text(NSLocalizedString("time", comment: ""))
                             .font(.system(size: 17, weight: .semibold, design: .default))
                             .foregroundColor(Color("text"))
                             .padding(.vertical)
-                        
-                        
                     }
-                    //    .padding(.horizontal)
-                    
                     Spacer()
-                    DatePicker("Please enter a date", selection: $wakeUp, displayedComponents: .hourAndMinute).labelsHidden()
+                    DatePicker("", selection: $wakeUp, displayedComponents: .hourAndMinute)
+                        .labelsHidden()
                         
                 }
                 
@@ -169,7 +151,7 @@ struct RememberCardView:View {
             }
             
         }
-        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 120, maxHeight: 120, alignment: .leading)
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 120, maxHeight: 120, alignment: .leading)
         .padding()
         .background(Color("card"))
         .cornerRadius(12.0)

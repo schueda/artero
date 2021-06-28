@@ -10,7 +10,7 @@
 //Home Screen
 "daily_theme" = "Today's Theme";
 "good_morning" = "Good morning!";
-"good_afternoom" = "Good afternoom!";
+"good_afternoon" = "Good afternoon!";
 "good_night" = "Good bight!";
 "activities" = "Activities";
 //Sequence - Home Screen
@@ -27,23 +27,30 @@
 
 
 //Activity Screen
-"activy" = "Activity";
+"activity" = "Activity";
 "current_sequence" = "Current sequence";
 "longest_sequence" = "Longest sequence";
 "days" = "days";
 "daily_reminder" = "Daily reminder";
-"hour" = "Hour";
+"time" = "Time";
 
 
-//Theme of the day Screen
+//Theme Screen
 "theme" = "Theme";
 "activity_of_today" = "Today's activity";
 "benefits" = "Benefits";
-//button insert media - Theme of the day Screen
+//button insert media - Theme Screen
 "button_media" = "Add media";
 "button_take_a_picture" = "Take photo or video";
 "button_choose_media" = "Choose photo or video";
+"art_sent" = "Art sent";
+"cancel" = "Cancel";
+"confirm" = "Confirm";
 
+//Single Activity Screen
+"delete_activity" = "Delete actitivy";
+"delete_question" = "Do you want to delete this activity?";
+"delete" = "Delete";
 
 //OnBoarding gambiarrento 1
 "OnBoarding1_line1" = "Create";
