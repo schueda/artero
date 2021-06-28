@@ -8,14 +8,14 @@
 import Foundation
 
 protocol NotificationPreferenceControllerProtocol {
-    func get() -> NotificationPreference?
+    func get() -> NotificationPreference
     func save(notificationPreference: NotificationPreference)
 }
 
 struct NotificationPreferenceController: NotificationPreferenceControllerProtocol {
     
-    func get() -> NotificationPreference? {
-        return NotificationPreference().get() ?? nil
+    func get() -> NotificationPreference {
+        return NotificationPreference().get() ?? NotificationPreference()
     }
     
     func save(notificationPreference: NotificationPreference) {
