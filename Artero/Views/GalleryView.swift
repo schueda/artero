@@ -8,13 +8,9 @@
 import SwiftUI
 
 struct GalleryView: View {
+    @State var numberOfItems = 0
     @State var appearingCardIndex = 0
-    
-    var activities: [Activity] = []
-    
-    init() {
-        self.activities = ActivityController().getAll()
-    }
+    @State var activities: [Activity] = []
     
     var body: some View {
             TabView(selection: self.$appearingCardIndex) {
@@ -29,9 +25,14 @@ struct GalleryView: View {
                         .tag(UUID())
                 }
             }
+            .id(numberOfItems)
             .tabViewStyle(PageTabViewStyle())
             .navigationBarTitle(NSLocalizedString("gallery", comment: ""))
             .background(Color("background").edgesIgnoringSafeArea(.bottom))
+            .onAppear {
+                self.activities = ActivityController().getAll()
+                self.numberOfItems = self.activities.count
+            }
     }
 }
 
