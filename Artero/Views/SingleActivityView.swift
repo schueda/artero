@@ -82,7 +82,7 @@ struct DeleteButton: View {
         }, label: {
             HStack {
                 Image(systemName: "trash")
-                Text("Deletar atividade")
+                Text(NSLocalizedString("delete_activity", comment: ""))
             }
             .frame(maxWidth: .infinity, minHeight: 50)
             .font(.system(size: 17, weight: .semibold, design: .default))
@@ -93,10 +93,15 @@ struct DeleteButton: View {
             .padding(.bottom, 50)
         })
         .alert(isPresented: $showingAlert) { () -> Alert in
-            Alert(title: Text("Deletar atividade"), message: Text("Deseja deletar a atividade?"), primaryButton: .default(Text("Deletar"), action: {
-                ActivityDAO().delete(activity)
-                self.presentationMode.wrappedValue.dismiss()
-            }), secondaryButton: .default(Text("Cancelar")))
+            Alert(
+                title: Text(NSLocalizedString("delete_activity", comment: "")),
+                message: Text(NSLocalizedString("delete_question", comment: "")),
+                primaryButton: .default(Text(NSLocalizedString("delete", comment: "")), action: {
+                    ActivityDAO().delete(activity)
+                    self.presentationMode.wrappedValue.dismiss()
+                }),
+                secondaryButton: .default(Text(NSLocalizedString("cancel", comment: "")))
+            )
         }
     }
 }
