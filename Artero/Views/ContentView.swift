@@ -8,38 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
-    @State private var selectedImage: UIImage?
-    @State private var isImagePickerDisplay = false
-    @State private var savedImage: UIImage?
-    @State private var openOnboarding = false
-    
-    private var notificationPreference: NotificationPreference = NotificationPreference()
+    @StateObject private var user: User = UserController().get()
     
     var body: some View {
-
-        if openOnboarding{
+        if user.onboardingComplete {
             NavigationView {
                 ScrollView {
-
                     VStack {
                         HomeView()
-                            .navigationTitle("home-view")
                     }
-
                 }
                 .background(Color("background").edgesIgnoringSafeArea(.bottom))
-                
             }
-        }else{
+        } else {
             NavigationView {
                 OnboardingView().navigationBarHidden(true)
             }
-
-
         }
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {

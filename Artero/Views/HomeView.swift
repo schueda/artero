@@ -20,6 +20,7 @@ struct HomeView: View {
         }
         .padding(.horizontal)
         .navigationBarTitle(NSLocalizedString("good_morning", comment: ""))
+        .navigationBarBackButtonHidden(true)
     }
 }
 
