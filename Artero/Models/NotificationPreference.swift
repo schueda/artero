@@ -11,20 +11,20 @@ protocol NotificationPreferenceProtocol {
     func save()
 }
 
-class NotificationPreference: NotificationPreferenceDAO, Codable, ObservableObject {
+class NotificationPreference: NotificationPreferenceDAO, Codable, ObservableObject, Equatable {
     enum CodingKeys: CodingKey {
         case active, time
     }
     
     static var key = "notificationPreferences"
     @Published var active: Bool = false;
-    @Published var time: Date?;
+    @Published var time: Date = Date();
     
     override init() {
         super.init()
         if let notification = super.get(){
             self.active = notification.active
-            self.time = notification.time ?? nil
+            self.time = notification.time
         }
     }
     
@@ -42,5 +42,9 @@ class NotificationPreference: NotificationPreferenceDAO, Codable, ObservableObje
     
     func save() {
         super.save(self)
+    }
+    
+    static func == (lhs: NotificationPreference, rhs: NotificationPreference) -> Bool {
+        return lhs.active == rhs.active && lhs.time == rhs.time
     }
 }
