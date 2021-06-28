@@ -46,6 +46,7 @@ struct HomeView: View {
         }
         .padding(.horizontal)
         .navigationBarTitle(self.welcomeTitle)
+
     }
 }
 
