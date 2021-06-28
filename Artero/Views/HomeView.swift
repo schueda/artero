@@ -8,6 +8,32 @@
 import SwiftUI
 
 struct HomeView: View {
+    private var welcomeTitle = NSLocalizedString("good_morning", comment: "")
+    
+    private func getWelcomeTitle() -> String {
+        let date = Date()
+        let time = DateUtils.dateToString(date: date, format: "HH:mm")
+        let hourAndMinute = time.split(separator: ":")
+        guard let hour = Int(hourAndMinute[0]) else {
+            return NSLocalizedString("good_morning", comment: "")
+        }
+        
+        switch hour {
+        case 6...11:
+            return "☀️ \(NSLocalizedString("good_morning", comment: ""))"
+        case 12...17:
+            return "🌤 \(NSLocalizedString("good_afternoon", comment: ""))"
+        case 18...23:
+            return "🌙 \(NSLocalizedString("good_evening", comment: ""))"
+        default:
+            return "🌙 \(NSLocalizedString("good_night", comment: ""))"
+        }
+    }
+    
+    init() {
+        self.welcomeTitle = self.getWelcomeTitle()
+    }
+    
     var body: some View {
         ScrollView {
             VStack (spacing:20) {
@@ -19,8 +45,8 @@ struct HomeView: View {
             }
         }
         .padding(.horizontal)
-        .navigationBarTitle(NSLocalizedString("good_morning", comment: ""))
-        .navigationBarBackButtonHidden(true)
+        .navigationBarTitle(self.welcomeTitle)
+
     }
 }
 

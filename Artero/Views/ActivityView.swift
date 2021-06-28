@@ -10,23 +10,18 @@ import SwiftUI
 struct ActivityView: View {
     
     var body: some View {
-        
-        
         ScrollView {
-            
             VStack (spacing:20) {
-                
                 SequenceCardView()
                     .padding(.top, 25)
                 RememberCardView()
-                
             }
             .padding(.horizontal)
         }
         .navigationBarTitle(NSLocalizedString("activity", comment: ""))
     }
-    
 }
+
 struct ActivityView_Previews: PreviewProvider {
     static var previews: some View {
         ActivityView()
@@ -36,65 +31,43 @@ struct ActivityView_Previews: PreviewProvider {
 
 struct SequenceCardView: View {
     var body: some View {
-        
         VStack (alignment: .leading) {
-            
             HStack {
-                
                 Image(systemName:"bolt.fill")
                     .font(.system(size: 36, weight: .bold, design: .default))
                     .foregroundColor(.blue)
-                
-                
                 VStack (alignment: .leading) {
-                    
-                    
                     Text(NSLocalizedString("current_sequence", comment: ""))
                         .font(.system(size: 17, weight: .semibold, design: .default))
                         .foregroundColor(.secondary)
-                    
-                    Text("15" + NSLocalizedString("days", comment: ""))
+                    Text("15 " + NSLocalizedString("days", comment: ""))
                         .font(.system(size: 28, weight: .bold, design: .default))
                         .foregroundColor(Color("text"))
-                    
                 }
-                
                 .padding()
-                
             }
             
             Divider()
                 .frame(width: 330, height: 0, alignment: .center)
             
             VStack (alignment: .leading)  {
-                
                 HStack {
-                    
                     Image(systemName:"rosette")
                         .font(.system(size: 36, weight: .bold, design: .default))
                         .foregroundColor(.blue)
                     
-                    
                     VStack (alignment: .leading) {
-                        
-                        
                         Text(NSLocalizedString("longest_sequence", comment: ""))
                             .font(.system(size: 17, weight: .semibold, design: .default))
                             .foregroundColor(.secondary)
                         
-                        Text("23" + NSLocalizedString("days", comment: ""))
+                        Text("23 " + NSLocalizedString("days", comment: ""))
                             .font(.system(size: 28, weight: .bold, design: .default))
                             .foregroundColor(Color("text"))
-                        
                     }
                     .padding()
-                    
                 }
-                
-                
-                
             }
-            
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 180, maxHeight: 180, alignment: .leading)
         .padding()
@@ -104,27 +77,24 @@ struct SequenceCardView: View {
 }
 
 struct RememberCardView:View {
-    @State private var isToggle : Bool = false
-    @State private var wakeUp = Date()
+    @StateObject private var notificationPreference: NotificationPreference = NotificationPreferenceController().get()
     
     var body: some View {
-        
-        
         VStack (alignment: .leading) {
-            
             HStack {
-                
                 Image(systemName:"bell.fill")
                     .font(.system(size: 17, weight: .bold, design: .default))
                     .foregroundColor(.blue)
                 
-                
-                VStack (alignment: .leading) {
+                VStack(alignment: .leading) {
                     
-                    Toggle (isOn: $isToggle) {
+                    Toggle(isOn: $notificationPreference.active) {
                         Text(NSLocalizedString("daily_reminder", comment: ""))
                             .font(.system(size: 17, weight: .semibold, design: .default))
                             .foregroundColor(.secondary)
+                            .onChange(of: notificationPreference.active, perform: { value in
+                                notificationPreference.save()
+                            })
                     }
                 }
             }
@@ -142,12 +112,13 @@ struct RememberCardView:View {
                             .padding(.vertical)
                     }
                     Spacer()
-                    DatePicker("", selection: $wakeUp, displayedComponents: .hourAndMinute)
+                    DatePicker("", selection: $notificationPreference.time, displayedComponents: [.hourAndMinute])
                         .labelsHidden()
-                        
+                        .datePickerStyle(GraphicalDatePickerStyle())
+                        .onChange(of: notificationPreference.time, perform: { value in
+                            notificationPreference.save()
+                        })
                 }
-                
-                
             }
             
         }
