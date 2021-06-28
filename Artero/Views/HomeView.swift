@@ -20,13 +20,13 @@ struct HomeView: View {
         
         switch hour {
         case 6...11:
-            return NSLocalizedString("good_morning", comment: "")
+            return "☀️ \(NSLocalizedString("good_morning", comment: ""))"
         case 12...17:
-            return NSLocalizedString("good_afternoon", comment: "")
+            return "🌤 \(NSLocalizedString("good_afternoon", comment: ""))"
         case 18...23:
-            return NSLocalizedString("good_evening", comment: "")
+            return "🌙 \(NSLocalizedString("good_evening", comment: ""))"
         default:
-            return NSLocalizedString("good_night", comment: "")
+            return "🌙 \(NSLocalizedString("good_night", comment: ""))"
         }
     }
     
