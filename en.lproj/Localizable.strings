@@ -11,7 +11,8 @@
 "daily_theme" = "Today's Theme";
 "good_morning" = "Good morning!";
 "good_afternoon" = "Good afternoon!";
-"good_night" = "Good bight!";
+"good_evening" = "Good evening!";
+"good_night" = "Good night!";
 "activities" = "Activities";
 //Sequence - Home Screen
 "no_sequence" = "No sequence";
