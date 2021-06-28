@@ -72,7 +72,7 @@ struct CardActivityView: View {
 }
 
 struct CardThemeDay: View {
-    let theme = ThemeController().getToday()
+    @State var theme = ThemeController().getToday()
     
     var body: some View {
         NavigationLink(
@@ -121,22 +121,17 @@ struct CardThemeDay: View {
                         )
                 )
                 .cornerRadius(12.0)
+                .onAppear {
+                    self.theme = ThemeController().getToday()
+                }
             }
         )
     }
 }
 
 struct CardGallery: View {
-    let galleryImage: UIImage?
-    let activities = ActivityController().getAll()
-    
-    init() {
-        if activities.count > 0 {
-            self.galleryImage = activities[0].image
-        } else {
-            self.galleryImage = UIImage(named: "GalleryPlaceholder")!
-        }
-    }
+    @State var galleryImage = UIImage(named: "GalleryPlaceholder")!
+    @State var activities = ActivityController().getAll()
     
     var body: some View {
         NavigationLink(
@@ -151,7 +146,7 @@ struct CardGallery: View {
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 170, maxHeight: 170, alignment: .topTrailing)
                 
                 .background(
-                    Image(uiImage: galleryImage!)
+                    Image(uiImage: galleryImage)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 280, maxHeight: 280, alignment: .leading)
@@ -164,6 +159,14 @@ struct CardGallery: View {
                         )
                 )
                 .cornerRadius(12.0)
+                .onAppear {
+                    self.activities = ActivityController().getAll()
+                    if activities.count > 0 && activities[0].image != nil {
+                        self.galleryImage = activities[0].image!
+                    } else {
+                        self.galleryImage = UIImage(named: "GalleryPlaceholder")!
+                    }
+                }
             }
         )
     }

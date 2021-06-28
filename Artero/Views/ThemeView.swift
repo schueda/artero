@@ -16,19 +16,6 @@ struct ThemeView: View {
     @State private var isTodayActivitySent = ActivityController().getTodayActivity() != nil
     
     var theme: Theme?
-    private var activity: Activity = Activity()
-    
-    mutating func loadDayActivity() {
-        let repository = ActivityController()
-        if let activity = repository.getTodayActivity() {
-            self.activity = activity
-        }
-    }
-    
-    init(theme: Theme?) {
-        self.theme = theme
-        self.loadDayActivity()
-    }
     
     var body: some View {
         if let theme = theme {
@@ -51,6 +38,9 @@ struct ThemeView: View {
             .ignoresSafeArea()
             .sheet(isPresented: self.$isImagePickerDisplay) {
                 ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.$sourceType)
+            }
+            .onAppear {
+                self.isTodayActivitySent = ActivityController().getTodayActivity() != nil
             }
         }
     }
