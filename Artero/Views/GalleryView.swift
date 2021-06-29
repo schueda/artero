@@ -9,17 +9,12 @@ import SwiftUI
 
 struct GalleryView: View {
     @State var appearingCardIndex = 0
-    
-    var activities: [Activity] = []
-    
-    init() {
-        self.activities = ActivityController().getAll()
-    }
+    @ObservedObject var viewModel: GalleryViewModel
     
     var body: some View {
             TabView(selection: self.$appearingCardIndex) {
-                if activities.count > 0 {
-                    ForEach(Array(activities.enumerated()), id: \.offset) { index, activity in
+                if viewModel.activities.count > 0 {
+                    ForEach(Array(viewModel.activities.enumerated()), id: \.offset) { index, activity in
                         GalleryCardView(activity: activity, frameSize: self.appearingCardIndex == index ? UIScreen.main.bounds.height * 0.65 : UIScreen.main.bounds.height * 0.5)
                             .tag(activity.id)
                     }
@@ -104,8 +99,8 @@ struct PlaceholderView: View {
     }
 }
 
-struct GalleryView_Previews: PreviewProvider {
-    static var previews: some View {
-        GalleryView()
-    }
-}
+//struct GalleryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GalleryView()
+//    }
+//}
