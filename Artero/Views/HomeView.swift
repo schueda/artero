@@ -167,7 +167,7 @@ struct CardGallery: View {
     
     var body: some View {
         NavigationLink(
-            destination: GalleryView(viewModel: GalleryViewModel()),
+            destination: GalleryView(viewModel: GalleryViewModel(repository: UserDefaultsActivityRepository.shared)),
             label : {
                 VStack (alignment:.trailing) {
                     Image(systemName:"chevron.right")

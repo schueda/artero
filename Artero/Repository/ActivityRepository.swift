@@ -10,11 +10,13 @@ import Combine
 import UIKit
 
 protocol ActivityRepository {
-    func getAllActivities() -> AnyPublisher<[Activity], Error>
+    var allActivitiesSubject: CurrentValueSubject<[Activity], Error> { get set }
+    
+    func getAllActivities(order: ComparisonResult) -> AnyPublisher<[Activity], Error>
 }
 
 class UserDefaultsActivityRepository: ActivityRepository {
-    let allActivitiesSubject = CurrentValueSubject<[Activity], Error>([])
+    var allActivitiesSubject = CurrentValueSubject<[Activity], Error>([])
     
     private let prefix = "activity-"
     
@@ -67,7 +69,7 @@ class UserDefaultsActivityRepository: ActivityRepository {
         }
     }
     
-    func getAllActivities() -> AnyPublisher<[Activity], Error> {
+    func getAllActivities(order: ComparisonResult = .orderedDescending) -> AnyPublisher<[Activity], Error> {
         var activities: [Activity] = []
         for key in UserDefaults.standard.dictionaryRepresentation().keys {
             if key.hasPrefix(self.prefix) {
@@ -76,7 +78,8 @@ class UserDefaultsActivityRepository: ActivityRepository {
                 }
             }
         }
-//        return activities.sorted(by: { $0.date.compare($1.date) == (order ?? .orderedDescending) })
+        activities.sort(by: { $0.date.compare($1.date) == (order) })
+        
         allActivitiesSubject.send(activities)
         return Just(activities)
             .setFailureType(to: Error.self)
