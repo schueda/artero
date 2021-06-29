@@ -15,6 +15,7 @@ struct ThemeView: View {
     @State private var isImagePickerDisplay = false
     @State private var isTodayActivitySent = ActivityController().getTodayActivity() != nil
     @State private var isFeedbackShowing = false
+    @State private var isGalleryShowing = false
     
     var theme: Theme?
     private var activity: Activity = Activity()
@@ -52,8 +53,9 @@ struct ThemeView: View {
                     }
                 }
                 if isFeedbackShowing {
-                    FeedbackView()
+                    FeedbackView(isGalleryShowing: $isGalleryShowing, isFeedbackShowing: $isFeedbackShowing)
                 }
+                NavigationLink(destination: GalleryView(), isActive: $isGalleryShowing, label: {})
             }
             .ignoresSafeArea()
             .sheet(isPresented: self.$isImagePickerDisplay) {
@@ -65,6 +67,9 @@ struct ThemeView: View {
 }
 
 struct FeedbackView: View {
+    @Binding var isGalleryShowing: Bool
+    @Binding var isFeedbackShowing: Bool
+    
     var body: some View {
         VStack {
             Image(systemName: "checkmark.circle.fill")
@@ -73,10 +78,13 @@ struct FeedbackView: View {
                 .font(.system(size: 20, weight: .bold, design: .default))
                 .padding(.top, 5)
                 .padding(.bottom, -3)
-            NavigationLink(destination: GalleryView()) {
-                Text(NSLocalizedString("gallery", comment: ""))
-                    .font(.system(size: 20, weight: .bold, design: .default))
-            }
+            Text(NSLocalizedString("gallery", comment: ""))
+                .font(.system(size: 20, weight: .bold, design: .default))
+                .foregroundColor(Color(UIColor.link))
+                .onTapGesture {
+                    isGalleryShowing = true
+                    isFeedbackShowing = false
+                }
         }
         .frame(width: 230, height: 230)
         .background(Color(UIColor.systemGray6).opacity(0.9))
