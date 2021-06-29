@@ -92,8 +92,9 @@ struct CameraButtonView: View {
                 .font(.system(size: 17, weight: .semibold, design: .default))
                 .foregroundColor(.white)
                 .background(Color(.link))
-                .cornerRadius(10.0)
             })
+            .background(Color(UIColor.systemGray6))
+            .cornerRadius(10.0)
             .padding(.horizontal)
             .padding(.bottom, UIScreen.main.bounds.height * 0.05)
         }
@@ -189,8 +190,9 @@ struct ConfirmButtonView: View {
                 .font(.system(size: 17, weight: .semibold, design: .default))
                 .foregroundColor(.white)
                 .background(Color(.link))
-                .cornerRadius(10.0)
             })
+            .background(Color(UIColor.systemGray6))
+            .cornerRadius(10.0)
             .padding(.horizontal)
             .padding(.bottom, UIScreen.main.bounds.height * 0.05)
         }
