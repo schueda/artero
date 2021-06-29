@@ -41,7 +41,7 @@
 "theme" = "Theme";
 "activity_of_today" = "Today's activity";
 "benefits" = "Benefits";
-"image_saved_on" = "Image saved on";
+"activity_saved_on" = "Activity saved on";
 //button insert media - Theme Screen
 "button_media" = "Add media";
 "button_take_a_picture" = "Take photo or video";

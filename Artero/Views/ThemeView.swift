@@ -69,7 +69,7 @@ struct FeedbackView: View {
         VStack {
             Image(systemName: "checkmark.circle.fill")
                 .font(.system(size: 80, weight: .regular, design: .default))
-            Text(NSLocalizedString("image_saved_on", comment: ""))
+            Text(NSLocalizedString("activity_saved_on", comment: ""))
                 .font(.system(size: 20, weight: .bold, design: .default))
                 .padding(.top, 5)
                 .padding(.bottom, -3)
