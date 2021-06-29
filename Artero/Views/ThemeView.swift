@@ -14,6 +14,7 @@ struct ThemeView: View {
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
     @State private var isTodayActivitySent = ActivityController().getTodayActivity() != nil
+    @State private var isFeedbackShowing = false
     
     var theme: Theme?
     private var activity: Activity = Activity()
@@ -38,21 +39,49 @@ struct ThemeView: View {
                     ThemeTextView(theme: theme)
                     
                 }
-                if isTodayActivitySent {
-                    FakeButtonView()
-                } else {
-                    if selectedImage != nil {
-                        ConfirmButtonView(theme: theme, selectedImage: $selectedImage, isTodayActivitySent: $isTodayActivitySent)
+                VStack {
+                    Spacer()
+                    if isTodayActivitySent {
+                        FakeButtonView()
                     } else {
-                        CameraButtonView(sourceType: $sourceType, isImagePickerDisplay: $isImagePickerDisplay)
+                        if selectedImage != nil {
+                            ConfirmButtonView(theme: theme, selectedImage: $selectedImage, isTodayActivitySent: $isTodayActivitySent, isFeedbackShowing: $isFeedbackShowing)
+                        } else {
+                            CameraButtonView(sourceType: $sourceType, isImagePickerDisplay: $isImagePickerDisplay)
+                        }
                     }
+                }
+                if isFeedbackShowing {
+                    FeedbackView()
                 }
             }
             .ignoresSafeArea()
             .sheet(isPresented: self.$isImagePickerDisplay) {
                 ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.$sourceType)
             }
+            .animation(.easeInOut)
         }
+    }
+}
+
+struct FeedbackView: View {
+    var body: some View {
+        VStack {
+            Image(systemName: "checkmark.circle.fill")
+                .font(.system(size: 80, weight: .regular, design: .default))
+            Text(NSLocalizedString("image_saved_on", comment: ""))
+                .font(.system(size: 20, weight: .bold, design: .default))
+                .padding(.top, 5)
+                .padding(.bottom, -3)
+            NavigationLink(destination: GalleryView()) {
+                Text(NSLocalizedString("gallery", comment: ""))
+                    .font(.system(size: 20, weight: .bold, design: .default))
+            }
+        }
+        .frame(width: 230, height: 230)
+        .background(Color(UIColor.systemGray6).opacity(0.9))
+        .cornerRadius(14)
+        .zIndex(1)
     }
 }
 
@@ -62,65 +91,59 @@ struct CameraButtonView: View {
     
     
     var body: some View {
-        VStack {
-            Spacer()
-            Menu(content: {
-                Button(action: {
-                    self.sourceType = .camera
-                    self.isImagePickerDisplay.toggle()
-                }, label: {
-                    HStack {
-                        Image(systemName: "camera")
-                        Text(NSLocalizedString("button_take_a_picture", comment: ""))
-                    }
-                })
-                Button(action: {
-                    self.sourceType = .photoLibrary
-                    self.isImagePickerDisplay.toggle()
-                }, label: {
-                    HStack {
-                        Image(systemName: "photo.on.rectangle.angled")
-                        Text(NSLocalizedString("button_choose_media", comment: ""))
-                    }
-                })
+        Menu(content: {
+            Button(action: {
+                self.sourceType = .camera
+                self.isImagePickerDisplay.toggle()
             }, label: {
                 HStack {
                     Image(systemName: "camera")
-                    Text(NSLocalizedString("button_media", comment: ""))
+                    Text(NSLocalizedString("button_take_a_picture", comment: ""))
                 }
-                .frame(maxWidth: .infinity, minHeight: 50)
-                .font(.system(size: 17, weight: .semibold, design: .default))
-                .foregroundColor(.white)
-                .background(Color(.link))
             })
-            .background(Color(UIColor.systemGray6))
-            .cornerRadius(10.0)
-            .padding(.horizontal)
-            .padding(.bottom, UIScreen.main.bounds.height * 0.05)
-        }
+            Button(action: {
+                self.sourceType = .photoLibrary
+                self.isImagePickerDisplay.toggle()
+            }, label: {
+                HStack {
+                    Image(systemName: "photo.on.rectangle.angled")
+                    Text(NSLocalizedString("button_choose_media", comment: ""))
+                }
+            })
+        }, label: {
+            HStack {
+                Image(systemName: "camera")
+                Text(NSLocalizedString("button_media", comment: ""))
+            }
+            .frame(maxWidth: .infinity, minHeight: 50)
+            .font(.system(size: 17, weight: .semibold, design: .default))
+            .foregroundColor(.white)
+            .background(Color(.link))
+        })
+        .background(Color(UIColor.systemGray6))
+        .cornerRadius(10.0)
+        .padding(.horizontal)
+        .padding(.bottom, UIScreen.main.bounds.height * 0.05)
     }
 }
 
 struct FakeButtonView: View {
     var body: some View {
-        VStack {
-            Spacer()
-            Button(action: {
-                
-            }, label: {
-                HStack {
-                    Text(NSLocalizedString("art_sent", comment: ""))
-                }
-                .frame(maxWidth: .infinity, minHeight: 50)
-                .font(.system(size: 17, weight: .semibold, design: .default))
-                .foregroundColor(.white)
-                .background(Color(.gray))
-                .cornerRadius(10.0)
-            })
-            .padding(.horizontal)
-            .padding(.bottom, UIScreen.main.bounds.height * 0.05)
-            .disabled(true)
-        }
+        Button(action: {
+            
+        }, label: {
+            HStack {
+                Text(NSLocalizedString("art_sent", comment: ""))
+            }
+            .frame(maxWidth: .infinity, minHeight: 50)
+            .font(.system(size: 17, weight: .semibold, design: .default))
+            .foregroundColor(.white)
+            .background(Color(.gray))
+            .cornerRadius(10.0)
+        })
+        .padding(.horizontal)
+        .padding(.bottom, UIScreen.main.bounds.height * 0.05)
+        .disabled(true)
     }
 }
 
@@ -140,62 +163,66 @@ struct ConfirmButtonView: View {
     
     @Binding var selectedImage: UIImage?
     @Binding var isTodayActivitySent: Bool
+    @Binding var isFeedbackShowing: Bool
     
     var body: some View {
-        VStack {
-            Spacer()
-            Menu(content: {
-                Button(action: {
-                    selectedImage = nil
-                }, label: {
-                    HStack {
-                        Image(systemName: "xmark.circle")
-                        Text(NSLocalizedString("cancel", comment: ""))
-                    }
-                })
-                Button(action: {
-                    isTodayActivitySent = true
-                    self.saveActivity()
-                    
-                }, label: {
-                    HStack {
-                        Image(systemName: "checkmark.circle")
-                        Text(NSLocalizedString("confirm", comment: ""))
-                    }
-                })
+        Menu(content: {
+            Button(action: {
+                selectedImage = nil
             }, label: {
                 HStack {
+                    Image(systemName: "xmark.circle")
+                    Text(NSLocalizedString("cancel", comment: ""))
+                }
+            })
+            Button(action: {
+                isTodayActivitySent = true
+                isFeedbackShowing = true
+                self.saveActivity()
+                
+                let seconds = 3.0
+                DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                    isFeedbackShowing = false
+                }
+                
+            }, label: {
+                HStack {
+                    Image(systemName: "checkmark.circle")
+                    Text(NSLocalizedString("confirm", comment: ""))
+                }
+            })
+        }, label: {
+            HStack {
+                Text("")
+                    .frame(width: 36, height: 36)
+                    .padding(.leading)
+                Spacer()
+                Text(NSLocalizedString("confirm", comment: ""))
+                Spacer()
+                if selectedImage != nil {
+                    Image(uiImage: selectedImage!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 36, height: 36)
+                        .cornerRadius(4)
+                        .clipped()
+                        .padding(.trailing)
+                } else {
                     Text("")
                         .frame(width: 36, height: 36)
-                        .padding(.leading)
-                    Spacer()
-                    Text(NSLocalizedString("confirm", comment: ""))
-                    Spacer()
-                    if selectedImage != nil {
-                        Image(uiImage: selectedImage!)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 36, height: 36)
-                            .cornerRadius(4)
-                            .clipped()
-                            .padding(.trailing)
-                    } else {
-                        Text("")
-                            .frame(width: 36, height: 36)
-                            .padding(.trailing)
-                    }
-                    
+                        .padding(.trailing)
                 }
-                .frame(maxWidth: .infinity, minHeight: 50)
-                .font(.system(size: 17, weight: .semibold, design: .default))
-                .foregroundColor(.white)
-                .background(Color(.link))
-            })
-            .background(Color(UIColor.systemGray6))
-            .cornerRadius(10.0)
-            .padding(.horizontal)
-            .padding(.bottom, UIScreen.main.bounds.height * 0.05)
-        }
+                
+            }
+            .frame(maxWidth: .infinity, minHeight: 50)
+            .font(.system(size: 17, weight: .semibold, design: .default))
+            .foregroundColor(.white)
+            .background(Color(.link))
+        })
+        .background(Color(UIColor.systemGray6))
+        .cornerRadius(10.0)
+        .padding(.horizontal)
+        .padding(.bottom, UIScreen.main.bounds.height * 0.05)
     }
 }
 
@@ -266,12 +293,12 @@ struct ThemeTextView: View {
                         .padding(.top, 10)
                 } else {
                     Text(NSLocalizedString("activity_from", comment: "") + " " +
-                         DateUtils.formatToLong(date: date!, languageCode: Locale.current.languageCode == "pt" ? "pt" : "en"))
+                            DateUtils.formatToLong(date: date!, languageCode: Locale.current.languageCode == "pt" ? "pt" : "en"))
                         .font(.system(size: 20, weight: .bold, design: .default))
                         .padding(.top, 10)
                 }
                 Spacer()
-                    
+                
             }
             
             Text(theme.description)
