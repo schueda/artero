@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SingleActivityView: View {
+    @ObservedObject var viewModel: SingleActivityViewModel
     let activity: Activity?
     
     @State var isDeleted = false
@@ -20,7 +21,9 @@ struct SingleActivityView: View {
                 if let theme = activity.theme {
                     ThemeTextView(theme: theme, date: activity.date)
                 }
-                DeleteButton(activity: activity)
+                DeleteButton(activity: activity) { activity in
+                    viewModel.delete(activity)
+                }
             }
         }
         .ignoresSafeArea()
@@ -73,10 +76,12 @@ struct SingleActivityHeaderView: View {
 }
 
 struct DeleteButton: View {
+    
     @Environment(\.presentationMode) var presentationMode
     
     let activity: Activity
     @State var showingAlert = false
+    let onDelete: (Activity) -> Void
     
     var body: some View {
         Button(action: {
@@ -99,8 +104,7 @@ struct DeleteButton: View {
                 title: Text(NSLocalizedString("delete_activity", comment: "")),
                 message: Text(NSLocalizedString("delete_question", comment: "")),
                 primaryButton: .default(Text(NSLocalizedString("delete", comment: "")), action: {
-//                    ActivityDAO().delete(activity)
-                    // TODO arrumar
+                    onDelete(activity)
                     self.presentationMode.wrappedValue.dismiss()
                 }),
                 secondaryButton: .default(Text(NSLocalizedString("cancel", comment: "")))

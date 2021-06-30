@@ -36,7 +36,7 @@ struct GalleryCardView: View {
     
     var body: some View {
         NavigationLink(
-            destination: SingleActivityView(activity: activity),
+            destination: SingleActivityView(viewModel: SingleActivityViewModel(repository: UserDefaultsActivityRepository.shared), activity: activity),
             label : {
                 if let activity = activity {
                     if let image = activity.image {

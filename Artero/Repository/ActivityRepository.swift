@@ -12,6 +12,7 @@ import UIKit
 protocol ActivityRepository {
     var allActivitiesSubject: CurrentValueSubject<[Activity], Error> { get set }
     func save(_ activity: Activity)
+    func delete(_ activity: Activity)
     func getAll(order: ComparisonResult) -> AnyPublisher<[Activity], Error>
     func get(date: Date) -> AnyPublisher<Activity?, Error>
 }

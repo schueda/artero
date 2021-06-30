@@ -20,9 +20,9 @@ class GalleryViewModel: ObservableObject {
             .sink { completion in
                 print("completion: \(completion)")
             } receiveValue: { [weak self] value in
+                print(value)
                 self?.activities = value
             }
-        _ = repository.getAll(order: .orderedDescending)
     }
     
     deinit {
