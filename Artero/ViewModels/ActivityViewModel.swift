@@ -22,6 +22,7 @@ class ActivityViewModel: ObservableObject {
             } receiveValue: { [weak self] value in
                 self?.streak = value
             }
+        _ = repository.get()
     }
     
     deinit {

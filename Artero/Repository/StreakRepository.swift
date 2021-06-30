@@ -12,7 +12,7 @@ import UIKit
 protocol StreakRepository {
     var streakSubject: CurrentValueSubject<Streak?, Error> { get set }
     func save(_ activity: Streak)
-    func get(date: Date) -> AnyPublisher<Streak?, Error>
+    func get() -> AnyPublisher<Streak?, Error>
 }
 
 class UserDefaultsStreakRepository: StreakRepository {
@@ -31,7 +31,7 @@ class UserDefaultsStreakRepository: StreakRepository {
         }
     }
     
-    func get(date: Date) -> AnyPublisher<Streak?, Error> {
+    func get() -> AnyPublisher<Streak?, Error> {
         refreshSubject()
         let streak = fetchStreak()
         return Just(streak)
