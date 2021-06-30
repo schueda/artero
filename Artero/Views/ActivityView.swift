@@ -18,6 +18,7 @@ struct ActivityView: View {
             }
             .padding(.horizontal)
         }
+        .background(Color("background").edgesIgnoringSafeArea(.bottom))
         .navigationBarTitle(NSLocalizedString("activity", comment: ""))
     }
 }
