@@ -20,7 +20,8 @@
 
 
 //Gallery Screen
-"gallery" = "Your gallery";
+"your_gallery" = "Your gallery";
+"gallery" = "gallery";
 
 //Single activity screen
 "theme_was" = "The theme was";
@@ -40,6 +41,7 @@
 "theme" = "Theme";
 "activity_of_today" = "Today's activity";
 "benefits" = "Benefits";
+"activity_saved_on" = "Activity saved on";
 //button insert media - Theme Screen
 "button_media" = "Add media";
 "button_take_a_picture" = "Take photo or video";

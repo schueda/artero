@@ -25,7 +25,7 @@ struct GalleryView: View {
                 }
             }
             .tabViewStyle(PageTabViewStyle())
-            .navigationBarTitle(NSLocalizedString("gallery", comment: ""))
+            .navigationBarTitle(NSLocalizedString("your_gallery", comment: ""))
             .background(Color("background").edgesIgnoringSafeArea(.bottom))
             .id(viewModel.activities.count)
     }
