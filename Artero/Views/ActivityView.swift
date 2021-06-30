@@ -12,7 +12,7 @@ struct ActivityView: View {
     var body: some View {
         ScrollView {
             VStack (spacing:20) {
-                SequenceCardView()
+                SequenceCardView(viewModel: ActivityViewModel(repository: UserDefaultsStreakRepository.shared))
                     .padding(.top, 25)
                 RememberCardView()
             }
@@ -31,6 +31,8 @@ struct ActivityView_Previews: PreviewProvider {
 }
 
 struct SequenceCardView: View {
+    @StateObject var viewModel: ActivityViewModel
+    
     var body: some View {
         VStack (alignment: .leading) {
             HStack {
@@ -38,12 +40,18 @@ struct SequenceCardView: View {
                     .font(.system(size: 36, weight: .bold, design: .default))
                     .foregroundColor(.blue)
                 VStack (alignment: .leading) {
-                    Text(NSLocalizedString("current_sequence", comment: ""))
+                    Text(NSLocalizedString("current_streak", comment: ""))
                         .font(.system(size: 17, weight: .semibold, design: .default))
                         .foregroundColor(.secondary)
-                    Text("15 " + NSLocalizedString("days", comment: ""))
-                        .font(.system(size: 28, weight: .bold, design: .default))
-                        .foregroundColor(Color("text"))
+                    if let streak = viewModel.streak {
+                        Text("\(streak.current) " + NSLocalizedString("days", comment: ""))
+                            .font(.system(size: 28, weight: .bold, design: .default))
+                            .foregroundColor(Color("text"))
+                    } else {
+                        Text(NSLocalizedString("no_streak", comment: ""))
+                            .font(.system(size: 28, weight: .bold, design: .default))
+                            .foregroundColor(Color("text"))
+                    }
                 }
                 .padding()
             }
@@ -58,13 +66,18 @@ struct SequenceCardView: View {
                         .foregroundColor(.blue)
                     
                     VStack (alignment: .leading) {
-                        Text(NSLocalizedString("longest_sequence", comment: ""))
+                        Text(NSLocalizedString("longest_streak", comment: ""))
                             .font(.system(size: 17, weight: .semibold, design: .default))
                             .foregroundColor(.secondary)
-                        
-                        Text("23 " + NSLocalizedString("days", comment: ""))
-                            .font(.system(size: 28, weight: .bold, design: .default))
-                            .foregroundColor(Color("text"))
+                        if let streak = viewModel.streak {
+                            Text("\(streak.best) " + NSLocalizedString("days", comment: ""))
+                                .font(.system(size: 28, weight: .bold, design: .default))
+                                .foregroundColor(Color("text"))
+                        } else {
+                            Text(NSLocalizedString("no_best", comment: ""))
+                                .font(.system(size: 28, weight: .bold, design: .default))
+                                .foregroundColor(Color("text"))
+                        }
                     }
                     .padding()
                 }

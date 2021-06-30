@@ -34,7 +34,7 @@ struct ThemeView: View {
                     } else {
                         if selectedImage != nil {
                             ConfirmButtonView(theme: theme, selectedImage: $selectedImage, isFeedbackShowing: $isFeedbackShowing) { activity in
-                                viewModel.saveActivity(activity: activity)
+                                viewModel.save(activity: activity)
                             }
                         } else {
                             CameraButtonView(sourceType: $sourceType, isImagePickerDisplay: $isImagePickerDisplay)

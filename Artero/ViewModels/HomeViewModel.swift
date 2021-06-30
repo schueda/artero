@@ -9,17 +9,22 @@ import Combine
 import Foundation
 
 class HomeViewModel: ObservableObject {
+    var streakCancellable: AnyCancellable?
     var allActivitiesCancellable: AnyCancellable?
     var currentDayCancellable: AnyCancellable?
     
     @Published var activities: [Activity] = []
     @Published var currentDayActivity: Activity?
+    @Published var streak: Streak?
     
-    let repository: ActivityRepository
+    let activityRepository: ActivityRepository
+    let streakRepository: StreakRepository
     
-    init(repository: ActivityRepository) {
-        self.repository = repository
-        allActivitiesCancellable = repository.allActivitiesSubject
+    init(activityRepository: ActivityRepository, streakRepository: StreakRepository) {
+        self.activityRepository = activityRepository
+        self.streakRepository = streakRepository
+        
+        allActivitiesCancellable = activityRepository.allActivitiesSubject
             .receive(on: RunLoop.main)
             .sink { completion in
                 print("HomeViewModel completion: \(completion)")
@@ -27,18 +32,27 @@ class HomeViewModel: ObservableObject {
                 print("HomeViewModel: \(value)")
                 self?.activities = value
             }
-        currentDayCancellable = repository.get(date: Date())
+        currentDayCancellable = activityRepository.get(date: Date())
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 print("HomeViewModel completion: \(completion)")
             }, receiveValue: { [weak self] value in
                 self?.currentDayActivity = value
             })
-        _ = repository.getAll(order: .orderedDescending)
+        _ = activityRepository.getAll(order: .orderedDescending)
+        
+        streakCancellable = streakRepository.get()
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: { completion in
+                print("HomeViewModel completion: \(completion)")
+            }, receiveValue: { [weak self] value in
+                self?.streak = value
+            })
     }
     
     deinit {
         allActivitiesCancellable?.cancel()
         currentDayCancellable?.cancel()
+        streakCancellable?.cancel()
     }
 }

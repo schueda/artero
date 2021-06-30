@@ -14,8 +14,8 @@
 "good_evening" = "Good evening!";
 "good_night" = "Good night!";
 "activities" = "Activities";
-//Sequence - Home Screen
-"no_sequence" = "No sequence";
+//streak - Home Screen
+"no_streak" = "No streak";
 "sequencia" = "consecutive days";
 
 
@@ -30,11 +30,12 @@
 
 //Activity Screen
 "activity" = "Activity";
-"current_sequence" = "Current sequence";
-"longest_sequence" = "Longest sequence";
+"current_streak" = "Current streak";
+"longest_streak" = "Longest streak";
 "days" = "days";
 "daily_reminder" = "Daily reminder";
 "time" = "Time";
+"no_best" = "No records yet";
 
 
 //Theme Screen

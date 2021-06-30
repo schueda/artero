@@ -11,7 +11,7 @@ import UIKit
 
 protocol StreakRepository {
     var streakSubject: CurrentValueSubject<Streak?, Error> { get set }
-    func save(_ activity: Streak)
+    func save(_ streak: Streak)
     func get() -> AnyPublisher<Streak?, Error>
 }
 
@@ -21,9 +21,9 @@ class UserDefaultsStreakRepository: StreakRepository {
     
     fileprivate init() {}
     
-    func save(_ activity: Streak) {
+    func save(_ streak: Streak) {
         do {
-            let data = try JSONEncoder().encode(activity)
+            let data = try JSONEncoder().encode(streak)
             UserDefaults.standard.setValue(data, forKey: Streak.key)
             self.refreshSubject()
         } catch {
