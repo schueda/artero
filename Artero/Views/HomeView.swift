@@ -37,7 +37,7 @@ struct HomeView: View {
             VStack (spacing:20) {
                 CardThemeDay()
                     .padding(.top, 25)
-                CardActivityView()
+                CardActivityView(streak: $viewModel.streak)
                 CardGallery(activities: $viewModel.activities)
                     .padding(.bottom, 25)
             }
@@ -61,6 +61,8 @@ struct HomeView: View {
 //}
 
 struct CardActivityView: View {
+    @Binding var streak: Streak?
+    
     var body: some View {
         NavigationLink(
             destination: ActivityView(),
@@ -81,19 +83,24 @@ struct CardActivityView: View {
                             .font(.system(size: 18, weight: .bold, design: .default))
                             .foregroundColor(.gray)
                     }
-                    
-                    Text(NSLocalizedString("no_sequence", comment: ""))
-                        .font(.system(size: 28, weight: .bold, design: .default))
-                        .foregroundColor(Color("text"))
-                        
-                        .padding(.top, 4)
+                    if let current = streak?.current,
+                       current > 0 {
+                        Text("\(current) " + NSLocalizedString("days", comment: ""))
+                            .font(.system(size: 28, weight: .bold, design: .default))
+                            .foregroundColor(Color("text"))
+                            .padding(.top, 4)
+                    } else {
+                        Text(NSLocalizedString("no_streak", comment: ""))
+                            .font(.system(size: 28, weight: .bold, design: .default))
+                            .foregroundColor(Color("text"))
+                            .padding(.top, 4)
+                    }
                     
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 85, maxHeight: 85, alignment: .leading)
                 .padding()
                 .background(Color("card"))
                 .cornerRadius(12.0)
-                
             }
         )
     }
@@ -104,7 +111,7 @@ struct CardThemeDay: View {
     
     var body: some View {
         NavigationLink(
-            destination: ThemeView(viewModel: ThemeViewModel(repository: UserDefaultsActivityRepository.shared), theme: theme),
+            destination: ThemeView(viewModel: ThemeViewModel(activityRepository: UserDefaultsActivityRepository.shared, streakRepository: UserDefaultsStreakRepository.shared), theme: theme),
             label : {
                 VStack (alignment:.leading) {
                     HStack {

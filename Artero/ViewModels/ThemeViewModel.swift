@@ -9,29 +9,51 @@ import Combine
 import Foundation
 
 class ThemeViewModel: ObservableObject {
-    var cancellable: AnyCancellable?
+    var activityCancellable: AnyCancellable?
+    var streakCancellable: AnyCancellable?
     
     @Published var currentDayActivity: Activity?
+    @Published var lastStreak: Streak?
     
-    let repository: ActivityRepository
+    let streakRepository: StreakRepository
+    let activityRepository: ActivityRepository
     
-    init(repository: ActivityRepository) {
-        self.repository = repository
-        cancellable = repository.get(date: Date())
+    init(activityRepository: ActivityRepository, streakRepository: StreakRepository) {
+        self.activityRepository = activityRepository
+        self.streakRepository = streakRepository
+        
+        activityCancellable = activityRepository.get(date: Date())
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 print("ThemeViewModel completion: \(completion)")
             }, receiveValue: { [weak self] value in
                 self?.currentDayActivity = value
             })
-        _ = repository.getAll(order: .orderedDescending)
+        _ = activityRepository.getAll(order: .orderedDescending)
+        
+        streakCancellable = streakRepository.get()
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: { completion in
+                print("ThemeViewModel streak completion: \(completion)")
+            }, receiveValue: { [weak self] value in
+                self?.lastStreak = value
+            })
     }
     
     deinit {
-        cancellable?.cancel()
+        activityCancellable?.cancel()
+        streakCancellable?.cancel()
     }
     
-    func saveActivity(activity: Activity) {
-        repository.save(activity)
+    func save(activity: Activity) {
+        activityRepository.save(activity)
+        
+        if let lastStreak = lastStreak {
+            lastStreak.addedActivity()
+            streakRepository.save(lastStreak)
+        } else {
+            let lastStreak = Streak(lastActivityDate: Date(), current: 1, best: 1)
+            streakRepository.save(lastStreak)
+        }
     }
 }
