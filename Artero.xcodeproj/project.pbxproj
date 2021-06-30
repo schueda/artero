@@ -30,6 +30,9 @@
 		B51302EE2683FC2600BFEF20 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51302ED2683FC2600BFEF20 /* Activity.swift */; };
 		B51302F02683FCA000BFEF20 /* ActivityDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51302EF2683FCA000BFEF20 /* ActivityDAO.swift */; };
 		B51302F32683FE7F00BFEF20 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51302F22683FE7F00BFEF20 /* DateUtils.swift */; };
+		B54FF3AF268C0BE2007A5DF3 /* StreakRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54FF3AE268C0BE2007A5DF3 /* StreakRepository.swift */; };
+		B54FF3B1268C0C19007A5DF3 /* Streak.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54FF3B0268C0C19007A5DF3 /* Streak.swift */; };
+		B54FF3B3268C19B0007A5DF3 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54FF3B2268C19B0007A5DF3 /* ActivityViewModel.swift */; };
 		B59E252E2686069F00CE28F5 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59E252D2686069F00CE28F5 /* ImageView.swift */; };
 		B5BEDB6A2683604100B4BC3F /* Inspiration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BEDB692683604100B4BC3F /* Inspiration.swift */; };
 		B5BEDB6C2683607B00B4BC3F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BEDB6B2683607B00B4BC3F /* Theme.swift */; };
@@ -67,6 +70,9 @@
 		B51302ED2683FC2600BFEF20 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		B51302EF2683FCA000BFEF20 /* ActivityDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDAO.swift; sourceTree = "<group>"; };
 		B51302F22683FE7F00BFEF20 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		B54FF3AE268C0BE2007A5DF3 /* StreakRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakRepository.swift; sourceTree = "<group>"; };
+		B54FF3B0268C0C19007A5DF3 /* Streak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Streak.swift; sourceTree = "<group>"; };
+		B54FF3B2268C19B0007A5DF3 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		B59E252D2686069F00CE28F5 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		B5BEDB692683604100B4BC3F /* Inspiration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inspiration.swift; sourceTree = "<group>"; };
 		B5BEDB6B2683607B00B4BC3F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -156,6 +162,7 @@
 				B5BEDB6D2683647300B4BC3F /* NotificationPreference.swift */,
 				B51302ED2683FC2600BFEF20 /* Activity.swift */,
 				B5EA7F712685845A00B696F9 /* User.swift */,
+				B54FF3B0268C0C19007A5DF3 /* Streak.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -164,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				61C0493C268B4CA600A4F61D /* ActivityRepository.swift */,
+				B54FF3AE268C0BE2007A5DF3 /* StreakRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -175,6 +183,7 @@
 				61D94505268BE1DE00F487F4 /* HomeViewModel.swift */,
 				61D94507268BE7D500F487F4 /* ThemeViewModel.swift */,
 				61D94509268C005700F487F4 /* SingleActivityViewModel.swift */,
+				B54FF3B2268C19B0007A5DF3 /* ActivityViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -278,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B54FF3B3268C19B0007A5DF3 /* ActivityViewModel.swift in Sources */,
 				61D94506268BE1DE00F487F4 /* HomeViewModel.swift in Sources */,
 				B5BEDB6E2683647300B4BC3F /* NotificationPreference.swift in Sources */,
 				547D15D726836A6A00E8223D /* HomeView.swift in Sources */,
@@ -285,6 +295,7 @@
 				B5EA7F742685846400B696F9 /* UserDAO.swift in Sources */,
 				B59E252E2686069F00CE28F5 /* ImageView.swift in Sources */,
 				B5BEDB6C2683607B00B4BC3F /* Theme.swift in Sources */,
+				B54FF3AF268C0BE2007A5DF3 /* StreakRepository.swift in Sources */,
 				61ECBA6B267B798100DE9D02 /* Coordinator.swift in Sources */,
 				612D47FE267FEAA100248C83 /* ThemeView.swift in Sources */,
 				B51302F02683FCA000BFEF20 /* ActivityDAO.swift in Sources */,
@@ -293,6 +304,7 @@
 				61ECBA69267B795B00DE9D02 /* ImagePickerView.swift in Sources */,
 				B51302EE2683FC2600BFEF20 /* Activity.swift in Sources */,
 				B50BB4AA26842C9800EB65B7 /* ThemeController.swift in Sources */,
+				B54FF3B1268C0C19007A5DF3 /* Streak.swift in Sources */,
 				B51302EC2683F92500BFEF20 /* NotificationPreferenceController.swift in Sources */,
 				B51302F32683FE7F00BFEF20 /* DateUtils.swift in Sources */,
 				61C0493D268B4CA600A4F61D /* ActivityRepository.swift in Sources */,
