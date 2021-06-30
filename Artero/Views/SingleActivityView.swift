@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SingleActivityView: View {
-    @ObservedObject var viewModel: SingleActivityViewModel
+    @StateObject var viewModel: SingleActivityViewModel
     let activity: Activity?
     
     @State var isDeleted = false

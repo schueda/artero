@@ -67,7 +67,7 @@ class UserDefaultsActivityRepository: ActivityRepository {
     }
     
     func get(date: Date) -> AnyPublisher<Activity?, Error> {
-        getAll()
+        allActivitiesSubject
             .tryMap { activities in
                 activities.first { self.dateToKey($0.date) == self.dateToKey(date) }
             }
@@ -75,7 +75,7 @@ class UserDefaultsActivityRepository: ActivityRepository {
     }
     
     func get(date: String) -> AnyPublisher<Activity?, Error> {
-        getAll()
+        allActivitiesSubject
             .tryMap { activities in
                 activities.first { self.dateToKey($0.date) == self.dateToKey(date) }
             }

@@ -20,8 +20,9 @@ class ThemeViewModel: ObservableObject {
         cancellable = repository.get(date: Date())
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
-                print("completion: \(completion)")
+                print("ThemeViewModel completion: \(completion)")
             }, receiveValue: { [weak self] value in
+                print("ThemeViewModel \(value)")
                 self?.currentDayActivity = value
             })
         _ = repository.getAll(order: .orderedDescending)

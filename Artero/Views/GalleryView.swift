@@ -9,11 +9,11 @@ import SwiftUI
 
 struct GalleryView: View {
     @State var appearingCardIndex = 0
-    @ObservedObject var viewModel: GalleryViewModel
+    @StateObject var viewModel: GalleryViewModel
     
     var body: some View {
             TabView(selection: self.$appearingCardIndex) {
-                if viewModel.activities.count > 0 {
+                if !viewModel.activities.isEmpty {
                     ForEach(Array(viewModel.activities.enumerated()), id: \.offset) { index, activity in
                         GalleryCardView(activity: activity, frameSize: self.appearingCardIndex == index ? UIScreen.main.bounds.height * 0.65 : UIScreen.main.bounds.height * 0.5)
                             .tag(activity.id)
@@ -27,6 +27,7 @@ struct GalleryView: View {
             .tabViewStyle(PageTabViewStyle())
             .navigationBarTitle(NSLocalizedString("gallery", comment: ""))
             .background(Color("background").edgesIgnoringSafeArea(.bottom))
+            .id(viewModel.activities.count)
     }
 }
 

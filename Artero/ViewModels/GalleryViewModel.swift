@@ -18,14 +18,18 @@ class GalleryViewModel: ObservableObject {
         cancellable = repository.allActivitiesSubject
             .receive(on: RunLoop.main)
             .sink { completion in
-                print("completion: \(completion)")
+                print("GalleryViewModel completion: \(completion)")
+
             } receiveValue: { [weak self] value in
+                print("GalleryViewModel: \(value)")
                 print(value)
+                self?.activities = []
                 self?.activities = value
             }
     }
     
     deinit {
+        print("GalleryViewModel deinit")
         cancellable?.cancel()
     }
 }

@@ -22,15 +22,17 @@ class HomeViewModel: ObservableObject {
         allActivitiesCancellable = repository.allActivitiesSubject
             .receive(on: RunLoop.main)
             .sink { completion in
-                print("completion: \(completion)")
+                print("HomeViewModel completion: \(completion)")
             } receiveValue: { [weak self] value in
+                print("HomeViewModel: \(value)")
                 self?.activities = value
             }
         currentDayCancellable = repository.get(date: Date())
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
-                print("completion: \(completion)")
+                print("HomeViewModel completion: \(completion)")
             }, receiveValue: { [weak self] value in
+                print("HomeViewModel: \(value)")
                 self?.currentDayActivity = value
             })
         _ = repository.getAll(order: .orderedDescending)
