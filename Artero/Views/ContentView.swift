@@ -20,10 +20,13 @@ struct ContentView: View {
                 }
                 .background(Color("background").edgesIgnoringSafeArea(.bottom))
             }
+            .accentColor(.white)
         } else {
             NavigationView {
                 OnboardingView().navigationBarHidden(true)
             }
+            .accentColor(.white)
+
         }
     }
 }
