@@ -41,12 +41,13 @@ struct HomeView: View {
                 CardGallery(activities: $viewModel.activities)
                     .padding(.bottom, 25)
             }
+            .padding(.horizontal)
         }
-        .padding(.horizontal)
         .navigationBarTitle(self.welcomeTitle)
         .onAppear {
             self.welcomeTitle = self.getWelcomeTitle()
         }
+        .background(Color("background").edgesIgnoringSafeArea(.bottom))
     }
 }
 

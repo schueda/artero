@@ -13,12 +13,7 @@ struct ContentView: View {
     var body: some View {
         if user.onboardingComplete {
             NavigationView {
-                ScrollView {
-                    VStack {
-                        HomeView(viewModel: HomeViewModel(repository: UserDefaultsActivityRepository.shared))
-                    }
-                }
-                .background(Color("background").edgesIgnoringSafeArea(.bottom))
+                HomeView(viewModel: HomeViewModel(repository: UserDefaultsActivityRepository.shared))
             }
             .accentColor(Color("text"))
         } else {
@@ -26,7 +21,6 @@ struct ContentView: View {
                 OnboardingView().navigationBarHidden(true)
             }
             .accentColor(Color("text"))
-
         }
     }
 }
