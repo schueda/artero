@@ -99,7 +99,8 @@ struct DeleteButton: View {
                 title: Text(NSLocalizedString("delete_activity", comment: "")),
                 message: Text(NSLocalizedString("delete_question", comment: "")),
                 primaryButton: .default(Text(NSLocalizedString("delete", comment: "")), action: {
-                    ActivityDAO().delete(activity)
+//                    ActivityDAO().delete(activity)
+                    // TODO arrumar
                     self.presentationMode.wrappedValue.dismiss()
                 }),
                 secondaryButton: .default(Text(NSLocalizedString("cancel", comment: "")))

@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
-    private var welcomeTitle = NSLocalizedString("good_morning", comment: "")
+    @ObservedObject var viewModel: HomeViewModel
+    
+    @State var welcomeTitle = NSLocalizedString("good_morning", comment: "")
     
     private func getWelcomeTitle() -> String {
         let date = Date()
@@ -30,34 +32,32 @@ struct HomeView: View {
         }
     }
     
-    init() {
-        self.welcomeTitle = self.getWelcomeTitle()
-    }
-    
     var body: some View {
         ScrollView {
             VStack (spacing:20) {
                 CardThemeDay()
                     .padding(.top, 25)
                 CardActivityView()
-                CardGallery()
+                CardGallery(activities: $viewModel.activities)
                     .padding(.bottom, 25)
             }
         }
         .padding(.horizontal)
         .navigationBarTitle(self.welcomeTitle)
-
-    }
-}
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            HomeView()
+        .onAppear {
+            self.welcomeTitle = self.getWelcomeTitle()
         }
-        .preferredColorScheme(.light)
     }
 }
+
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationView {
+//            HomeView()
+//        }
+//        .preferredColorScheme(.light)
+//    }
+//}
 
 struct CardActivityView: View {
     var body: some View {
@@ -103,7 +103,7 @@ struct CardThemeDay: View {
     
     var body: some View {
         NavigationLink(
-            destination: ThemeView(theme: theme),
+            destination: ThemeView(viewModel: ThemeViewModel(repository: UserDefaultsActivityRepository.shared), theme: theme),
             label : {
                 VStack (alignment:.leading) {
                     HStack {
@@ -154,15 +154,14 @@ struct CardThemeDay: View {
 }
 
 struct CardGallery: View {
-    let galleryImage: UIImage?
-    let activities = ActivityController().getAll()
+    @Binding var activities: [Activity]
     
-    init() {
-        if activities.count > 0 {
-            self.galleryImage = activities[0].image
-        } else {
-            self.galleryImage = UIImage(named: "GalleryPlaceholder")!
+    var galleryImage: UIImage {
+        guard let activity = activities.first,
+              let image = activity.image else {
+            return UIImage(named: "GalleryPlaceholder")!
         }
+        return image
     }
     
     var body: some View {
@@ -178,7 +177,7 @@ struct CardGallery: View {
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 170, maxHeight: 170, alignment: .topTrailing)
                 
                 .background(
-                    Image(uiImage: galleryImage!)
+                    Image(uiImage: galleryImage)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 280, maxHeight: 280, alignment: .leading)

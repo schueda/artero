@@ -9,26 +9,13 @@ import SwiftUI
 import UIKit
 
 struct ThemeView: View {
+    @ObservedObject var viewModel: ThemeViewModel
     
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
-    @State private var isTodayActivitySent = ActivityController().getTodayActivity() != nil
     
-    var theme: Theme?
-    private var activity: Activity = Activity()
-    
-    mutating func loadDayActivity() {
-        let repository = ActivityController()
-        if let activity = repository.getTodayActivity() {
-            self.activity = activity
-        }
-    }
-    
-    init(theme: Theme?) {
-        self.theme = theme
-        self.loadDayActivity()
-    }
+    @State var theme: Theme?
     
     var body: some View {
         if let theme = theme {
@@ -38,11 +25,13 @@ struct ThemeView: View {
                     ThemeTextView(theme: theme)
                     
                 }
-                if isTodayActivitySent {
+                if viewModel.currentDayActivity != nil {
                     FakeButtonView()
                 } else {
                     if selectedImage != nil {
-                        ConfirmButtonView(theme: theme, selectedImage: $selectedImage, isTodayActivitySent: $isTodayActivitySent)
+                        ConfirmButtonView(theme: theme, selectedImage: $selectedImage) { activity in
+                            viewModel.saveActivity(activity: activity)
+                        }
                     } else {
                         CameraButtonView(sourceType: $sourceType, isImagePickerDisplay: $isImagePickerDisplay)
                     }
@@ -133,13 +122,14 @@ struct ConfirmButtonView: View {
             return;
         }
         let activity = Activity(theme: theme, date: Date(), image: image)
-        activity.save(activity)
+        onSave(activity)
+
     }
     
     let theme: Theme?
     
     @Binding var selectedImage: UIImage?
-    @Binding var isTodayActivitySent: Bool
+    let onSave: (Activity) -> Void
     
     var body: some View {
         VStack {
@@ -154,9 +144,7 @@ struct ConfirmButtonView: View {
                     }
                 })
                 Button(action: {
-                    isTodayActivitySent = true
                     self.saveActivity()
-                    
                 }, label: {
                     HStack {
                         Image(systemName: "checkmark.circle")
