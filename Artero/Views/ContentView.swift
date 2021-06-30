@@ -15,7 +15,7 @@ struct ContentView: View {
             NavigationView {
                 ScrollView {
                     VStack {
-                        HomeView()
+                        HomeView(viewModel: HomeViewModel(repository: UserDefaultsActivityRepository.shared))
                     }
                 }
                 .background(Color("background").edgesIgnoringSafeArea(.bottom))

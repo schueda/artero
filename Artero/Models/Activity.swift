@@ -8,11 +8,7 @@
 import Foundation
 import UIKit
 
-protocol ActivityProtocol {
-    func save()
-}
-
-class Activity: ActivityDAO, ActivityProtocol, Codable {
+class Activity: Codable {
     enum CodingKeys: CodingKey {
         case id, theme, date
     }
@@ -22,15 +18,9 @@ class Activity: ActivityDAO, ActivityProtocol, Codable {
     var date: Date = Date()
     var image: UIImage?
     
-    override init() { }
-    
     internal init(theme: Theme, date: Date, image: UIImage) {
         self.theme = theme
         self.date = date
         self.image = image
-    }
-    
-    func save() {
-        super.save(self)
     }
 }

@@ -9,28 +9,15 @@ import SwiftUI
 import UIKit
 
 struct ThemeView: View {
+    @StateObject var viewModel: ThemeViewModel
     
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
-    @State private var isTodayActivitySent = ActivityController().getTodayActivity() != nil
     @State private var isFeedbackShowing = false
     @State private var isGalleryShowing = false
     
-    var theme: Theme?
-    private var activity: Activity = Activity()
-    
-    mutating func loadDayActivity() {
-        let repository = ActivityController()
-        if let activity = repository.getTodayActivity() {
-            self.activity = activity
-        }
-    }
-    
-    init(theme: Theme?) {
-        self.theme = theme
-        self.loadDayActivity()
-    }
+    @State var theme: Theme?
     
     var body: some View {
         if let theme = theme {
@@ -42,11 +29,13 @@ struct ThemeView: View {
                 }
                 VStack {
                     Spacer()
-                    if isTodayActivitySent {
+                    if viewModel.currentDayActivity != nil {
                         FakeButtonView()
                     } else {
                         if selectedImage != nil {
-                            ConfirmButtonView(theme: theme, selectedImage: $selectedImage, isTodayActivitySent: $isTodayActivitySent, isFeedbackShowing: $isFeedbackShowing)
+                            ConfirmButtonView(theme: theme, selectedImage: $selectedImage, isFeedbackShowing: $isFeedbackShowing) { activity in
+                                viewModel.saveActivity(activity: activity)
+                            }
                         } else {
                             CameraButtonView(sourceType: $sourceType, isImagePickerDisplay: $isImagePickerDisplay)
                         }
@@ -55,7 +44,7 @@ struct ThemeView: View {
                 if isFeedbackShowing {
                     FeedbackView(isGalleryShowing: $isGalleryShowing, isFeedbackShowing: $isFeedbackShowing)
                 }
-                NavigationLink(destination: GalleryView(), isActive: $isGalleryShowing, label: {})
+                NavigationLink(destination: GalleryView(viewModel: GalleryViewModel(repository: UserDefaultsActivityRepository.shared)), isActive: $isGalleryShowing, label: {})
             }
             .ignoresSafeArea()
             .sheet(isPresented: self.$isImagePickerDisplay) {
@@ -164,15 +153,16 @@ struct ConfirmButtonView: View {
             return;
         }
         let activity = Activity(theme: theme, date: Date(), image: image)
-        activity.save(activity)
+        onSave(activity)
+
     }
     
     let theme: Theme?
     
     @Binding var selectedImage: UIImage?
-    @Binding var isTodayActivitySent: Bool
     @Binding var isFeedbackShowing: Bool
-    
+    let onSave: (Activity) -> Void
+
     var body: some View {
         Menu(content: {
             Button(action: {
@@ -184,7 +174,6 @@ struct ConfirmButtonView: View {
                 }
             })
             Button(action: {
-                isTodayActivitySent = true
                 isFeedbackShowing = true
                 self.saveActivity()
                 
