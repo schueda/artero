@@ -12,6 +12,7 @@ struct HomeView: View {
     
     @State var welcomeTitle = NSLocalizedString("good_morning", comment: "")
     
+    
     private func getWelcomeTitle() -> String {
         let date = Date()
         let time = DateUtils.dateToString(date: date, format: "HH:mm")
@@ -42,12 +43,14 @@ struct HomeView: View {
                     .padding(.bottom, 25)
             }
             .padding(.horizontal)
+            
         }
+        .fixFlickering()
+        .background(Color("background").edgesIgnoringSafeArea(.bottom))
         .navigationBarTitle(self.welcomeTitle)
         .onAppear {
             self.welcomeTitle = self.getWelcomeTitle()
         }
-        .background(Color("background").edgesIgnoringSafeArea(.bottom))
     }
 }
 
