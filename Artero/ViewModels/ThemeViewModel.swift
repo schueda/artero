@@ -22,7 +22,6 @@ class ThemeViewModel: ObservableObject {
             .sink(receiveCompletion: { completion in
                 print("ThemeViewModel completion: \(completion)")
             }, receiveValue: { [weak self] value in
-                print("ThemeViewModel \(value)")
                 self?.currentDayActivity = value
             })
         _ = repository.getAll(order: .orderedDescending)

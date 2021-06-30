@@ -32,7 +32,6 @@ class HomeViewModel: ObservableObject {
             .sink(receiveCompletion: { completion in
                 print("HomeViewModel completion: \(completion)")
             }, receiveValue: { [weak self] value in
-                print("HomeViewModel: \(value)")
                 self?.currentDayActivity = value
             })
         _ = repository.getAll(order: .orderedDescending)
