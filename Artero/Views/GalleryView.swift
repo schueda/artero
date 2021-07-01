@@ -10,6 +10,7 @@ import SwiftUI
 struct GalleryView: View {
     @State var appearingCardIndex = 0
     @ObservedObject var viewModel: GalleryViewModel
+    let placeholderPostFixes = [Locale.current.languageCode == "pt" ? "pt" : "en", "1", "2", "3", "4", "5"]
     
     var body: some View {
             TabView(selection: self.$appearingCardIndex) {
@@ -20,14 +21,21 @@ struct GalleryView: View {
                     }
                     .animation(.easeOut)
                 } else {
-                    PlaceholderView()
-                        .tag(UUID())
+                    ForEach(Array(placeholderPostFixes.enumerated()), id: \.offset) { index, postFix in
+                        Image(uiImage: UIImage(named: "GalleryPlaceholder\(postFix)")!)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: UIScreen.main.bounds.width - 30, height: self.appearingCardIndex == index ? UIScreen.main.bounds.height * 0.65 : UIScreen.main.bounds.height * 0.5)
+                            .cornerRadius(12.0)
+                            .tag(index)
+                    }
+                    .animation(.easeOut)
                 }
             }
             .tabViewStyle(PageTabViewStyle())
             .navigationBarTitle(NSLocalizedString("your_gallery", comment: ""))
             .background(Color("background").edgesIgnoringSafeArea(.bottom))
-            .id(viewModel.activities.count)
+            .id(viewModel.activities.isEmpty ? placeholderPostFixes.count : viewModel.activities.count)
     }
 }
 
@@ -89,14 +97,16 @@ struct GalleryCardView: View {
 }
 
 struct PlaceholderView: View {
-    var languageCode = Locale.current.languageCode == "pt" ? "pt" : "en"
+    let postFixes = [Locale.current.languageCode == "pt" ? "pt" : "en", "1", "2", "3", "4", "5"]
     
     var body: some View {
-            Image(uiImage: UIImage(named: "GalleryPlaceholder\(languageCode)")!)
+        ForEach(postFixes, id: \.self) { postFix in
+            Image(uiImage: UIImage(named: "GalleryPlaceholder\(postFix)")!)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height * 0.65)
                 .cornerRadius(12.0)
+        }
     }
 }
 
