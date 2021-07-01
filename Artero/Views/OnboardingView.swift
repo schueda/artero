@@ -123,7 +123,7 @@ struct OnBoardingScreen4: View {
                 .foregroundColor(.black)
                 
                 NavigationLink(
-                    destination: HomeView(viewModel: HomeViewModel(activityRepository: UserDefaultsActivityRepository.shared, streakRepository: UserDefaultsStreakRepository.shared)),
+                    destination: HomeView(viewModel: HomeViewModel(activityRepository: UserDefaultsActivityRepository.shared, streakRepository: UserDefaultsStreakRepository.shared, themeIndexRepository: UserDefaultsThemeIndexRepository.shared)),
                     isActive: $linkActive,
                     label : {
                         Text(NSLocalizedString("button_text", comment: ""))

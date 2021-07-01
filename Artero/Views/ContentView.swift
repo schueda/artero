@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         if user.onboardingComplete {
             NavigationView {
-                HomeView(viewModel: HomeViewModel(activityRepository: UserDefaultsActivityRepository.shared, streakRepository: UserDefaultsStreakRepository.shared))
+                HomeView(viewModel: HomeViewModel(activityRepository: UserDefaultsActivityRepository.shared, streakRepository: UserDefaultsStreakRepository.shared, themeIndexRepository: UserDefaultsThemeIndexRepository.shared))
             }
             .accentColor(Color("text"))
         } else {

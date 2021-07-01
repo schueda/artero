@@ -12,6 +12,9 @@
 		612D47FE267FEAA100248C83 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D47FD267FEAA100248C83 /* ThemeView.swift */; };
 		612D4800267FED5400248C83 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D47FF267FED5400248C83 /* GalleryView.swift */; };
 		612D4802267FEE7400248C83 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D4801267FEE7400248C83 /* ActivityView.swift */; };
+		6137265A268E2B3C00F977CB /* AppDelagate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61372659268E2B3C00F977CB /* AppDelagate.swift */; };
+		6137265C268E311300F977CB /* ThemeIndexRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6137265B268E311300F977CB /* ThemeIndexRepository.swift */; };
+		6137265E268E312500F977CB /* ThemeIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6137265D268E312500F977CB /* ThemeIndex.swift */; };
 		6138BC5C268CE38E002F62E9 /* ScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6138BC5B268CE38E002F62E9 /* ScrollViewExtension.swift */; };
 		6158CE092678CBEC00CAF0DA /* ArteroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6158CE082678CBEC00CAF0DA /* ArteroApp.swift */; };
 		6158CE0B2678CBEC00CAF0DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6158CE0A2678CBEC00CAF0DA /* ContentView.swift */; };
@@ -52,6 +55,9 @@
 		612D47FD267FEAA100248C83 /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		612D47FF267FED5400248C83 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 		612D4801267FEE7400248C83 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		61372659268E2B3C00F977CB /* AppDelagate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelagate.swift; sourceTree = "<group>"; };
+		6137265B268E311300F977CB /* ThemeIndexRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeIndexRepository.swift; sourceTree = "<group>"; };
+		6137265D268E312500F977CB /* ThemeIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeIndex.swift; sourceTree = "<group>"; };
 		6138BC5B268CE38E002F62E9 /* ScrollViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewExtension.swift; sourceTree = "<group>"; };
 		6158CE052678CBEC00CAF0DA /* Artero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6158CE082678CBEC00CAF0DA /* ArteroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArteroApp.swift; sourceTree = "<group>"; };
@@ -148,6 +154,7 @@
 				B55C1B23268D745400596873 /* InfoPlist.strings */,
 				6158CE0E2678CBEE00CAF0DA /* Preview Content */,
 				6138BC5B268CE38E002F62E9 /* ScrollViewExtension.swift */,
+				61372659268E2B3C00F977CB /* AppDelagate.swift */,
 			);
 			path = Artero;
 			sourceTree = "<group>";
@@ -170,6 +177,7 @@
 				B51302ED2683FC2600BFEF20 /* Activity.swift */,
 				B5EA7F712685845A00B696F9 /* User.swift */,
 				B54FF3B0268C0C19007A5DF3 /* Streak.swift */,
+				6137265D268E312500F977CB /* ThemeIndex.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,6 +187,7 @@
 			children = (
 				61C0493C268B4CA600A4F61D /* ActivityRepository.swift */,
 				B54FF3AE268C0BE2007A5DF3 /* StreakRepository.swift */,
+				6137265B268E311300F977CB /* ThemeIndexRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -310,6 +319,7 @@
 				B5BEDB6A2683604100B4BC3F /* Inspiration.swift in Sources */,
 				B5BEDB70268364DC00B4BC3F /* NotificationPreferenceDAO.swift in Sources */,
 				61ECBA69267B795B00DE9D02 /* ImagePickerView.swift in Sources */,
+				6137265E268E312500F977CB /* ThemeIndex.swift in Sources */,
 				B51302EE2683FC2600BFEF20 /* Activity.swift in Sources */,
 				B50BB4AA26842C9800EB65B7 /* ThemeController.swift in Sources */,
 				B54FF3B1268C0C19007A5DF3 /* Streak.swift in Sources */,
@@ -319,10 +329,12 @@
 				61AEF6FE2688126900BE4C04 /* SingleActivityView.swift in Sources */,
 				612D4802267FEE7400248C83 /* ActivityView.swift in Sources */,
 				6158CE0B2678CBEC00CAF0DA /* ContentView.swift in Sources */,
+				6137265C268E311300F977CB /* ThemeIndexRepository.swift in Sources */,
 				61C04941268B52B800A4F61D /* GalleryViewModel.swift in Sources */,
 				61D94508268BE7D500F487F4 /* ThemeViewModel.swift in Sources */,
 				61D9450A268C005700F487F4 /* SingleActivityViewModel.swift in Sources */,
 				6138BC5C268CE38E002F62E9 /* ScrollViewExtension.swift in Sources */,
+				6137265A268E2B3C00F977CB /* AppDelagate.swift in Sources */,
 				B5EA7F762685856E00B696F9 /* UserController.swift in Sources */,
 				6158CE092678CBEC00CAF0DA /* ArteroApp.swift in Sources */,
 				B5EA7F722685845A00B696F9 /* User.swift in Sources */,

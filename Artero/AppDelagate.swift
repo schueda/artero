@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 import Combine
 import UIKit
 
@@ -23,10 +24,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                     UserDefaultsStreakRepository.shared.save(value)
                     self.cancellable?.cancel()
                 }
-                //to do: se esse codigo nao rodar colocar o cancellable como variavel global e chamar o cancellable.cancel()
             }
-
-
         return true
     }
 }
