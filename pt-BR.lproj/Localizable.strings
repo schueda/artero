@@ -86,8 +86,12 @@
 "OnBoarding4_image1" = "galeria-text";
 "button_text" = "Vamos começar!";
 
-
-
+// Notifications
+"enable_notifications_alert_title" = "Por favor habilite as notificações nos ajustes do seu dispositivo";
+"enable_notifications_alert_description" = "Você deseja ir aos ajustes do seu dispositivo?";
+"enable_notifications_alert_settigns" = "Ajustes";
+"notification_title" = "É hora de criar!";
+"notification_body" = "Confira o tema do dia e crie algo incrível ✨";
 
 
 

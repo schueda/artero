@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 protocol NotificationPreferenceProtocol {
     func save()
@@ -42,9 +43,37 @@ class NotificationPreference: NotificationPreferenceDAO, Codable, ObservableObje
     
     func save() {
         super.save(self)
+        self.addNotifications()
     }
     
     static func == (lhs: NotificationPreference, rhs: NotificationPreference) -> Bool {
         return lhs.active == rhs.active && lhs.time == rhs.time
+    }
+    
+    private func addNotifications() {
+        if (!self.active) {
+            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            return;
+        }
+        let calendar = Calendar.current
+        let notificationContent = UNMutableNotificationContent()
+        notificationContent.title = NSLocalizedString("notification_title", comment: "")
+        notificationContent.body = NSLocalizedString("notification_body", comment: "")
+        notificationContent.badge = NSNumber(value: 1)
+        notificationContent.sound = .default
+        
+        var datComp = DateComponents()
+        datComp.hour = calendar.component(.hour, from: self.time)
+        datComp.minute = calendar.component(.minute, from: self.time)
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: datComp, repeats: true)
+        let request = UNNotificationRequest(identifier: "ID", content: notificationContent, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { (error : Error?) in
+            if let theError = error {
+                print(theError.localizedDescription)
+            }
+        }
     }
 }
