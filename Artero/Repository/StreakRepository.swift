@@ -10,13 +10,21 @@ import Combine
 import UIKit
 
 protocol StreakRepository {
-    var streakSubject: CurrentValueSubject<Streak?, Error> { get set }
+    var streakSubject: CurrentValueSubject<Streak?, Error> { get }
     func save(_ streak: Streak)
     func get() -> AnyPublisher<Streak?, Error>
 }
 
 class UserDefaultsStreakRepository: StreakRepository {
-    var streakSubject = CurrentValueSubject<Streak?, Error>(nil)
+    fileprivate var _streakSubject: CurrentValueSubject<Streak?, Error>?
+    var streakSubject: CurrentValueSubject<Streak?, Error> {
+        if let subject = _streakSubject {
+            return subject
+        }
+        let streak = fetchStreak()
+        _streakSubject = CurrentValueSubject<Streak?, Error>(streak)
+        return _streakSubject!  
+    }
     static let shared = UserDefaultsStreakRepository()
     
     fileprivate init() {}

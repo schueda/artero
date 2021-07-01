@@ -39,7 +39,6 @@ class HomeViewModel: ObservableObject {
             }, receiveValue: { [weak self] value in
                 self?.currentDayActivity = value
             })
-        _ = activityRepository.getAll(order: .orderedDescending)
         
         streakCancellable = streakRepository.streakSubject
             .receive(on: RunLoop.main)
@@ -48,7 +47,6 @@ class HomeViewModel: ObservableObject {
             }, receiveValue: { [weak self] value in
                 self?.streak = value
             })
-        _ = streakRepository.get()
     }
     
     deinit {

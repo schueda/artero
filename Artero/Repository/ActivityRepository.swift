@@ -10,7 +10,7 @@ import Combine
 import UIKit
 
 protocol ActivityRepository {
-    var allActivitiesSubject: CurrentValueSubject<[Activity], Error> { get set }
+    var allActivitiesSubject: CurrentValueSubject<[Activity], Error> { get }
     func save(_ activity: Activity)
     func delete(_ activity: Activity)
     func getAll(order: ComparisonResult) -> AnyPublisher<[Activity], Error>
@@ -18,8 +18,16 @@ protocol ActivityRepository {
 }
 
 class UserDefaultsActivityRepository: ActivityRepository {
-    var allActivitiesSubject = CurrentValueSubject<[Activity], Error>([])
-    private let prefix = "activity-"
+    fileprivate var _allActivitiesSubject: CurrentValueSubject<[Activity], Error>?
+    var allActivitiesSubject: CurrentValueSubject<[Activity], Error> {
+        if let subject = _allActivitiesSubject {
+            return subject
+        }
+        let activities = fetchActivities()
+        _allActivitiesSubject = CurrentValueSubject<[Activity], Error>(activities)
+        return _allActivitiesSubject!
+    }
+    fileprivate let prefix = "activity-"
     static let shared = UserDefaultsActivityRepository()
     
     fileprivate init() {}
