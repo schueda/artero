@@ -6,19 +6,24 @@
 //
 
 import Foundation
+
+import Combine
 import UIKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-    var streak: Streak?
+    var cancellable: AnyCancellable?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        _ = UserDefaultsStreakRepository.shared.get()
+        cancellable = UserDefaultsStreakRepository.shared.get()
             .receive(on: RunLoop.main)
             .sink { completion in
                 print(completion)
-            } receiveValue: { [weak self] value in
-                self?.streak = value
-                //to do: ver se tem que arrumar o streak
+            } receiveValue: { value in
+                if let value = value {
+                    value.updateTodayStreak()
+                    UserDefaultsStreakRepository.shared.save(value)
+                    self.cancellable?.cancel()
+                }
                 //to do: se esse codigo nao rodar colocar o cancellable como variavel global e chamar o cancellable.cancel()
             }
 
