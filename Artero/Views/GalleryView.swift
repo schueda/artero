@@ -40,12 +40,14 @@ struct GalleryView: View {
 }
 
 struct GalleryCardView: View {
+    @StateObject var singleActivityViewModel = SingleActivityViewModel(repository: UserDefaultsActivityRepository.shared)
+    
     var activity: Activity
     var frameSize: CGFloat
     
     var body: some View {
         NavigationLink(
-            destination: SingleActivityView(viewModel: SingleActivityViewModel(repository: UserDefaultsActivityRepository.shared), activity: activity),
+            destination: SingleActivityView(viewModel: singleActivityViewModel, activity: activity),
             label : {
                 if let activity = activity {
                     if let image = activity.image {

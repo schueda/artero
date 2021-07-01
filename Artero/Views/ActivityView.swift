@@ -9,11 +9,11 @@ import UserNotifications
 import SwiftUI
 
 struct ActivityView: View {
-    
+    @StateObject var activityViewModel = ActivityViewModel(repository: UserDefaultsStreakRepository.shared)
     var body: some View {
         ScrollView {
             VStack (spacing:20) {
-                SequenceCardView(viewModel: ActivityViewModel(repository: UserDefaultsStreakRepository.shared))
+                SequenceCardView(viewModel: activityViewModel)
                     .padding(.top, 25)
                 RememberCardView()
             }

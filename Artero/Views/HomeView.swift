@@ -180,7 +180,6 @@ struct CardThemeDay: View {
 
 struct CardGallery: View {
     @Binding var currentDayActivity: Activity?
-    
     @Binding var activities: [Activity]
     
     var galleryImage: UIImage {
@@ -191,9 +190,11 @@ struct CardGallery: View {
         return image
     }
     
+    @StateObject var galleryViewModel = GalleryViewModel(repository: UserDefaultsActivityRepository.shared)
+    
     var body: some View {
         NavigationLink(
-            destination: GalleryView(viewModel: GalleryViewModel(repository: UserDefaultsActivityRepository.shared)),
+            destination: GalleryView(viewModel: galleryViewModel),
             label : {
                 VStack (alignment:.trailing) {
                     Image(systemName:"chevron.right")

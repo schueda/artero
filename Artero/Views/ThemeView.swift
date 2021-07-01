@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 struct ThemeView: View {
-    @ObservedObject var viewModel: ThemeViewModel
+    @StateObject var galleryViewModel = GalleryViewModel(repository: UserDefaultsActivityRepository.shared)
     
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
@@ -18,6 +18,7 @@ struct ThemeView: View {
     @State private var isFeedbackShowing = false
     @State private var isGalleryShowing = false
     
+    @ObservedObject var viewModel: ThemeViewModel
     @Binding var theme: Theme?
     
     var body: some View {
@@ -45,7 +46,7 @@ struct ThemeView: View {
                 if isFeedbackShowing {
                     FeedbackView(isGalleryShowing: $isGalleryShowing, isFeedbackShowing: $isFeedbackShowing)
                 }
-                NavigationLink(destination: GalleryView(viewModel: GalleryViewModel(repository: UserDefaultsActivityRepository.shared)), isActive: $isGalleryShowing, label: {})
+                NavigationLink(destination: GalleryView(viewModel: galleryViewModel), isActive: $isGalleryShowing, label: {})
             }
             .animation(.easeInOut)
             .ignoresSafeArea()
