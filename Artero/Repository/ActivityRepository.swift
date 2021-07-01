@@ -112,7 +112,12 @@ class UserDefaultsActivityRepository: ActivityRepository {
         do {
             let key = self.dateToKey(activity.date)
             if let image = activity.image,
-               let imageData = image.pngData(){
+               var imageData = image.jpegData(compressionQuality: 1) {
+                if imageData.isEmpty {
+                    guard let pngdata = image.pngData() else { return }
+                    imageData = pngdata
+                }
+                
                 self.saveImage(image: imageData, forKey: key)
             }
             

@@ -18,7 +18,11 @@ struct ImageView: View {
     private let maximumZoom: CGFloat = 5.0
     
     private func shareImage() {
-        guard let data = image.pngData() else { return }
+        guard var data = image.jpegData(compressionQuality: 1) else { return }
+        if data.isEmpty {
+            guard let pngdata = image.pngData() else { return }
+            data = pngdata
+        }
         presentActivityController(with: data)
     }
     
