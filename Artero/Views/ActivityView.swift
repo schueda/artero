@@ -128,18 +128,18 @@ struct RememberCardView: View {
                 self.disableNotifications()
                 self.triggerAlert()
             case .notDetermined:
-                self.askPermisionNotification()
+                self.askPermissionNotification()
             @unknown default:
-                self.askPermisionNotification()
+                self.askPermissionNotification()
             }
         })
     }
     
-    func askPermisionNotification() {
+    func askPermissionNotification() {
         let current = UNUserNotificationCenter.current()
         current.requestAuthorization(options: [.alert, .badge, .sound]) { sucess, error in
             if sucess {
-                // save
+                self.notificationPreference.save()
             } else {
                 self.disableNotifications()
             }
