@@ -10,7 +10,7 @@ import SwiftUI
 struct ImageView: View {
     let image: UIImage
     let activity: Activity?
-    @State private var showNavigation = false
+    @State private var hideNavigation = false
     @State private var scale: CGFloat = 1.0
     @State private var isTapped: Bool = false
     @State private var pointTapped: CGPoint = CGPoint.zero
@@ -35,9 +35,8 @@ struct ImageView: View {
                     .resizable()
                     .scaledToFit()
                     .animation(.default)
-                    .padding(.top, self.showNavigation ? 9.5 : 0)
                     .onTapGesture(count: 1) {
-                        self.showNavigation.toggle()
+                        self.hideNavigation.toggle()
                     }
                     .offset(x: self.draggedSize.width, y: 0)
                     .scaleEffect(self.scale)
@@ -60,6 +59,7 @@ struct ImageView: View {
                             })
                             .simultaneously(with: DragGesture(minimumDistance: 0, coordinateSpace: .global)
                                                 .onChanged({ (value) in
+                                                    self.hideNavigation = true
                                                     self.pointTapped = value.startLocation
                                                     self.draggedSize = CGSize(
                                                         width: value.translation.width + self.previousDragged.width,
@@ -92,6 +92,7 @@ struct ImageView: View {
                     .gesture(
                         MagnificationGesture()
                             .onChanged({ (scale) in
+                                self.hideNavigation = true
                                 self.scale = (self.scale - 1.0) + scale.magnitude
                             })
                             .onEnded({ (scaleFinal) in
@@ -108,11 +109,11 @@ struct ImageView: View {
                     )
             }
             .frame(minWidth: 0, idealWidth: .infinity, maxWidth: .infinity, minHeight: 0, idealHeight: .infinity, maxHeight: .infinity, alignment: .center)
-            .statusBar(hidden: showNavigation)
+            .statusBar(hidden: hideNavigation)
             .edgesIgnoringSafeArea(.all)
-            .statusBar(hidden: showNavigation)
-            .edgesIgnoringSafeArea(showNavigation ? [.top, .bottom] : [])
-            .navigationBarHidden(showNavigation)
+            .statusBar(hidden: hideNavigation)
+            .edgesIgnoringSafeArea(hideNavigation ? [.top, .bottom] : [])
+            .navigationBarHidden(hideNavigation)
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarItems(
                 trailing:
@@ -121,7 +122,7 @@ struct ImageView: View {
                     }
             )
             .toolbar {
-                ToolbarItemGroup(placement: self.showNavigation ? .destructiveAction: .bottomBar) {
+                ToolbarItemGroup(placement: self.hideNavigation ? .destructiveAction: .bottomBar) {
                     Button(action: { self.shareImage() }) {
                         Image(systemName: "square.and.arrow.up")
                     }
@@ -133,10 +134,10 @@ struct ImageView: View {
                     }
                 }
             }
-            .background(self.showNavigation ? Color.black.ignoresSafeArea() : Color.clear.ignoresSafeArea())
+            .background(self.hideNavigation ? Color.black.ignoresSafeArea() : Color.clear.ignoresSafeArea())
             .onTapGesture {
                 withAnimation() {
-                    self.showNavigation.toggle()
+                    self.hideNavigation.toggle()
                 }
             }
         }
