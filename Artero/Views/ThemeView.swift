@@ -232,7 +232,7 @@ struct ThemeHeaderView: View {
                 .foregroundColor(.gray)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.5)
             
-            NavigationLink(destination: ImageView(image: UIImage(named: theme.inspiration.image)!, activity: nil)) {
+            NavigationLink(destination: ImageView(image: UIImage(named: theme.inspiration.image)!)) {
                 Image(theme.inspiration.image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)

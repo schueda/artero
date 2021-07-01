@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ImageView: View {
     let image: UIImage
-    let activity: Activity?
     @State private var hideNavigation = false
     @State private var scale: CGFloat = 1.0
     @State private var isTapped: Bool = false
