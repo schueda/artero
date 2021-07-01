@@ -16,7 +16,8 @@
 "activities" = "Activities";
 //streak - Home Screen
 "no_streak" = "No streak";
-"sequencia" = "consecutive days";
+"day_streak" = "day streak";
+"days_streak" = "days streak";
 
 
 //Gallery Screen
@@ -32,6 +33,7 @@
 "activity" = "Activity";
 "current_streak" = "Current streak";
 "longest_streak" = "Longest streak";
+"day" = "day";
 "days" = "days";
 "daily_reminder" = "Daily reminder";
 "time" = "Time";
