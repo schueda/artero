@@ -38,7 +38,7 @@ struct SingleActivityHeaderView: View {
                 .foregroundColor(.gray)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.5)
             
-            NavigationLink(destination: ImageView(image: activity.image ?? UIImage(systemName: "xmark.app.fill")!, activity: activity)) {
+            NavigationLink(destination: ImageView(image: activity.image ?? UIImage(systemName: "xmark.app.fill")!)) {
                 Image(uiImage: activity.image ?? UIImage(systemName: "xmark.app.fill")!)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
