@@ -98,40 +98,32 @@
 
 
 
-//Content & themes
-//Follow the same numbers as the images
-"theme1" = "Amarelo";
-"inspiration_infos1" = "Girassóis | 1889 | Vincent Van Gogh";
+//Inspirations & themes
+"art_name1" = "Girassóis";
+"art_name2" = "Pintura rupestre de Ubirr ";
+"art_name3" = "Monalisa";
+"art_name4" = "Jardim das delícias";
+"art_name5" = "Abapuru";
+"art_name6" = "Vênus dos trapos";
 
-"theme2" = "Evolução";
-"inspiration_infos3" = "Pintura rupestre de Ubirr | 40.000 a.C";
+//Themes
+"theme_name1" = "Amarelo";
+"theme_name2" = "Evolução";
+"theme_name3" = "Sorriso";
+"theme_name4" = "Humanidade";
+"theme_name5" = "Brasilidades";
+"theme_name6" = "Cotidiano";
 
-"theme3" = "Sorriso";
-"inspiration_infos3" = "Monalisa | 1506 | Leonardo da Vinci";
-
-"theme4" = "Humanidade";
-"inspiration_infos4" = "Jardim das delícias | 1505 | Hieronymus Bosh";
-
-"theme5" = "Brasilidades";
-"inspiration_infos5" = "Abapuru | 1928 | Tarsila do Amaral";
-
-"theme6" = "Cotidiano";
-"inspiration_infos7" = "Vênus dos trapos | 1974 | Michelangelo Pistoletto";
-
-
-
-
-
+"description1" = "Explore o amarelo no seu dia! Hoje temos a sugestão para você dançar interpretando uma música que te lembre amarelo.";
+"description2" = "Vamos viajar na evolução dos tempos, veja um filme do passado ou sobre o futuro e escreva sobre este filme como se fosse um crítico famoso do cinema. Dica extra: procure curiosidades sobre o filme.";
+"description3" = "E quem não conhece o sorriso mais famoso do mundo?! Enigmático de forma a levar cada pessoa ter uma interpretação sobre. Deixe a mente vagar e escreva um poema, poesia, cronica, piada, o que quiser!";
+"description4" = "Que tal escolher uma das diversas cenas que acontecem nessa pintura, e criar uma História em Quadrinhos dando continuidade a ela? Vamos lá!";
+"description5" = "Produza uma pintura com algo que você acha que representa o Brasil! Pode ser com as cores verde, amarelo e azul, ou não, você tem total liberdade de interpretação!";
+"description6" = "Se inspire nos elementos e cores da Vênus dos Trapos e ressignifique algo/materiais produzindo uma fotografia. Vamos lá, qualquer coisa que seja acessível para você!";
 
 
-"content1" = "Associar práticas artísticas à vida é uma forma de beneficiar a sua saúde, tanto física quanto mental — trata-se da chamada arteterapia, que consiste no uso de recursos artísticos/visuais ou expressivos como elemento terapêutico.";
 
-"content2" = "Atividades artísticas possibilitam expressar pensamentos e emoções que podem ser difíceis a serem ditos em palavras.";
 
-"content3" = "Se expressar pela arte pode diminuir o estresse e a ansiedade.";
 
-"content4" = "Arte ajuda a sentir-se mais calmo e mais feliz.";
 
-"content5" = "O ato de criar algo único nos dá uma sensação de prazer e realização.";
 
-"content6" = "Quem ouvia música apresentava uma melhor resposta do sistema imunológico — isso porque ela estimulava o sistema límbico do cérebro e moderava a resposta a estímulos estressantes.";
