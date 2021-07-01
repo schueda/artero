@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GalleryView: View {
     @State var appearingCardIndex = 0
-    @StateObject var viewModel: GalleryViewModel
+    @ObservedObject var viewModel: GalleryViewModel
     
     var body: some View {
             TabView(selection: self.$appearingCardIndex) {

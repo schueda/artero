@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 struct ThemeView: View {
-    @StateObject var viewModel: ThemeViewModel
+    @ObservedObject var viewModel: ThemeViewModel
     
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?

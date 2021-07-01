@@ -31,7 +31,7 @@ struct ActivityView_Previews: PreviewProvider {
 }
 
 struct SequenceCardView: View {
-    @StateObject var viewModel: ActivityViewModel
+    @ObservedObject var viewModel: ActivityViewModel
     
     var body: some View {
         VStack (alignment: .leading) {
