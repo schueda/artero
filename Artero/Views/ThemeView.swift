@@ -17,7 +17,7 @@ struct ThemeView: View {
     @State private var isFeedbackShowing = false
     @State private var isGalleryShowing = false
     
-    @State var theme: Theme?
+    @Binding var theme: Theme?
     
     var body: some View {
         if let theme = theme {
@@ -43,10 +43,10 @@ struct ThemeView: View {
                 }
                 if isFeedbackShowing {
                     FeedbackView(isGalleryShowing: $isGalleryShowing, isFeedbackShowing: $isFeedbackShowing)
-                        .animation(.easeInOut)
                 }
                 NavigationLink(destination: GalleryView(viewModel: GalleryViewModel(repository: UserDefaultsActivityRepository.shared)), isActive: $isGalleryShowing, label: {})
             }
+            .animation(.easeInOut)
             .ignoresSafeArea()
             .sheet(isPresented: self.$isImagePickerDisplay) {
                 ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.$sourceType)
@@ -261,9 +261,14 @@ struct ThemeHeaderView: View {
                     
                     Spacer()
                     
-                    Text("\(theme.inspiration.name) | \(theme.inspiration.year)")
-                        .font(.system(size: 13, weight: .bold, design: .default))
-                        .padding(.bottom)
+                    VStack(alignment: .trailing) {
+                        Text("\(theme.inspiration.name) | \(theme.inspiration.year)")
+                            .font(.system(size: 13, weight: .bold, design: .default))
+                        
+                        Text(theme.inspiration.author)
+                            .font(.system(size: 13, weight: .regular, design: .default))
+                    }
+                    .padding(.bottom)
                 }
                 .padding(.horizontal)
             }
@@ -311,7 +316,7 @@ struct ThemeTextView: View {
             if let benefits = theme.benefits {
                 ForEach(benefits, id: \.self) { benefit in
                     Text("• \(benefit)")
-                        .padding(.leading, 10)
+                        .padding(.bottom, 1)
                         .foregroundColor(.gray)
                 }
             }

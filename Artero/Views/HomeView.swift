@@ -35,22 +35,13 @@ struct HomeView: View {
     var body: some View {
         ScrollView {
             VStack (spacing:20) {
-                if viewModel.currentDayActivity != nil {
-                    CardThemeDay(frameHeight: 170)
-                        .padding(.top, 25)
-                } else {
-                    CardThemeDay(frameHeight: 280)
-                        .padding(.top, 25)
-                }
+                CardThemeDay(currentDayActivity: $viewModel.currentDayActivity)
+                    .padding(.top, 25)
+                    
                 CardActivityView(streak: $viewModel.streak)
                 
-                if viewModel.currentDayActivity != nil {
-                    CardGallery(frameHeight: 280, activities: $viewModel.activities)
-                        .padding(.bottom, 25)
-                } else {
-                    CardGallery(frameHeight: 170, activities: $viewModel.activities)
-                        .padding(.bottom, 25)
-                }
+                CardGallery(currentDayActivity: $viewModel.currentDayActivity, activities: $viewModel.activities)
+                    .padding(.bottom, 25)
                 
             }
             .padding(.horizontal)
@@ -122,13 +113,14 @@ struct CardActivityView: View {
 }
 
 struct CardThemeDay: View {
-    let frameHeight: CGFloat
+    @StateObject var themeViewModel = ThemeViewModel(activityRepository: UserDefaultsActivityRepository.shared, streakRepository: UserDefaultsStreakRepository.shared)
+    @Binding var currentDayActivity: Activity?
     
-    let theme = ThemeController().getToday()
+    @State var theme = ThemeController().getToday()
     
     var body: some View {
         NavigationLink(
-            destination: ThemeView(viewModel: ThemeViewModel(activityRepository: UserDefaultsActivityRepository.shared, streakRepository: UserDefaultsStreakRepository.shared), theme: theme),
+            destination: ThemeView(viewModel: themeViewModel, theme: $theme),
             label : {
                 VStack (alignment:.leading) {
                     HStack {
@@ -156,7 +148,7 @@ struct CardThemeDay: View {
                             .font(.system(size: 13, weight: .bold, design: .default))
                             .foregroundColor(.white)
                         Spacer()
-                        if frameHeight == 170 {
+                        if currentDayActivity != nil {
                             Image(systemName: "checkmark.circle.fill")
                                 .font(.system(size: 24, weight: .bold, design: .default))
                                 .foregroundColor(.white)
@@ -165,7 +157,7 @@ struct CardThemeDay: View {
                     
                 }
                 .padding()
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: frameHeight, maxHeight: frameHeight, alignment: .leading)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: currentDayActivity != nil ? 170 : 280, maxHeight: currentDayActivity != nil ? 170 : 280, alignment: .leading)
                 
                 .background(
                     Image(theme?.inspiration.image ?? "")
@@ -187,7 +179,7 @@ struct CardThemeDay: View {
 }
 
 struct CardGallery: View {
-    let frameHeight: CGFloat
+    @Binding var currentDayActivity: Activity?
     
     @Binding var activities: [Activity]
     
@@ -209,7 +201,7 @@ struct CardGallery: View {
                         .foregroundColor(.white)
                 }
                 .padding()
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: frameHeight, maxHeight: frameHeight, alignment: .topTrailing)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: currentDayActivity != nil ? 280 : 170 , maxHeight: currentDayActivity != nil ? 280 : 170 , alignment: .topTrailing)
                 
                 .background(
                     Image(uiImage: galleryImage)

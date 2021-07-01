@@ -29,7 +29,6 @@ class ThemeViewModel: ObservableObject {
             }, receiveValue: { [weak self] value in
                 self?.currentDayActivity = value
             })
-        _ = activityRepository.getAll(order: .orderedDescending)
         
         streakCancellable = streakRepository.get()
             .receive(on: RunLoop.main)
