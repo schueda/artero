@@ -43,8 +43,7 @@ class Streak: Codable {
     }
     
     func updateTodayStreak() {
-        if self.isLastActivityYesterday() {
-            // cannot clear current streak
+        if self.isLastActivityYesterday() || self.isLastActivityToday() {
             return
         }
         
