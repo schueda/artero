@@ -261,9 +261,14 @@ struct ThemeHeaderView: View {
                     
                     Spacer()
                     
-                    Text("\(theme.inspiration.name) | \(theme.inspiration.year)")
-                        .font(.system(size: 13, weight: .bold, design: .default))
-                        .padding(.bottom)
+                    VStack(alignment: .trailing) {
+                        Text("\(theme.inspiration.name) | \(theme.inspiration.year)")
+                            .font(.system(size: 13, weight: .bold, design: .default))
+                        
+                        Text(theme.inspiration.author)
+                            .font(.system(size: 13, weight: .regular, design: .default))
+                    }
+                    .padding(.bottom)
                 }
                 .padding(.horizontal)
             }
@@ -311,7 +316,7 @@ struct ThemeTextView: View {
             if let benefits = theme.benefits {
                 ForEach(benefits, id: \.self) { benefit in
                     Text("• \(benefit)")
-                        .padding(.leading, 10)
+                        .padding(.bottom, 1)
                         .foregroundColor(.gray)
                 }
             }
