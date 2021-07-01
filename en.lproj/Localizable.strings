@@ -94,6 +94,10 @@
 "notification_title" = "Time to create!";
 "notification_body" = "Check out the daily theme and create something amazing ✨";
 
+// Camera
+"enable_camera_alert_title" = "Please enable camera access in your device's Settings";
+"enable_camera_alert_description" = "Do you want to go to your device's Settings?";
+"settigns" = "Settings";
 
 
 

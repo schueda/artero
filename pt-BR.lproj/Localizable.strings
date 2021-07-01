@@ -95,7 +95,10 @@
 "notification_title" = "É hora de criar!";
 "notification_body" = "Confira o tema do dia e crie algo incrível ✨";
 
-
+// Camera
+"enable_camera_alert_title" = "Por favor habilite o acesso à câmera nos ajustes do seu dispositivo";
+"enable_camera_alert_description" = "Você deseja ir aos ajustes do seu dispositivo?";
+"settigns" = "Ajustes";
 
 
 
