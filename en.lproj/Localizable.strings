@@ -85,9 +85,12 @@
 "OnBoarding4_image1" = "galery-text";
 "button_text" = "Let's start!";
 
-
-
-
+// Notifications
+"enable_notifications_alert_title" = "Please enable notifications in your device's Settings";
+"enable_notifications_alert_description" = "Do you want to go to your device's Settings?";
+"enable_notifications_alert_settigns" = "Settings";
+"notification_title" = "Time to create!";
+"notification_body" = "Check out the daily theme and create something amazing ✨";
 
 
 
