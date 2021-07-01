@@ -125,7 +125,36 @@
 
 
 
-
+//dança
+"benefits1" = "A dança traz benefícios independente do motivo pelo qual a pessoa escolheu dançar, seja como profissão, como um exercício físico, como uma atividade de integração social ou como uma atividade de lazer.";
+"benefits2" = "Quem ouve música apresentava uma melhor resposta do sistema imunológico — isso porque ela estimula o sistema límbico do cérebro e moderava a resposta a estímulos estressantes.";
+"benefits3" = "A arte ajuda no desenvolvimento de novos talentos e habilidades.";
+"benefits4" = "Um estudo da OMS (Organização Mundial da Saúde) revelou que o envolvimento com a arte pode beneficiar tanto a saúde física como mental. A pesquisa apontou que as artes ajudam a enfrentar desafios complexos, como a diabetes e a obesidade, além dos distúrbios mentais.";
+//Cinema
+"benefits5" = "A arte é uma ferramenta de expressão do ser-humano desde a antiguidade.";
+"benefits6" = "A arte está intimamente ligada à história e à evolução do ser humano.";
+"benefits7" = "A musica ativa o centro de prazer do cérebro, liberando a dopamina, substância responsável pela sensação de bem-estar. Em outras palavras, a música acalma, relaxa e estimula a memória. Você pode aprender um instrumento que lhe agrade, fazer aulas de canto ou participar de um coral.";
+"benefits8" = "a arte é uma pausa, um respiro na rotina.";
+//literatura
+"benefits9" = "Adolescentes que vivem em áreas urbanas e recebem educação com base na dramaturgia. A pesquisa revela que eles se beneficiam por conseguirem tomar decisões mais responsáveis, além de serem menos expostos à violência.";
+"benefits10" = "O uso da arte com finalidade terapêutica começou a ser incentivado no final do século XVIII e tem base em diferentes referenciais teóricos, como a psicanálise, a psicologia analítica, a gestalt-terapia, dentre outras abordagens do campo da psicologia.";
+"benefits11" = "A arte amplia a visão e entendimento do mundo";
+"benefits12" = "Quando os pais leem histórias para as crianças antes de dormir, elas descansam mais ao longo da noite e se concentram mais na escola.";
+//hq
+"benefits13" = "Fazer arte ensina que há mais de uma solução para o mesmo problema. A arte desafia nossas crenças e incentiva o pensamento aberto que cria um ambiente de pensamento criativo na resolução de problemas. Colocamos as obras de arte dos nossos filhos na geladeira para aumentar sua autoestima. Pendurar sua última obra de arte na parede pode inspirar os mesmos sentimentos em você.";
+"benefits14" = "Ao usar as mãos para dar forma à argila, a pessoa não age de modo mecânico. Isso permite trabalhar a flexibilidade e liberar tensões, uma vez que durante o processo de criação, é preciso concentração na execução da tarefa. Assim, ao menos nesse momento, a pessoa esquece de problemas e se concentra em criar uma peça. O resultado é a liberação do estresse, domínio motor, auto-expressão, interação lúdica, entre outros benefícios. Existem outras modalidades que podem ser acrescentadas a essa lista. Encontre uma que lhe dê satisfação e experimente a sensação que só uma atividade artística pode proporcionar.";
+"benefits15" = "A arte pode promover autoconhecimento.";
+"benefits16" = "A arte ajuda a mudar o seu foco para longe da dor ou de pensamentos estressantes;";
+//pintura
+"benefits17" = " Leonardo da Vinci disse, “A pintura abrange todas as dez funções do olho; ou seja, escuridão, luz, corpo e cor, forma e localização, distância e proximidade, movimento e repouso. ” Criar arte ajuda você a aprender a “ver”, concentrando-se nos detalhes e prestando mais atenção ao ambiente.";
+"benefits18" = "Quem se dedica à pintura (que pode ser em tela, tecidos ou outras opções) desenvolve a concentração. Ao mesmo tempo relaxa e melhora a concentração.";
+"benefits19" = "A arte aumenta os níveis de atenção.";
+"benefits20" = "A arte estimula a memória.";
+//fotografia
+"benefits21" = "Pintar, esculpir, desenhar e fotografar são passatempos relaxantes e gratificantes que podem diminuir seus níveis de estresse e levar a uma melhoria geral no bem-estar. Criar arte pode tirar sua mente dos muitos estresses da vida, pelo menos momentaneamente. Isso limpa algum espaço da cabeça e permite que a pessoa se concentre no que há de bom na vida.";
+"benefits22" = "A arte é uma pausa, um respiro na rotina.";
+"benefits23" = "A arte também tem impacto positivo na criatividade.";
+"benefits24" = "O ato de criar algo único nos dá uma sensação de prazer e realização.";
 
 
 
