@@ -45,7 +45,7 @@ struct SequenceCardView: View {
                         .font(.system(size: 17, weight: .semibold, design: .default))
                         .foregroundColor(.secondary)
                     if let streak = viewModel.streak {
-                        Text("\(streak.current) " + NSLocalizedString("days", comment: ""))
+                        Text("\(streak.current) " + NSLocalizedString(streak.current == 1 ? "day" : "days", comment: ""))
                             .font(.system(size: 28, weight: .bold, design: .default))
                             .foregroundColor(Color("text"))
                     } else {
@@ -71,7 +71,7 @@ struct SequenceCardView: View {
                             .font(.system(size: 17, weight: .semibold, design: .default))
                             .foregroundColor(.secondary)
                         if let streak = viewModel.streak {
-                            Text("\(streak.best) " + NSLocalizedString("days", comment: ""))
+                            Text("\(streak.best) " + NSLocalizedString(streak.current == 1 ? "day" : "days", comment: ""))
                                 .font(.system(size: 28, weight: .bold, design: .default))
                                 .foregroundColor(Color("text"))
                         } else {

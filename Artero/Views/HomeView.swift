@@ -100,7 +100,7 @@ struct CardActivityView: View {
                     }
                     if let current = streak?.current,
                        current > 0 {
-                        Text("\(current) " + NSLocalizedString("days", comment: ""))
+                        Text("\(current) " + NSLocalizedString(current == 1 ? "day_streak" : "days_streak", comment: ""))
                             .font(.system(size: 28, weight: .bold, design: .default))
                             .foregroundColor(Color("text"))
                             .padding(.top, 4)
