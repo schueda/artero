@@ -21,9 +21,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Enable the camera access to save your activities</string>
+	<string>NSCameraUsageDescription</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Enable the photo libary to save your activities</string>
+	<string>NSPhotoLibraryUsageDescription</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
