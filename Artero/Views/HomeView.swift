@@ -35,7 +35,7 @@ struct HomeView: View {
     var body: some View {
         ScrollView {
             VStack (spacing:20) {
-                CardThemeDay(currentDayActivity: $viewModel.currentDayActivity)
+                CardThemeDay(theme: $viewModel.theme, currentDayActivity: $viewModel.currentDayActivity)
                     .padding(.top, 25)
                     
                 CardActivityView(streak: $viewModel.streak)
@@ -114,9 +114,9 @@ struct CardActivityView: View {
 
 struct CardThemeDay: View {
     @StateObject var themeViewModel = ThemeViewModel(activityRepository: UserDefaultsActivityRepository.shared, streakRepository: UserDefaultsStreakRepository.shared)
-    @Binding var currentDayActivity: Activity?
     
-    @State var theme = ThemeController().getToday()
+    @Binding var theme: Theme?
+    @Binding var currentDayActivity: Activity?
     
     var body: some View {
         NavigationLink(
