@@ -41,13 +41,14 @@ class HomeViewModel: ObservableObject {
             })
         _ = activityRepository.getAll(order: .orderedDescending)
         
-        streakCancellable = streakRepository.get()
+        streakCancellable = streakRepository.streakSubject
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 print("HomeViewModel completion: \(completion)")
             }, receiveValue: { [weak self] value in
                 self?.streak = value
             })
+        _ = streakRepository.get()
     }
     
     deinit {

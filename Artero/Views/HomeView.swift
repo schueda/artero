@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var viewModel: HomeViewModel
+    @ObservedObject var viewModel: HomeViewModel
     
     @State var welcomeTitle = NSLocalizedString("good_morning", comment: "")
-    
     
     private func getWelcomeTitle() -> String {
         let date = Date()
@@ -36,11 +35,23 @@ struct HomeView: View {
     var body: some View {
         ScrollView {
             VStack (spacing:20) {
-                CardThemeDay()
-                    .padding(.top, 25)
+                if viewModel.currentDayActivity != nil {
+                    CardThemeDay(frameHeight: 170)
+                        .padding(.top, 25)
+                } else {
+                    CardThemeDay(frameHeight: 280)
+                        .padding(.top, 25)
+                }
                 CardActivityView(streak: $viewModel.streak)
-                CardGallery(activities: $viewModel.activities)
-                    .padding(.bottom, 25)
+                
+                if viewModel.currentDayActivity != nil {
+                    CardGallery(frameHeight: 280, activities: $viewModel.activities)
+                        .padding(.bottom, 25)
+                } else {
+                    CardGallery(frameHeight: 170, activities: $viewModel.activities)
+                        .padding(.bottom, 25)
+                }
+                
             }
             .padding(.horizontal)
             
@@ -48,6 +59,7 @@ struct HomeView: View {
         .fixFlickering()
         .background(Color("background").edgesIgnoringSafeArea(.bottom))
         .navigationBarTitle(self.welcomeTitle)
+        .navigationBarBackButtonHidden(true)
         .onAppear {
             self.welcomeTitle = self.getWelcomeTitle()
         }
@@ -110,6 +122,8 @@ struct CardActivityView: View {
 }
 
 struct CardThemeDay: View {
+    let frameHeight: CGFloat
+    
     let theme = ThemeController().getToday()
     
     var body: some View {
@@ -137,13 +151,21 @@ struct CardThemeDay: View {
                     
                     Spacer()
                     
-                    Text(DateUtils.formatToLong(date: Date(), languageCode: Locale.current.languageCode == "pt" ? "pt" : "en"))
-                        .font(.system(size: 13, weight: .bold, design: .default))
-                        .foregroundColor(.white)
+                    HStack {
+                        Text(DateUtils.formatToLong(date: Date(), languageCode: Locale.current.languageCode == "pt" ? "pt" : "en"))
+                            .font(.system(size: 13, weight: .bold, design: .default))
+                            .foregroundColor(.white)
+                        Spacer()
+                        if frameHeight == 170 {
+                            Image(systemName: "checkmark.circle.fill")
+                                .font(.system(size: 24, weight: .bold, design: .default))
+                                .foregroundColor(.white)
+                        }
+                    }
                     
                 }
                 .padding()
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 280, maxHeight: 280, alignment: .leading)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: frameHeight, maxHeight: frameHeight, alignment: .leading)
                 
                 .background(
                     Image(theme?.inspiration.image ?? "")
@@ -165,6 +187,8 @@ struct CardThemeDay: View {
 }
 
 struct CardGallery: View {
+    let frameHeight: CGFloat
+    
     @Binding var activities: [Activity]
     
     var galleryImage: UIImage {
@@ -185,7 +209,7 @@ struct CardGallery: View {
                         .foregroundColor(.white)
                 }
                 .padding()
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 170, maxHeight: 170, alignment: .topTrailing)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: frameHeight, maxHeight: frameHeight, alignment: .topTrailing)
                 
                 .background(
                     Image(uiImage: galleryImage)

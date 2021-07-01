@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 struct ThemeView: View {
-    @StateObject var viewModel: ThemeViewModel
+    @ObservedObject var viewModel: ThemeViewModel
     
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
@@ -43,6 +43,7 @@ struct ThemeView: View {
                 }
                 if isFeedbackShowing {
                     FeedbackView(isGalleryShowing: $isGalleryShowing, isFeedbackShowing: $isFeedbackShowing)
+                        .animation(.easeInOut)
                 }
                 NavigationLink(destination: GalleryView(viewModel: GalleryViewModel(repository: UserDefaultsActivityRepository.shared)), isActive: $isGalleryShowing, label: {})
             }
@@ -50,7 +51,6 @@ struct ThemeView: View {
             .sheet(isPresented: self.$isImagePickerDisplay) {
                 ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.$sourceType)
             }
-            .animation(.easeInOut)
         }
     }
 }
