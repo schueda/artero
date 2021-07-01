@@ -117,23 +117,10 @@ struct ImageView: View {
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarItems(
                 trailing:
-                    Button(action: {}) {
-                        Text("")
-                    }
-            )
-            .toolbar {
-                ToolbarItemGroup(placement: self.hideNavigation ? .destructiveAction: .bottomBar) {
                     Button(action: { self.shareImage() }) {
                         Image(systemName: "square.and.arrow.up")
                     }
-                    if (activity != nil) {
-                        Spacer()
-                        Button(action: {}) {
-                            Image(systemName: "trash")
-                        }
-                    }
-                }
-            }
+            )
             .background(self.hideNavigation ? Color.black.ignoresSafeArea() : Color.clear.ignoresSafeArea())
             .onTapGesture {
                 withAnimation() {
