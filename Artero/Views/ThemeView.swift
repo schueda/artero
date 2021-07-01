@@ -43,6 +43,7 @@ struct ThemeView: View {
                 }
                 if isFeedbackShowing {
                     FeedbackView(isGalleryShowing: $isGalleryShowing, isFeedbackShowing: $isFeedbackShowing)
+                        .animation(.easeInOut)
                 }
                 NavigationLink(destination: GalleryView(viewModel: GalleryViewModel(repository: UserDefaultsActivityRepository.shared)), isActive: $isGalleryShowing, label: {})
             }
@@ -50,7 +51,6 @@ struct ThemeView: View {
             .sheet(isPresented: self.$isImagePickerDisplay) {
                 ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.$sourceType)
             }
-            .animation(.easeInOut)
         }
     }
 }
