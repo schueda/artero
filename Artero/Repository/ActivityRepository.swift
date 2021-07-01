@@ -140,13 +140,20 @@ class UserDefaultsActivityRepository: ActivityRepository {
     }
     
     func delete(_ activity: Activity) {
-        UserDefaults.standard.removeObject(forKey: self.dateToKey(activity.date))
+        let key = self.dateToKey(activity.date)
+        self.deleteFile(key: key)
+        UserDefaults.standard.removeObject(forKey: key)
         self.refreshSubject()
     }
     
-    func delete(date: Date) {
-        UserDefaults.standard.removeObject(forKey: self.dateToKey(date))
-        self.refreshSubject()
+    fileprivate func deleteFile(key: String) {
+        if let imagePath = self.getImagePath(forKey: key) {
+            do {
+                try FileManager.default.removeItem(at: imagePath)
+            } catch {
+                print("Error deleting file: \(error)")
+            }
+        }
     }
     
     fileprivate func dateToKey(_ date: String) -> String {
