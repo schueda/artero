@@ -95,41 +95,37 @@
 
 
 
-//Content & themes
-//Follow the same numbers as the images
-"theme1" = "Yellow";
-"inspiration_infos1" = "Sunflowers | 1889 | Vincent Van Gogh";
+//Inspiration & themes
 
-"theme2" = "Evolution";
-"inspiration_infos3" = "Aboriginal Rock Art of Ubirr | 40.000 a.C";
+"art_name1" = "Sunflowers";
+"art_name2" = "Aboriginal Rock Art of Ubirr";
+"art_name3" = "Monalisa";
+"art_name4" = "The Garden of Earthly Delights";
+"art_name5" = "Abapuru";
+"art_name6" = "Venus of the Rags";
 
-"theme3" = "Smile";
-"inspiration_infos3" = "Monalisa | 1506 | Leonardo da Vinci";
-
-"theme4" = "Humanity";
-"inspiration_infos4" = "The Garden of Earthly Delights | 1505 | Hieronymus Bosh";
-
-"theme5" = "Brazilianities";
-"inspiration_infos5" = "Abapuru | 1928 | Tarsila do Amaral";
-
-"theme6" = "Daily";
-"inspiration_infos7" = "Venus of the Rags | 1974 | Michelangelo Pistoletto";
+//Themes
+"theme_name1" = "Yellow";
+"theme_name2" = "Evolution";
+"theme_name3" = "Smile";
+"theme_name4" = "Humanity";
+"theme_name5" = "Brazil";
+"theme_name6" = "Daily";
 
 
+"description1" = "Explore yellow in your day! Today we have the suggestion for you to dance interpreting a song that reminds you of yellow.";
+"description2" = "Let's travel through the evolution of times, see a movie from the past or about the future, and write about this movie as if you were a famous movie critic. Extra tip: look for fun facts about the film.";
+"description3" = "And who doesn't know the most famous smile in the world?! Enigmatic in a way to get each person to have an interpretation about. Let your mind wander and write a poem, poetry, chronicle, joke, whatever!";
+"description4" = "How about choosing one of the different scenes that take place in this painting, and creating a comic book continuing it? Come on!";
+"description5" = "Produce a painting with something you think represents Brazil! It can be green, yellow and blue, or not, you have complete freedom of interpretation!";
+"description6" = "Get inspired by the elements and colors of Venus dos Trapos and re-signify something/materials by producing a photograph. Come on, whatever is affordable for you!";
 
 
 
 
-"content1" = "Associating artistic practices with life is a way to benefit your health, both physical and mental — this is called art therapy, which consists of the use of artistic/visual or expressive resources as a therapeutic element.";
 
-"content2" = "Artistic activities make it possible to express thoughts and emotions that may be difficult to say in words.";
 
-"content3" = "Expressing yourself through art can reduce stress and anxiety.";
 
-"content4" = "Art helps you feel calmer and happier.";
 
-"content5" = "The act of creating something unique gives us a sense of pleasure and accomplishment.";
-
-"content6" = "People who listened to music had a better immune system response—this is because it stimulated the limbic system of the brain and moderated the response to stressful stimuli.";
 
 

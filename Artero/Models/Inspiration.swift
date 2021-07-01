@@ -12,4 +12,5 @@ struct Inspiration: Codable {
     var image: String;
     var name: String;
     var year: String;
+    var author: String;
 }

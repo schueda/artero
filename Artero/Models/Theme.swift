@@ -16,6 +16,12 @@ struct Theme: Codable {
     var inspiration: Inspiration;
     
     static var themes: [Theme] = [
-        Theme(name: "Amarelo", description: "Explore o amarelo no seu dia! Hoje temos a sugestão você dancar bem feliz uma música que te lembre amarelo", benefits: ["A danca é muito massa uhu", "Estimula seu corpo lalala" , "Estimula seu corpo" , "Estimula seu corpo lalala" , "Estimula seu corpo" , "A danca é muito massa uhu", "Estimula seu corpo lalala" , "Estimula seu corpo" , "Estimula seu corpo lalala" , "Estimula seu corpo" , "Estimula seu corpo lalala" , "Estimula seu corpo" , "Estimula seu corpo lalala"], date: Date(), inspiration: Inspiration(image: "onboarding2", name: "Sunflowers", year: "1889"))
+        Theme(name: NSLocalizedString("theme_name1", comment: ""), description: NSLocalizedString("description1", comment: ""), benefits: [""], date: Date(), inspiration: Inspiration(image: "art01", name: NSLocalizedString("art_name1", comment: ""), year: "1889", author: "Vincent Van Gogh")),
+        Theme(name: NSLocalizedString("theme_name2", comment: ""), description: NSLocalizedString("description2", comment: ""), benefits: [""], date: Date(), inspiration: Inspiration(image: "art02", name: NSLocalizedString("art_name2", comment: ""), year: "40.000a.C", author: "--")),
+        Theme(name: NSLocalizedString("theme_name3", comment: ""), description: NSLocalizedString("description3", comment: ""), benefits: [""], date: Date(), inspiration: Inspiration(image: "art03", name: NSLocalizedString("art_name3", comment: ""), year: "1506", author: "Leonardo da Vinci")),
+        Theme(name: NSLocalizedString("theme_name4", comment: ""), description: NSLocalizedString("description4", comment: ""), benefits: [""], date: Date(), inspiration: Inspiration(image: "art04", name: NSLocalizedString("art_name4", comment: ""), year: "1505", author: "Hieronymus Bosh")),
+        Theme(name: NSLocalizedString("theme_name5", comment: ""), description: NSLocalizedString("description5", comment: ""), benefits: [""], date: Date(), inspiration: Inspiration(image: "art05", name: NSLocalizedString("art_name5", comment: ""), year: "1928", author: "Tarsila do Amaral")),
+        Theme(name: NSLocalizedString("theme_name6", comment: ""), description: NSLocalizedString("description6", comment: ""), benefits: [""], date: Date(), inspiration: Inspiration(image: "art06", name: NSLocalizedString("art_name6", comment: ""), year: "1974", author: "Michelangelo Pistoletto"))
+        
     ];
 }
