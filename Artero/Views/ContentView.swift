@@ -9,16 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var user: User = UserController().get()
+    @StateObject var homeViewModel = HomeViewModel(activityRepository: UserDefaultsActivityRepository.shared, streakRepository: UserDefaultsStreakRepository.shared, themeIndexRepository: UserDefaultsThemeIndexRepository.shared)
     
     var body: some View {
         if user.onboardingComplete {
             NavigationView {
-                HomeView(viewModel: HomeViewModel(activityRepository: UserDefaultsActivityRepository.shared, streakRepository: UserDefaultsStreakRepository.shared, themeIndexRepository: UserDefaultsThemeIndexRepository.shared))
+                HomeView(viewModel: homeViewModel)
             }
             .accentColor(Color("text"))
         } else {
             NavigationView {
-                OnboardingView().navigationBarHidden(true)
+                OnboardingView(onboardingComplete: $user.onboardingComplete).navigationBarHidden(true)
             }
             .accentColor(Color("text"))
         }
