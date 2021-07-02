@@ -20,8 +20,9 @@ class User: UserDAO, UserProtocol, Codable, ObservableObject {
     var id: UUID = UUID()
     @Published var onboardingComplete = false
     
-    override init() {
+    init(onboardingComplete: Bool = false) {
         super.init()
+        self.onboardingComplete = onboardingComplete
     }
     
     required init(from decoder: Decoder) throws {

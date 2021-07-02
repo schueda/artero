@@ -9,6 +9,7 @@ import SwiftUI
 
 
 struct OnboardingView: View {
+    @Binding var onboardingComplete: Bool
     @State private var currentTab = 0
     
     var body: some View {
@@ -18,7 +19,7 @@ struct OnboardingView: View {
                 Onboarding1View()
                 Onboarding2View()
                 Onboarding3View()
-                Onboarding4View()
+                Onboarding4View(onboardingComplete: $onboardingComplete)
                 
             }
             .frame(width: g.size.width, height: g.size.height + yExtension)
@@ -31,9 +32,9 @@ struct OnboardingView: View {
     }
 }
 
-struct OnBoardingView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnboardingView()
-            .preferredColorScheme(.dark)
-    }
-}
+//struct OnBoardingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OnboardingView()
+//            .preferredColorScheme(.dark)
+//    }
+//}

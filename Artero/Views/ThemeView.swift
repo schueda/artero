@@ -53,6 +53,9 @@ struct ThemeView: View {
             .sheet(isPresented: self.$isImagePickerDisplay) {
                 ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.$sourceType)
             }
+        } else {
+            Rectangle()
+                .foregroundColor(.red)
         }
     }
 }

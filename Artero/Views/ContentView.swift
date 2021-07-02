@@ -19,7 +19,7 @@ struct ContentView: View {
             .accentColor(Color("text"))
         } else {
             NavigationView {
-                OnboardingView().navigationBarHidden(true)
+                OnboardingView(onboardingComplete: $user.onboardingComplete).navigationBarHidden(true)
             }
             .accentColor(Color("text"))
         }
