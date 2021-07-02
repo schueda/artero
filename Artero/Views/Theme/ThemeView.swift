@@ -21,6 +21,20 @@ struct ThemeView: View {
     @ObservedObject var viewModel: ThemeViewModel
     @Binding var theme: Theme?
     
+    init(viewModel: ThemeViewModel, theme: Binding<Theme?>) {
+        self.viewModel = viewModel
+        self._theme = theme
+        
+        var activity = Activity(theme: Theme.themes[4], date: Calendar.current.date(byAdding: .day, value: -10, to: Date())!, image: UIImage(named: "bumba")!)
+        viewModel.save(activity: activity)
+        activity = Activity(theme: Theme.themes[1], date: Calendar.current.date(byAdding: .day, value: -7, to: Date())!, image: UIImage(named: "s2")!)
+        viewModel.save(activity: activity)
+        activity = Activity(theme: Theme.themes[2], date: Calendar.current.date(byAdding: .day, value: -5, to: Date())!, image: UIImage(named: "d3")!)
+        viewModel.save(activity: activity)
+        activity = Activity(theme: Theme.themes[3], date: Calendar.current.date(byAdding: .day, value: -2, to: Date())!, image: UIImage(named: "s1")!)
+        viewModel.save(activity: activity)
+    }
+    
     var body: some View {
         if let theme = theme {
             ZStack {
