@@ -144,18 +144,12 @@
 		612D4803267FF6A000248C83 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				547D15D626836A6A00E8223D /* HomeView.swift */,
-				615FB547268E7C1200E4E402 /* HomeSubviews */,
-				612D47FD267FEAA100248C83 /* ThemeView.swift */,
-				615FB54E268E7FB900E4E402 /* ThemeSubviews */,
-				612D4801267FEE7400248C83 /* ActivityView.swift */,
-				615FB542268E7AF000E4E402 /* ActivitySubviews */,
-				612D47FF267FED5400248C83 /* GalleryView.swift */,
-				61F493F4268E9D7E008027A6 /* GallerySubviews */,
-				61AEF6FD2688126900BE4C04 /* SingleActivityView.swift */,
-				61F493FB268EA1E0008027A6 /* SingleActivitySubviews */,
-				B3CB7642268673E60097E942 /* OnboardingView.swift */,
-				61F49400268EA39C008027A6 /* OnboardingSubviews */,
+				615FB547268E7C1200E4E402 /* Home */,
+				615FB54E268E7FB900E4E402 /* Theme */,
+				615FB542268E7AF000E4E402 /* Activity */,
+				61F493F4268E9D7E008027A6 /* Gallery */,
+				61F493FB268EA1E0008027A6 /* SingleActivity */,
+				61F49400268EA39C008027A6 /* Onboarding */,
 				6158CE0A2678CBEC00CAF0DA /* ContentView.swift */,
 				61ECBA68267B795B00DE9D02 /* ImagePickerView.swift */,
 				B59E252D2686069F00CE28F5 /* ImageView.swift */,
@@ -209,28 +203,31 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		615FB542268E7AF000E4E402 /* ActivitySubviews */ = {
+		615FB542268E7AF000E4E402 /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				612D4801267FEE7400248C83 /* ActivityView.swift */,
 				615FB543268E7B1900E4E402 /* StreakCardActivityView.swift */,
 				615FB545268E7BA500E4E402 /* RememberCardActivityView.swift */,
 			);
-			path = ActivitySubviews;
+			path = Activity;
 			sourceTree = "<group>";
 		};
-		615FB547268E7C1200E4E402 /* HomeSubviews */ = {
+		615FB547268E7C1200E4E402 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				547D15D626836A6A00E8223D /* HomeView.swift */,
 				615FB548268E7D4F00E4E402 /* GalleryCardHomeView.swift */,
 				615FB54A268E7E4B00E4E402 /* ThemeCardHomeView.swift */,
 				615FB54C268E7F3100E4E402 /* ActivityCardHomeView.swift */,
 			);
-			path = HomeSubviews;
+			path = Home;
 			sourceTree = "<group>";
 		};
-		615FB54E268E7FB900E4E402 /* ThemeSubviews */ = {
+		615FB54E268E7FB900E4E402 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
+				612D47FD267FEAA100248C83 /* ThemeView.swift */,
 				61F493F0268E9C7F008027A6 /* HeaderThemeView.swift */,
 				61F493F2268E9CDA008027A6 /* TextThemeView.swift */,
 				615FB551268E9A6F00E4E402 /* FeedbackThemeView.swift */,
@@ -238,7 +235,7 @@
 				61F493EE268E9BE2008027A6 /* ConfirmButtonThemeView.swift */,
 				615FB54F268E7FF400E4E402 /* FakeButtonThemeView.swift */,
 			);
-			path = ThemeSubviews;
+			path = Theme;
 			sourceTree = "<group>";
 		};
 		61A0794526825A6A00E5B07E /* Models */ = {
@@ -278,34 +275,37 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		61F493F4268E9D7E008027A6 /* GallerySubviews */ = {
+		61F493F4268E9D7E008027A6 /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				612D47FF267FED5400248C83 /* GalleryView.swift */,
 				61F493F9268EA1AC008027A6 /* ActivitiesGalleryView.swift */,
 				61F493F5268E9DDB008027A6 /* CardGalleryView.swift */,
 				61F493F7268E9E65008027A6 /* PlaceholderGalleryView.swift */,
 			);
-			path = GallerySubviews;
+			path = Gallery;
 			sourceTree = "<group>";
 		};
-		61F493FB268EA1E0008027A6 /* SingleActivitySubviews */ = {
+		61F493FB268EA1E0008027A6 /* SingleActivity */ = {
 			isa = PBXGroup;
 			children = (
+				61AEF6FD2688126900BE4C04 /* SingleActivityView.swift */,
 				61F493FC268EA225008027A6 /* HeaderSingleActivityView.swift */,
 				61F493FE268EA28B008027A6 /* DeleteButtonSingleActivityView.swift */,
 			);
-			path = SingleActivitySubviews;
+			path = SingleActivity;
 			sourceTree = "<group>";
 		};
-		61F49400268EA39C008027A6 /* OnboardingSubviews */ = {
+		61F49400268EA39C008027A6 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				B3CB7642268673E60097E942 /* OnboardingView.swift */,
 				61F49401268EA3BE008027A6 /* Onboarding1View.swift */,
 				61F49403268EA3D9008027A6 /* Onboarding2View.swift */,
 				61F49405268EA3EF008027A6 /* Onboarding3View.swift */,
 				61F49407268EA3FC008027A6 /* Onboarding4View.swift */,
 			);
-			path = OnboardingSubviews;
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		B51302EA2683F6C900BFEF20 /* DAOs */ = {
