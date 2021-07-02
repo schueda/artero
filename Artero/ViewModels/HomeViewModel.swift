@@ -34,7 +34,6 @@ class HomeViewModel: ObservableObject {
             .sink { completion in
                 print("HomeViewModel completion: \(completion)")
             } receiveValue: { [weak self] value in
-                print("HomeViewModel: \(value)")
                 self?.activities = value
             }
         currentDayCancellable = activityRepository.get(date: Date())

@@ -21,15 +21,12 @@ class GalleryViewModel: ObservableObject {
                 print("GalleryViewModel completion: \(completion)")
 
             } receiveValue: { [weak self] value in
-                print("GalleryViewModel: \(value)")
-                print(value)
                 self?.activities = []
                 self?.activities = value
             }
     }
     
     deinit {
-        print("GalleryViewModel deinit")
         cancellable?.cancel()
     }
 }

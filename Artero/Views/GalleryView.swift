@@ -10,105 +10,21 @@ import SwiftUI
 struct GalleryView: View {
     @State var appearingCardIndex = 0
     @ObservedObject var viewModel: GalleryViewModel
-    let placeholderPostFixes = [Locale.current.languageCode == "pt" ? "pt" : "en", "1", "2", "3", "4", "5"]
+    let placeholderPostfixes = [Locale.current.languageCode == "pt" ? "pt" : "en", "1", "2", "3", "4", "5"]
     
     var body: some View {
             TabView(selection: self.$appearingCardIndex) {
                 if !viewModel.activities.isEmpty {
-                    ForEach(Array(viewModel.activities.enumerated()), id: \.offset) { index, activity in
-                        GalleryCardView(activity: activity, frameSize: self.appearingCardIndex == index ? UIScreen.main.bounds.height * 0.65 : UIScreen.main.bounds.height * 0.5)
-                            .tag(activity.id)
-                    }
-                    .animation(.easeOut)
+                    ActivitiesGalleryView(viewModel: viewModel, appearingCardIndex: appearingCardIndex)
                 } else {
-                    ForEach(Array(placeholderPostFixes.enumerated()), id: \.offset) { index, postFix in
-                        Image(uiImage: UIImage(named: "GalleryPlaceholder\(postFix)")!)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: UIScreen.main.bounds.width - 30, height: self.appearingCardIndex == index ? UIScreen.main.bounds.height * 0.65 : UIScreen.main.bounds.height * 0.5)
-                            .cornerRadius(12.0)
-                            .tag(index)
-                    }
+                   PlaceholderGalleryView(placeholderPostfixes: placeholderPostfixes, appearingCardIndex: appearingCardIndex)
                     .animation(.easeOut)
                 }
             }
             .tabViewStyle(PageTabViewStyle())
             .navigationBarTitle(NSLocalizedString("your_gallery", comment: ""))
             .background(Color("background").edgesIgnoringSafeArea(.bottom))
-            .id(viewModel.activities.isEmpty ? placeholderPostFixes.count : viewModel.activities.count)
-    }
-}
-
-struct GalleryCardView: View {
-    @StateObject var singleActivityViewModel = SingleActivityViewModel(repository: UserDefaultsActivityRepository.shared)
-    
-    var activity: Activity
-    var frameSize: CGFloat
-    
-    var body: some View {
-        NavigationLink(
-            destination: SingleActivityView(viewModel: singleActivityViewModel, activity: activity),
-            label : {
-                if let activity = activity {
-                    if let image = activity.image {
-                        VStack (alignment:.leading) {
-                            
-                            Spacer()
-                            HStack {
-                                
-                                Text(activity.theme?.name ?? "")
-                                    .textCase(.uppercase)
-                                    .font(.system(size: 32, weight: .bold, design: .default))
-                                    .foregroundColor(.white)
-                                
-                                Spacer()
-                            }
-                            HStack {
-                                
-                                Text(DateUtils.formatToLong(date: activity.date, languageCode: Locale.current.languageCode == "pt" ? "pt" : "en"))
-                                    .font(.system(size: 18, weight: .regular, design: .default))
-                                    .foregroundColor(.white)
-                                
-                                Spacer()
-                            }
-                            .padding(.bottom, 10)
-                            
-                        }
-                        .padding()
-                        .frame(width: UIScreen.main.bounds.width - 30, height: frameSize)
-                        
-                        .background(
-                            Image(uiImage: image)
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: UIScreen.main.bounds.width - 30, height: frameSize)
-                                .overlay(
-                                    Rectangle()
-                                        .foregroundColor(.clear)
-                                        .background(
-                                            LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.5), Color.clear, Color.clear, Color.black.opacity(0.6)]), startPoint: .top, endPoint: .bottom)
-                                        )
-                                )
-                        )
-                        .cornerRadius(12.0)
-                    }
-                }
-            }
-        )
-    }
-}
-
-struct PlaceholderView: View {
-    let postFixes = [Locale.current.languageCode == "pt" ? "pt" : "en", "1", "2", "3", "4", "5"]
-    
-    var body: some View {
-        ForEach(postFixes, id: \.self) { postFix in
-            Image(uiImage: UIImage(named: "GalleryPlaceholder\(postFix)")!)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.width - 30, height: UIScreen.main.bounds.height * 0.65)
-                .cornerRadius(12.0)
-        }
+            .id(viewModel.activities.isEmpty ? placeholderPostfixes.count : viewModel.activities.count)
     }
 }
 
