@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct RememberCardView: View {
+struct RememberCardActivityView: View {
     @StateObject private var notificationPreference: NotificationPreference = NotificationPreferenceController().get()
     @State var showAlert = false
     

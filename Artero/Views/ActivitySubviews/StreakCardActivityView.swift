@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct StreakCardView: View {
+struct StreakCardActivityView: View {
     @ObservedObject var viewModel: ActivityViewModel
     
     var body: some View {

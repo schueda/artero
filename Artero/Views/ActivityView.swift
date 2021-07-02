@@ -13,9 +13,9 @@ struct ActivityView: View {
     var body: some View {
         ScrollView {
             VStack (spacing:20) {
-                StreakCardView(viewModel: activityViewModel)
+                StreakCardActivityView(viewModel: activityViewModel)
                     .padding(.top, 25)
-                RememberCardView()
+                RememberCardActivityView()
             }
             .padding(.horizontal)
         }
