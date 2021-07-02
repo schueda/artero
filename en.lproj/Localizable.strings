@@ -1,0 +1,168 @@
+/* 
+  Localizable.strings
+  Artero
+
+  Created by André Schueda on 21/06/21.
+  
+*/
+"activity_button" = "activity screen button";
+
+//Home Screen
+"daily_theme" = "Today's Theme";
+"good_morning" = "Good morning!";
+"good_afternoon" = "Good afternoon!";
+"good_evening" = "Good evening!";
+"good_night" = "Good night!";
+"activities" = "Activities";
+//streak - Home Screen
+"no_streak" = "No streak";
+"day_streak" = "day streak";
+"days_streak" = "days streak";
+
+
+//Gallery Screen
+"your_gallery" = "Your gallery";
+"gallery" = "gallery";
+
+//Single activity screen
+"theme_was" = "The theme was";
+"activity_from" = "Activity from";
+
+
+//Activity Screen
+"activity" = "Activity";
+"current_streak" = "Current streak";
+"longest_streak" = "Longest streak";
+"day" = "day";
+"days" = "days";
+"daily_reminder" = "Daily reminder";
+"time" = "Time";
+"no_best" = "No records yet";
+
+
+//Theme Screen
+"theme" = "Theme";
+"activity_of_today" = "Today's activity";
+"benefits" = "Benefits";
+"activity_saved_on" = "Activity saved on";
+//button insert media - Theme Screen
+"button_media" = "Add media";
+"button_take_a_picture" = "Take photo or video";
+"button_choose_media" = "Choose photo or video";
+"art_sent" = "Art sent";
+"cancel" = "Cancel";
+"confirm" = "Confirm";
+
+//Single Activity Screen
+"delete_activity" = "Delete actitivy";
+"delete_question" = "Do you want to delete this activity?";
+"delete" = "Delete";
+
+//OnBoarding gambiarrento 1
+"OnBoarding1_line1" = "Create";
+"OnBoarding1_line2" = "every day";
+"OnBoarding1_line3" = "with";
+
+//OnBoarding gambiarrento 2
+"OnBoarding2_line1" = "We encourage you";
+"OnBoarding2_line2" = "to insert";
+"OnBoarding2_line3" = "into your";
+"OnBoarding2_line4" = "routine and we";
+"OnBoarding2_line5" = "show you the";
+"OnBoarding2_image1" = "art-text";
+"OnBoarding2_image2" = "benefits-text";
+
+//OnBoarding gambiarrento 3
+"OnBoarding3_line1" = "for you to create";
+"OnBoarding3_line2" = "as you wish";
+"OnBoarding3_image1" = "daily-text";
+"OnBoarding3_image2" = "themes-text";
+
+//OnBoarding gambiarrento 4
+"OnBoarding4_line1" = "Save your";
+"OnBoarding4_line2" = "creations on";
+"OnBoarding4_line3" = "to revisit";
+"OnBoarding4_line4" = "whenever";
+"OnBoarding4_line5" = "you want";
+"OnBoarding4_image1" = "galery-text";
+"button_text" = "Let's start!";
+
+// Notifications
+"enable_notifications_alert_title" = "Please enable notifications in your device's Settings";
+"enable_notifications_alert_description" = "Do you want to go to your device's Settings?";
+"enable_notifications_alert_settigns" = "Settings";
+"notification_title" = "Time to create!";
+"notification_body" = "Check out the daily theme and create something amazing ✨";
+
+// Camera
+"enable_camera_alert_title" = "Please enable camera access in your device's Settings";
+"enable_camera_alert_description" = "Do you want to go to your device's Settings?";
+"settigns" = "Settings";
+
+
+
+//Inspiration & themes
+
+"art_name1" = "Sunflowers";
+"art_name2" = "Aboriginal Rock Art of Ubirr";
+"art_name3" = "Monalisa";
+"art_name4" = "The Garden of Earthly Delights";
+"art_name5" = "Abapuru";
+"art_name6" = "Venus of the Rags";
+
+//Themes
+"theme_name1" = "Yellow";
+"theme_name2" = "Evolution";
+"theme_name3" = "Smile";
+"theme_name4" = "Humanity";
+"theme_name5" = "Brazil";
+"theme_name6" = "Daily";
+
+
+"description1" = "Explore yellow in your day! Today we suggest that you dance interpreting a song that reminds you of yellow.";
+"description2" = "Let's travel through the evolution of times, see a movie from the past or about the future, and write about this movie as if you were a famous movie critic. Extra tip: look for fun facts about the film.";
+"description3" = "And who doesn't know the most famous smile in the world?! Enigmatic in a way to get each person to have an interpretation about. Let your mind wander and write a poem, poetry, chronicle, joke, whatever you want!";
+"description4" = "How about choosing one of the different scenes that take place in this painting, and creating a comic book continuing it? Come on!";
+"description5" = "Painting something you think represents Brazil! It can be green, yellow and blue, or not, you have complete freedom of interpretation!";
+"description6" = "Get inspired by the elements and colors of Venus dos Trapos and re-signify something/materials by producing a photograph. Come on, whatever is affordable for you!";
+
+
+//dança
+"benefits1" = "Dance brings benefits regardless the motivation to dance, whether as a profession, as a physical exercise, as a social integration activity or as a leisure activity.";
+"benefits2" = "People who listen to music have a better immune system response—that's because it stimulates the brain's limbic system and moderate the response to stressful stimuli.";
+"benefits3" = "Art helps with the development of new talents and skills.";
+"benefits4" = "A study by WHO (World Health Organization) revealed that engaging with art can benefit both physical and mental health. The research pointed out that art helps to face complex challenges, such as diabetes and obesity, in addition to mental disorders.";
+//Cinema
+"benefits5" = "Art has been a tool for the expression of human beings since antiquity.";
+"benefits6" = "Art is intimately linked to the history and evolution of the human being.";
+"benefits7" = "Music activates the brain's pleasure center, releasing dopamine, a substance responsible for the sensation of well-being. In other words, music soothes, relaxes and stimulates memory.";
+"benefits8" = "Art is a break, a respite from routine.";
+//literatura
+"benefits9" = "A research reveals that teenagers who live in urban areas and receive education based on dramaturgy benefit from being able to make more responsible decisions, in addition to being less exposed to violence.";
+"benefits10" = "The use of art for therapeutic purposes began to be encouraged at the end of the 18th century and is based on different theoretical references, such as psychoanalysis, analytical psychology, gestalt therapy, among other approaches in the field of psychology.";
+"benefits11" = "Art expands the vision and understanding of the world.";
+"benefits12" = "When parents read stories to their children before bed, they rest better during the night and focus more on school.";
+//hq"31"
+"benefits13" = "Making art teaches that there is more than one solution to the same problem. Art challenges our beliefs and encourages open-ended thinking that creates an environment of creative thinking in problem solving. Sticking kids’ artwork on the fridge boosts their self-esteem. Hanging your latest work of art on the wall can instill the same feelings in you.";
+"benefits14" = "When using the hands to shape the clay, the person does not act mechanically. This allows us to work on flexibility and release tensions, since, during the creation process, it is necessary to concentrate on the execution of the task. So, at least for the moment, the person forgets about problems and concentrates on creating a art piece. The result is stress release, motor domain, self-expression, playful interaction, among other benefits.";
+"benefits15" = "Art can increase self-knowledge.";
+"benefits16" = "Art helps to shift your focus away from pain or stressful thoughts;";
+//pintura
+"benefits17" = "Leonardo da Vinci said, “Painting embraces all the ten functions of the eye; that is, darkness, light, body and color, shape and location, distance and closeness, motion and rest.” Creating art helps you to learn how to “see” by concentrating on detail and paying more attention to your environment.";
+"benefits18" = "Those who dedicate themselves to painting (which can be on canvas, fabrics or other options) develop concentration, at the same time it get them more relaxed";
+"benefits19" = "Art increases attention levels.";
+"benefits20" = "Art stimulates memory.";
+//fotografia
+"benefits21" = "Painting, sculpting, drawing, and photography are relaxing and rewarding hobbies that can lower stress levels and lead to an overall improvement in well-being. Creating art can take the mind off life’s stress, at least momentarily. This get the thoughts clearer and allows to focus on waht's good in life.";
+"benefits22" = "Art is a break, a break from routine.";
+"benefits23" = "Art has a positive impact on creativity.";
+"benefits24" = "Creating something unique gives the sensation of pleasure and accomplishment.";
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,163 @@
+/* 
+  Localizable.strings
+  Artero
+
+  Created by André Schueda on 21/06/21.
+  
+*/
+"activity_button" = "botao pra tela de atividade";
+
+//Home Screen
+"daily_theme" = "Tema do dia";
+"good_morning" = "Bom dia!";
+"good_afternoon" = "Boa tarde!";
+"good_evening" = "Boa noite!";
+"good_night" = "Boa noite!";
+"activities" = "Atividade";
+//streak - Home Screen
+"no_streak" = "Sem sequência";
+"day_streak" = "dia seguido";
+"days_streak" = "dias seguidos";
+
+
+//Gallery Screen
+"your_gallery" = "Sua galeria";
+"gallery" = "galeria";
+
+//Single activity screen
+"theme_was" = "O tema foi";
+"activity_from" = "Atividade de";
+
+
+//Activity Screen
+"activity" = "Atividade";
+"current_streak" = "Sequência Atual";
+"longest_streak" = "Maior sequência";
+"day" = "dia";
+"days" = "dias";
+"daily_reminder" = "Lembrete diário";
+"time" = "Horário";
+"no_best" = "Sem recorde";
+
+
+//Theme Screen
+"theme" = "Tema";
+"activity_of_today" = "Atividade de hoje";
+"benefits" = "Benefícios";
+"activity_saved_on" = "Atividade salva na";
+
+//button insert media - Theme Screen
+"button_media" = "Adicionar mídia";
+"button_take_a_picture" = "Tirar foto ou vídeo";
+"button_choose_media" = "Escolher foto ou vídeo";
+"art_sent" = "Arte enviada";
+"cancel" = "Cancelar";
+"confirm" = "Confirmar";
+
+//Single Activity Screen
+"delete_activity" = "Deletar Atividade";
+"delete_question" = "Deseja deletar essa atividade?";
+"delete" = "Deletar";
+
+//OnBoarding gambiarrento 1
+"OnBoarding1_line1" = "Crie todos";
+"OnBoarding1_line2" = "os dias";
+"OnBoarding1_line3" = "com o";
+
+//OnBoarding gambiarrento 2
+"OnBoarding2_line1" = "Incentivamos você";
+"OnBoarding2_line2" = "a inserir";
+"OnBoarding2_line3" = "na sua rotina e te";
+"OnBoarding2_line4" = "mostramos os";
+"OnBoarding2_line5" = "";
+"OnBoarding2_image1" = "arte-text";
+"OnBoarding2_image2" = "beneficios-text";
+
+//OnBoarding gambiarrento 3
+"OnBoarding3_line1" = "para você criar da";
+"OnBoarding3_line2" = "forma que preferir";
+"OnBoarding3_image1" = "temas-text";
+"OnBoarding3_image2" = "diarios-text";
+
+//OnBoarding gambiarrento 4
+"OnBoarding4_line1" = "Salve as suas";
+"OnBoarding4_line2" = "criações na";
+"OnBoarding4_line3" = "para";
+"OnBoarding4_line4" = "revisitá-las";
+"OnBoarding4_line5" = "quando quiser";
+"OnBoarding4_image1" = "galeria-text";
+"button_text" = "Vamos começar!";
+
+// Notifications
+"enable_notifications_alert_title" = "Por favor habilite as notificações nos ajustes do seu dispositivo";
+"enable_notifications_alert_description" = "Você deseja ir aos ajustes do seu dispositivo?";
+"enable_notifications_alert_settigns" = "Ajustes";
+"notification_title" = "É hora de criar!";
+"notification_body" = "Confira o tema do dia e crie algo incrível ✨";
+
+// Camera
+"enable_camera_alert_title" = "Por favor habilite o acesso à câmera nos ajustes do seu dispositivo";
+"enable_camera_alert_description" = "Você deseja ir aos ajustes do seu dispositivo?";
+"settigns" = "Ajustes";
+
+
+
+
+//Inspirations & themes
+"art_name1" = "Girassóis";
+"art_name2" = "Pintura rupestre de Ubirr ";
+"art_name3" = "Monalisa";
+"art_name4" = "Jardim das delícias";
+"art_name5" = "Abapuru";
+"art_name6" = "Vênus dos trapos";
+
+//Themes
+"theme_name1" = "Amarelo";
+"theme_name2" = "Evolução";
+"theme_name3" = "Sorriso";
+"theme_name4" = "Humanidade";
+"theme_name5" = "Brasilidades";
+"theme_name6" = "Cotidiano";
+
+"description1" = "Explore o amarelo no seu dia! Hoje temos a sugestão de você dançar interpretando uma música que te lembre amarelo.";
+"description2" = "Vamos viajar na evolução dos tempos, veja um filme do passado ou sobre o futuro e escreva sobre este filme como se fosse um crítico famoso do cinema. Dica extra: procure curiosidades sobre o filme.";
+"description3" = "E quem não conhece o sorriso mais famoso do mundo?! Enigmático de forma a levar cada pessoa ter uma interpretação sobre. Deixe a mente vagar e escreva um poema, poesia, cronica, piada, o que quiser!";
+"description4" = "Que tal escolher uma das diversas cenas que acontecem nessa pintura, e criar uma História em Quadrinhos dando continuidade a ela? Vamos lá!";
+"description5" = "Produza uma pintura com algo que você acha que representa o Brasil! Pode ser com as cores verde, amarelo e azul, ou não, você tem total liberdade de interpretação!";
+"description6" = "Se inspire nos elementos e cores da Vênus dos Trapos e ressignifique algo/materiais produzindo uma fotografia. Vamos lá, qualquer coisa que seja acessível para você!";
+
+
+
+//dança
+"benefits1" = "A dança traz benefícios independente do motivo pelo qual a pessoa escolheu dançar, seja como profissão, como um exercício físico, como uma atividade de integração social ou como uma atividade de lazer.";
+"benefits2" = "Quem ouve música apresenta uma melhor resposta do sistema imunológico — isso porque ela estimula o sistema límbico do cérebro e modera a resposta a estímulos estressantes.";
+"benefits3" = "A arte ajuda no desenvolvimento de novos talentos e habilidades.";
+"benefits4" = "Um estudo da OMS (Organização Mundial da Saúde) revelou que o envolvimento com a arte pode beneficiar tanto a saúde física como mental. A pesquisa apontou que as artes ajudam a enfrentar desafios complexos, como a diabetes e a obesidade, além dos distúrbios mentais.";
+//Cinema
+"benefits5" = "A arte é uma ferramenta de expressão do ser-humano desde a antiguidade.";
+"benefits6" = "A arte está intimamente ligada à história e à evolução do ser humano.";
+"benefits7" = "A musica ativa o centro de prazer do cérebro, liberando a dopamina, substância responsável pela sensação de bem-estar. Em outras palavras, a música acalma, relaxa e estimula a memória. Você pode aprender um instrumento que lhe agrade, fazer aulas de canto ou participar de um coral.";
+"benefits8" = "a arte é uma pausa, um respiro na rotina.";
+//literatura
+"benefits9" = "Uma pesquisa revela que adolescentes que vivem em áreas urbanas e recebem educação com base na dramaturgia se beneficiam por conseguirem tomar decisões mais responsáveis, além de serem menos expostos à violência.";
+"benefits10" = "O uso da arte com finalidade terapêutica começou a ser incentivado no final do século XVIII e tem base em diferentes referenciais teóricos, como a psicanálise, a psicologia analítica, a gestalt-terapia, dentre outras abordagens do campo da psicologia.";
+"benefits11" = "A arte amplia a visão e entendimento do mundo";
+"benefits12" = "Quando os pais leem histórias para as crianças antes de dormir, elas descansam mais ao longo da noite e se concentram mais na escola.";
+//hq
+"benefits13" = "Fazer arte ensina que há mais de uma solução para o mesmo problema. A arte desafia nossas crenças e incentiva o pensamento aberto que cria um ambiente de pensamento criativo na resolução de problemas. Colocar as obras de arte dos filhos na geladeira aumenta autoestima deles. Pendurar sua última obra de arte na parede pode inspirar os mesmos sentimentos em você.";
+"benefits14" = "Ao usar as mãos para dar forma à argila, a pessoa não age de modo mecânico. Isso permite trabalhar a flexibilidade e liberar tensões, uma vez que durante o processo de criação, é preciso concentração na execução da tarefa. Assim, ao menos nesse momento, a pessoa esquece de problemas e se concentra em criar uma peça. O resultado é a liberação do estresse, domínio motor, auto-expressão, interação lúdica, entre outros benefícios.";
+"benefits15" = "A arte pode promover autoconhecimento.";
+"benefits16" = "A arte ajuda a mudar o seu foco para longe da dor ou de pensamentos estressantes;";
+//pintura
+"benefits17" = " Leonardo da Vinci disse, “A pintura abrange todas as dez funções do olho; ou seja, escuridão, luz, corpo e cor, forma e localização, distância e proximidade, movimento e repouso. ” Criar arte ajuda você a aprender a “ver”, concentrando-se nos detalhes e prestando mais atenção ao ambiente.";
+"benefits18" = "Quem se dedica à pintura (que pode ser em tela, tecidos ou outras opções) desenvolve a concentração, ao mesmo tempo que relaxa";
+"benefits19" = "A arte aumenta os níveis de atenção.";
+"benefits20" = "A arte estimula a memória.";
+//fotografia
+"benefits21" = "Pintar, esculpir, desenhar e fotografar são passatempos relaxantes e gratificantes que podem diminuir seus níveis de estresse e levar a uma melhoria geral no bem-estar. Criar arte pode tirar sua mente dos muitos estresses da vida, pelo menos momentaneamente. Isso limpa algum espaço da cabeça e permite que a pessoa se concentre no que há de bom na vida.";
+"benefits22" = "A arte é uma pausa, um respiro na rotina.";
+"benefits23" = "A arte tem impacto positivo na criatividade.";
+"benefits24" = "O ato de criar algo único nos dá uma sensação de prazer e realização.";
+
+
+

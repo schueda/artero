@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  Artero
+
+  Created by Felipe Seolin Bento on 01/07/21.
+  
+*/
+
+"NSPhotoLibraryUsageDescription" = "Enable the photo libary to save your activities";
+"NSCameraUsageDescription" = "Enable the camera access to save your activities";
